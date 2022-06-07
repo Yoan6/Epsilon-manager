@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class GenEvent implements Serializable {
+public class Inventaire implements Serializable {
 
     private static final long serialVersionUID = 1L;  // nécessaire pour la sérialisation
     private final Map<String, Utilisateur> utilisateurs;  // association qualifiée par l'email
     private final Map<String, Evenement> evenements;  // association qualifiée par le nom
 
-    public GenEvent() {
+    public Inventaire() {
         this.utilisateurs = new HashMap<>();
         this.evenements = new HashMap<>();
     }

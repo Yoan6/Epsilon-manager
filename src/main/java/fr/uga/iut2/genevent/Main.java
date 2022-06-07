@@ -1,8 +1,9 @@
 package fr.uga.iut2.genevent;
 
 import fr.uga.iut2.genevent.controleur.Controleur;
-import fr.uga.iut2.genevent.modele.GenEvent;
+import fr.uga.iut2.genevent.modele.Inventaire;
 import fr.uga.iut2.genevent.util.Persisteur;
+
 import java.io.IOException;
 
 
@@ -12,7 +13,7 @@ public class Main {
     public static final int EXIT_ERR_SAVE = 3;
 
     public static void main(String[] args) {
-        GenEvent genevent = null;
+        Inventaire genevent = null;
 
         try {
             genevent = Persisteur.lireEtat();

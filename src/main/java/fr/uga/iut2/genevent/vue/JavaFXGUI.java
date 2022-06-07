@@ -1,9 +1,6 @@
 package fr.uga.iut2.genevent.vue;
 
 import fr.uga.iut2.genevent.controleur.Controleur;
-import java.io.IOException;
-import java.util.Set;
-import java.util.concurrent.CountDownLatch;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +12,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.apache.commons.validator.routines.EmailValidator;
+
+import java.io.IOException;
+import java.util.Set;
+import java.util.concurrent.CountDownLatch;
 
 
 /**
@@ -181,7 +182,7 @@ public class JavaFXGUI extends IHM {
     @Override
     public void saisirUtilisateur() {
         try {
-            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("new-user-view.fxml"));
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("nouveau-projet-view.fxml"));
             newUserViewLoader.setController(this);
             Scene newUserScene = new Scene(newUserViewLoader.load());
 

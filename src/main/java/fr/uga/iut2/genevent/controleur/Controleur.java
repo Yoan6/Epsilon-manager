@@ -1,17 +1,16 @@
 package fr.uga.iut2.genevent.controleur;
 
-import fr.uga.iut2.genevent.modele.GenEvent;
+import fr.uga.iut2.genevent.modele.Inventaire;
 import fr.uga.iut2.genevent.vue.IHM;
-import fr.uga.iut2.genevent.vue.CLI;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
 
 
 public class Controleur {
 
-    private final GenEvent genevent;
+    private final Inventaire genevent;
     private final IHM ihm;
 
-    public Controleur(GenEvent genevent) {
+    public Controleur(Inventaire genevent) {
         this.genevent = genevent;
 
         // choisir la classe CLI ou JavaFXGUI

@@ -1,12 +1,8 @@
 package fr.uga.iut2.genevent.util;
 
-import fr.uga.iut2.genevent.modele.GenEvent;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import fr.uga.iut2.genevent.modele.Inventaire;
+
+import java.io.*;
 
 
 /**
@@ -39,11 +35,11 @@ public final class Persisteur {
      * @throws IOException si une erreur d'entrée/sortie survient pendant
      *     l'enregistrement.
      */
-    public static final void sauverEtat(final GenEvent genevent) throws FileNotFoundException, IOException {
+    public static final void sauverEtat(final Inventaire genevent) throws FileNotFoundException, IOException {
         try (
-            FileOutputStream fos = new FileOutputStream(Persisteur.NOM_BDD);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-        ){
+                FileOutputStream fos = new FileOutputStream(Persisteur.NOM_BDD);
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+        ) {
             oos.writeObject(genevent);
             // Les classes `FileOutputStream` et `ObjectOutputStream`
             // implémentent l'interface `AutoCloseable` : pas besoin de faire
@@ -78,14 +74,14 @@ public final class Persisteur {
      * @throws IOException si le fichier de persistance est corrompu ou qu'une
      *     erreur d'entrée/sortie survient.
      */
-    public static final GenEvent lireEtat() throws ClassNotFoundException, IOException {
-        GenEvent genevent;
+    public static final Inventaire lireEtat() throws ClassNotFoundException, IOException {
+        Inventaire genevent;
 
         try (
-            FileInputStream fis = new FileInputStream(Persisteur.NOM_BDD);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-        ){
-            genevent = (GenEvent) ois.readObject();
+                FileInputStream fis = new FileInputStream(Persisteur.NOM_BDD);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+        ) {
+            genevent = (Inventaire) ois.readObject();
             System.out.println("Restauration de l'état réussie.");
             System.out.flush();
             // Les classes `FileInputStream` et `ObjectInputStream`
@@ -95,7 +91,7 @@ public final class Persisteur {
         catch (FileNotFoundException ignored) {
             System.out.println("Fichier de persistance inexistant : création d'une nouvelle instance.");
             System.out.flush();
-            genevent = new GenEvent();
+            genevent = new Inventaire();
         }
         catch (IOException ioe) {
             System.err.println("Erreur de lecture du fichier de persistance.");
