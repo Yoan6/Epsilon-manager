@@ -2,8 +2,7 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16">
@@ -29,19 +28,26 @@
                   <Label text="Nom :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="350.0"/>
-                        <Label text="Invalide " visible="false">
+                        <TextField prefHeight="26.0" prefWidth="355.0" promptText="ex : Camille"/>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
-                              <Insets left="70.0"/>
+                              <Insets left="40.0"/>
                            </HBox.margin>
-                        </Label>
+                           <image>
+                              <Image url="@croix.png"/>
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
-                  <Label text="Date de début                          et de fin :"/>
+                  <Label text="Date de début                          Date de fin :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="175.0"/>
-                        <TextField prefHeight="26.0" prefWidth="175.0"/>
+                        <TextField prefHeight="26.0" prefWidth="175.0" promptText="JJ/MM/AAAA/XX-XX"/>
+                        <TextField prefHeight="26.0" prefWidth="175.0" promptText="JJ/MM/AAAA/XX-XX">
+                           <HBox.margin>
+                              <Insets left="5.0"/>
+                           </HBox.margin>
+                        </TextField>
                         <Label text="Invalide " visible="false">
                            <HBox.margin>
                               <Insets left="70.0"/>
@@ -52,45 +58,57 @@
                   <Label text="Lieu :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="350.0"/>
-                        <Label text="Invalide " visible="false">
+                        <TextField prefHeight="26.0" prefWidth="355.0"/>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
-                              <Insets left="70.0"/>
+                              <Insets left="40.0"/>
                            </HBox.margin>
-                        </Label>
+                           <image>
+                              <Image url="@croix.png"/>
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
                   <Label text="Capacité :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="350.0"/>
-                        <Label text="Invalide " visible="false">
+                        <TextField prefHeight="26.0" prefWidth="355.0" promptText="ex : 32"/>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
-                              <Insets left="70.0"/>
+                              <Insets left="40.0"/>
                            </HBox.margin>
-                        </Label>
+                           <image>
+                              <Image url="@croix.png"/>
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
                   <Label text="Thème :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="350.0"/>
-                        <Label text="Invalide " visible="false">
+                        <TextField prefHeight="26.0" prefWidth="355.0" promptText="ex : estivale"/>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
-                              <Insets left="70.0"/>
+                              <Insets left="40.0"/>
                            </HBox.margin>
-                        </Label>
+                           <image>
+                              <Image url="@croix.png"/>
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
                   <Label text="Budget :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="350.0"/>
-                        <Label text="Invalide " visible="false">
+                        <TextField prefHeight="26.0" prefWidth="355.0"/>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
-                              <Insets left="70.0"/>
+                              <Insets left="40.0"/>
                            </HBox.margin>
-                        </Label>
+                           <image>
+                              <Image url="@croix.png"/>
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
                </children>
