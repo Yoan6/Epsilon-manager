@@ -1,5 +1,8 @@
 package fr.uga.iut2.genevent.vue;
 
+import fr.uga.iut2.genevent.modele.Projet;
+
+import java.util.Collection;
 import java.util.Date;
 
 
@@ -12,12 +15,13 @@ public abstract class IHM {
 
     /**
      * Rend actif l'interface Humain-machine.
-     *
+     * <p>
      * L'appel est bloquant : le contrôle est rendu à l'appelant une fois que
      * l'IHM est fermée.
-     *
      */
     public abstract void demarrerInteraction();
+
+    public abstract void ouvrirProjets(Collection<Projet> projets);
 
     public static class InfosProjet {
         public final String nom;

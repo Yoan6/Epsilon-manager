@@ -30,4 +30,11 @@ public class Controleur {
         this.genevent.nouvelEvenement(infos);
     }
 
+    public void ouvrirProjets() {
+        this.ihm.ouvrirProjets(genevent.getEvenements().values());
+    }
+
+    public void supprimeProjet(String nom) {
+        genevent.getEvenements().remove(nom);
+    }
 }

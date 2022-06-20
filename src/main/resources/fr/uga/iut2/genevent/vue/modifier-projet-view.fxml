@@ -1,46 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
+<?import javafx.scene.text.Font?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <children>
+        <ImageView fx:id="backImage" fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@retour.png"/>
+            </image>
+        </ImageView>
         <Label alignment="BOTTOM_LEFT" text="Projets :" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
             <VBox.margin>
-                <Insets top="20.0" />
+                <Insets top="20.0"/>
             </VBox.margin>
             <font>
-                <Font name="System Bold" size="24.0" />
-            </font></Label>
-        <GridPane prefHeight="476.0" prefWidth="532.0">
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Label>
+        <GridPane fx:id="projetsGridPane" prefHeight="476.0" prefWidth="532.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
             </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
             <VBox.margin>
-                <Insets top="50.0" />
+                <Insets top="50.0"/>
             </VBox.margin>
-            <children>
-                <Label text="ExpoArtAntique" GridPane.halignment="CENTER">
-                    <font>
-                        <Font name="System Bold" size="13.0" />
-                    </font></Label>
-                <Button mnemonicParsing="false" text="OuvrirFicheTec" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                <MenuButton mnemonicParsing="false" text="Choisir page" GridPane.columnIndex="2" GridPane.halignment="CENTER">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Modifier projet" />
-                        <MenuItem mnemonicParsing="false" text="Matériaux" />
-                        <MenuItem mnemonicParsing="false" text="Personnel" />
-                        <MenuItem mnemonicParsing="false" text="Artiste / Oeuvre" />
-                    </items>
-                </MenuButton>
-            </children>
         </GridPane>
     </children>
 </VBox>

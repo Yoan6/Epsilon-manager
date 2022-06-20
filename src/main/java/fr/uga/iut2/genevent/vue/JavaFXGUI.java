@@ -1,15 +1,17 @@
 package fr.uga.iut2.genevent.vue;
 
 import fr.uga.iut2.genevent.controleur.Controleur;
+import fr.uga.iut2.genevent.modele.Projet;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.apache.commons.validator.routines.EmailValidator;
@@ -17,6 +19,7 @@ import org.apache.commons.validator.routines.EmailValidator;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Stack;
 import java.util.concurrent.CountDownLatch;
@@ -65,6 +68,10 @@ public class JavaFXGUI extends IHM {
     private Button projetSuivantButton;
     @FXML
     private ImageView backImage;
+
+    // Vue modifier projets
+    @FXML
+    private GridPane projetsGridPane;
 
     public JavaFXGUI(Controleur controleur) {
         this.controleur = controleur;
@@ -163,6 +170,11 @@ public class JavaFXGUI extends IHM {
     }
 
     @FXML
+    private void openProjetAction() {
+        this.controleur.ouvrirProjets();
+    }
+
+    @FXML
     private void createNewProjetAction() {
         if (validateTextFields()) {
             InfosProjet data;
@@ -252,10 +264,58 @@ public class JavaFXGUI extends IHM {
         // attente de la fin de vie de l'interface JavaFX
         try {
             this.eolBarrier.await();
-        }
-        catch (InterruptedException exc) {
+        } catch (InterruptedException exc) {
             System.err.println("Erreur d'exécution de l'interface.");
             System.err.flush();
+        }
+    }
+
+    @Override
+    public void ouvrirProjets(Collection<Projet> projets) {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("modifier-projet-view.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+            int i = 0;
+            for (Projet p : projets) {
+                projetsGridPane.getRowConstraints().add(new RowConstraints());
+                Label l = new Label(p.getNom());
+                GridPane.setRowIndex(l, i);
+                Button b = new Button("OuvrirFicheTec");
+                GridPane.setRowIndex(b, i);
+                GridPane.setColumnIndex(b, 1);
+                MenuButton mb = new MenuButton("Choisir page", null, new MenuItem("Modifier projet"), new MenuItem("Matériaux"), new MenuItem("Personnel"), new MenuItem("Artiste / Oeuvre"));
+                GridPane.setRowIndex(mb, i);
+                GridPane.setColumnIndex(mb, 2);
+                ImageView iv = new ImageView(JavaFXGUI.class.getResource("Supprimer.png").toString());
+                iv.setFitHeight(30);
+                iv.setFitWidth(30);
+                iv.setPreserveRatio(true);
+                iv.setPickOnBounds(true);
+                GridPane.setRowIndex(iv, i);
+                GridPane.setColumnIndex(iv, 3);
+                int finalI = i;
+                iv.setOnMouseClicked((e) -> {
+                    Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Êtes vous sur de supprimer ce projet ?");
+                    a.showAndWait().ifPresent((button) -> {
+                        if (button == ButtonType.OK) {
+                            controleur.supprimeProjet(p.getNom());
+                            projetsGridPane.getChildren().removeIf(n -> GridPane.getRowIndex(n) == finalI);
+                        }
+                    });
+                });
+                projetsGridPane.getChildren().addAll(l, b, mb, iv);
+                i++;
+            }
+            current.setTitle("Modifier un Projet");
+            current.setScene(newUserScene);
+
+
+            //current.showAndWait();
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
         }
     }
 
