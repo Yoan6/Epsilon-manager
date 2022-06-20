@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label text="Epsilon Manager" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <Button mnemonicParsing="false" text="Suivant" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@retour.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="231.0" layoutY="8.0" prefHeight="17.0" prefWidth="138.0" text="Ajouter un Artiste/Oeuvre" AnchorPane.leftAnchor="231.0" AnchorPane.rightAnchor="231.0" AnchorPane.topAnchor="8.0" />
+            <Label layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt; Matériaux &gt; Personnel &gt; Artiste / Oeuvre" />
+            <VBox layoutX="16.0" layoutY="50.0" prefHeight="301.0" prefWidth="581.0" spacing="15.0">
+               <children>
+                  <HBox prefHeight="16.0" prefWidth="581.0">
+                     <children>
+                        <TextField prefHeight="25.0" prefWidth="26.0" text="1." />
+                        <TextField prefHeight="25.0" prefWidth="261.0" text="François dupont - Le Vieux Guitariste Aveugle" />
+                        <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Modifier.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Supprimer.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="19.0" prefWidth="581.0">
+                     <children>
+                        <TextField prefHeight="25.0" prefWidth="26.0" text="2." />
+                        <TextField prefHeight="25.0" prefWidth="261.0" text="Victoria dupont - La Joconde" />
+                        <ImageView fitHeight="31.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Modifier.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Supprimer.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="581.0">
+                     <children>
+                        <TextField promptText="Nom de l'artiste" />
+                        <TextField promptText="Oeuvre">
+                           <HBox.margin>
+                              <Insets left="55.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" text="Ajouter">
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" prefWidth="108.0" text="Ajouter en masse" />
+                  <TextArea disable="true" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" visible="false" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
