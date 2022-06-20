@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <Label text="Epsilon Manager" BorderPane.alignment="CENTER" />
+    </top>
+    <bottom>
+        <Button mnemonicParsing="false" text="Valider" BorderPane.alignment="CENTER" />
+    </bottom>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@retour.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="229.0" layoutY="8.0" prefHeight="17.0" prefWidth="143.0" text="Récapitulatif du formulaire" AnchorPane.leftAnchor="229.0" AnchorPane.rightAnchor="228.0" AnchorPane.topAnchor="8.0" />
+                <Label layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt; Matériaux &gt; Personnel &gt; Artiste / Oeuvre &gt; Récapitulatif" />
+                <VBox layoutX="16.0" layoutY="50.0" prefHeight="301.0" prefWidth="581.0" spacing="15.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="200.0" text="Coût total :">
+                           <HBox.margin>
+                              <Insets left="40.0" top="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" prefWidth="200.0" text="Budget initial :">
+                           <HBox.margin>
+                              <Insets left="100.0" top="30.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="40.0" prefWidth="581.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="170.0" text="Différence :">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="134.0" text="Le budget est suffisant">
+                           <HBox.margin>
+                              <Insets left="130.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="624.0" text="Générer la fiche technique">
+                     <VBox.margin>
+                        <Insets top="80.0" />
+                     </VBox.margin></Button>
+               </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
