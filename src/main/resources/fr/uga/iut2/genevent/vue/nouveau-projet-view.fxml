@@ -10,12 +10,18 @@
       <Label text="Epsilon Manager" BorderPane.alignment="CENTER"/>
    </top>
    <bottom>
-      <Button mnemonicParsing="false" text="Suivant" BorderPane.alignment="CENTER"/>
+      <Button fx:id="projetSuivantButton" mnemonicParsing="false" onAction="#createNewProjetAction" text="Suivant"
+              BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="5.0"/>
+         </BorderPane.margin>
+      </Button>
    </bottom>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="backImage" fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true"
+                       preserveRatio="true">
                <image>
                   <Image url="@retour.png"/>
                </image>
@@ -28,7 +34,8 @@
                   <Label text="Nom :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="355.0" promptText="ex : Camille"/>
+                        <TextField fx:id="projetNomTextField" prefHeight="26.0" prefWidth="355.0"
+                                   promptText="ex : Camille"/>
                         <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
                               <Insets left="40.0"/>
@@ -39,26 +46,31 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Label text="Date de début                          Date de fin :"/>
+                  <Label text="Date de début                            Date de fin :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="175.0" promptText="JJ/MM/AAAA/XX-XX"/>
-                        <TextField prefHeight="26.0" prefWidth="175.0" promptText="JJ/MM/AAAA/XX-XX">
+                        <TextField fx:id="projetDateDebut" prefHeight="26.0" prefWidth="175.0"
+                                   promptText="JJ/MM/AAAA/XX-XX"/>
+                        <TextField fx:id="projetDateFin" prefHeight="26.0" prefWidth="175.0"
+                                   promptText="JJ/MM/AAAA/XX-XX">
                            <HBox.margin>
                               <Insets left="5.0"/>
                            </HBox.margin>
                         </TextField>
-                        <Label text="Invalide " visible="false">
+                        <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
-                              <Insets left="70.0"/>
+                              <Insets left="40.0"/>
                            </HBox.margin>
-                        </Label>
+                           <image>
+                              <Image url="@croix.png"/>
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
                   <Label text="Lieu :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="355.0"/>
+                        <TextField fx:id="projetLieu" prefHeight="26.0" prefWidth="355.0"/>
                         <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
                               <Insets left="40.0"/>
@@ -72,7 +84,7 @@
                   <Label text="Capacité :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="355.0" promptText="ex : 32"/>
+                        <TextField fx:id="projetCapacite" prefHeight="26.0" prefWidth="355.0" promptText="ex : 32"/>
                         <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
                               <Insets left="40.0"/>
@@ -86,7 +98,7 @@
                   <Label text="Thème :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="355.0" promptText="ex : estivale"/>
+                        <TextField fx:id="projetTheme" prefHeight="26.0" prefWidth="355.0" promptText="ex : estivale"/>
                         <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
                               <Insets left="40.0"/>
@@ -100,7 +112,7 @@
                   <Label text="Budget :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="355.0"/>
+                        <TextField fx:id="projetBudget" prefHeight="26.0" prefWidth="355.0"/>
                         <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
                               <Insets left="40.0"/>

@@ -2,19 +2,23 @@ package fr.uga.iut2.genevent.vue;
 
 import fr.uga.iut2.genevent.controleur.Controleur;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.io.IOException;
-import java.util.Set;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Stack;
 import java.util.concurrent.CountDownLatch;
 
 
@@ -33,20 +37,104 @@ import java.util.concurrent.CountDownLatch;
  */
 public class JavaFXGUI extends IHM {
 
+    public static final SimpleDateFormat FORMAT_DATETIME = new SimpleDateFormat("dd/MM/yyyy/HH-mm");
     private final Controleur controleur;
     private final CountDownLatch eolBarrier;  // /!\ ne pas supprimer /!\ : suivi de la durée de vie de l'interface
 
-    // éléments vue nouvel·le utilisa·teur/trice
-    @FXML private TextField newUserForenameTextField;
-    @FXML private TextField newUserSurnameTextField;
-    @FXML private TextField newUserEmailTextField;
-    @FXML private Button newUserOkButton;
-    @FXML private Button newUserCancelButton;
+    private final Stack<Scene> sceneStack = new Stack<>();
+
+    // éléments vue nouveau projet
+    @FXML
+    private TextField projetNomTextField;
+    @FXML
+    private TextField projetDateDebut;
+    @FXML
+    private TextField projetDateFin;
+
+    @FXML
+    private TextField projetLieu;
+    @FXML
+    private TextField projetCapacite;
+
+    @FXML
+    private TextField projetTheme;
+
+    @FXML
+    private TextField projetBudget;
+    @FXML
+    private Button projetSuivantButton;
+    @FXML
+    private ImageView backImage;
 
     public JavaFXGUI(Controleur controleur) {
         this.controleur = controleur;
 
         this.eolBarrier = new CountDownLatch(1);  // /!\ ne pas supprimer /!\
+    }
+
+    private static boolean validateDateCoherenceTextField(TextField dateDebut, TextField dateFin) {
+        boolean isValid = false;
+        SimpleDateFormat format = FORMAT_DATETIME;
+        try {
+            Date debut = format.parse(dateDebut.getText());
+            Date fin = format.parse(dateFin.getText());
+            isValid = debut.compareTo(fin) <= 0;
+        } catch (ParseException e) {
+
+        }
+        markTextFieldErrorStatus(dateDebut, isValid);
+        return isValid;
+    }
+
+//-----  Éléments du dialogue  -------------------------------------------------
+
+    private void exitAction() {
+        // fermeture de l'interface JavaFX : on notifie sa fin de vie
+        this.eolBarrier.countDown();
+    }
+
+    // menu principal  -----
+
+    private static boolean validateDateTextField(TextField textField) {
+        boolean isValid = false;
+        try {
+            FORMAT_DATETIME.parse(textField.getText());
+            isValid = true;
+        } catch (ParseException e) {
+        }
+        markTextFieldErrorStatus(textField, isValid);
+        return isValid;
+    }
+
+    @FXML
+    private void exitMenuItemAction() {
+        Platform.exit();
+        this.exitAction();
+    }
+
+    // vue nouveau projet  -----
+
+    private static boolean validateNumberTextField(TextField textField) {
+        boolean isValid = true;
+        try {
+            Integer.parseInt(textField.getText().strip());
+        } catch (NumberFormatException e) {
+            isValid = false;
+        }
+
+        markTextFieldErrorStatus(textField, isValid);
+
+        return isValid;
+    }
+
+    private static void markTextFieldErrorStatus(TextField textField, boolean isValid) {
+        ObservableList<Node> list = textField.getParent().getChildrenUnmodifiable();
+        Node errorCheck = list.get(list.size() - 1);
+        if (isValid) {
+            errorCheck.setVisible(false);
+        } else {
+            errorCheck.setVisible(true);
+        }
     }
 
     /**
@@ -63,67 +151,69 @@ public class JavaFXGUI extends IHM {
         FXMLLoader mainViewLoader = new FXMLLoader(getClass().getResource("main-view.fxml"));
         mainViewLoader.setController(this);
         Scene mainScene = new Scene(mainViewLoader.load());
-
+        sceneStack.push(mainScene);
         primaryStage.setTitle("GenEvent");
         primaryStage.setScene(mainScene);
         primaryStage.show();
     }
 
-//-----  Éléments du dialogue  -------------------------------------------------
-
-    private void exitAction() {
-        // fermeture de l'interface JavaFX : on notifie sa fin de vie
-        this.eolBarrier.countDown();
-    }
-
-    // menu principal  -----
-
     @FXML
-    private void newUserMenuItemAction() {
-        this.controleur.saisirUtilisateur();
+    private void newProjetAction() {
+        this.controleur.creerProjet();
     }
 
     @FXML
-    private void exitMenuItemAction() {
-        Platform.exit();
-        this.exitAction();
-    }
-
-    // vue nouvel·le utilisa·teur/trice  -----
-
-    @FXML
-    private void createNewUserAction() {
-        IHM.InfosUtilisateur data = new IHM.InfosUtilisateur(
-                this.newUserEmailTextField.getText().strip().toLowerCase(),
-                this.newUserSurnameTextField.getText().strip(),
-                this.newUserForenameTextField.getText().strip()
-        );
-        this.controleur.creerUtilisateur(data);
-        this.newUserOkButton.getScene().getWindow().hide();
-    }
-
-    @FXML
-    private void cancelNewUserAction() {
-        this.newUserCancelButton.getScene().getWindow().hide();
-    }
-
-    @FXML
-    private void validateTextFields() {
-        boolean isValid = true;
-
-        isValid &= validateNonEmptyTextField(this.newUserForenameTextField);
-        isValid &= validateNonEmptyTextField(this.newUserSurnameTextField);
-        isValid &= validateEmailTextField(this.newUserEmailTextField);
-
-        this.newUserOkButton.setDisable(!isValid);
-    }
-
-    private static void markTextFieldErrorStatus(TextField textField, boolean isValid) {
-        if (isValid) {
-            textField.setStyle(null);
-        } else {
-            textField.setStyle("-fx-control-inner-background: f8d7da");
+    private void createNewProjetAction() {
+        if (validateTextFields()) {
+            InfosProjet data;
+            try {
+                data = new InfosProjet(
+                        this.projetNomTextField.getText().strip(),
+                        FORMAT_DATETIME.parse(this.projetDateDebut.getText().strip()),
+                        FORMAT_DATETIME.parse(this.projetDateFin.getText().strip()),
+                        this.projetLieu.getText().strip(),
+                        Integer.parseInt(this.projetCapacite.getText().strip()),
+                        this.projetTheme.getText().strip(),
+                        Integer.parseInt(this.projetBudget.getText().strip())
+                );
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+            this.controleur.creerProjet(data);
+            //TODO passer au suivant
         }
+    }
+
+    @FXML
+    private void onBack() {
+        Scene old = sceneStack.pop();
+        Scene current = sceneStack.peek();
+        ((Stage) old.getWindow()).setScene(current);
+    }
+
+    private boolean validateTextFields() {
+        boolean isValid;
+
+        isValid = validateNonEmptyTextField(this.projetNomTextField);
+
+        isValid &= validateDateTextField(this.projetDateDebut);
+        isValid &= validateNonEmptyTextField(this.projetDateDebut);
+
+        isValid &= validateDateTextField(this.projetDateFin);
+        isValid &= validateNonEmptyTextField(this.projetDateFin);
+
+        isValid &= validateDateCoherenceTextField(this.projetDateDebut, this.projetDateFin);
+
+        isValid &= validateNonEmptyTextField(this.projetLieu);
+
+        isValid &= validateNumberTextField(this.projetCapacite);
+        isValid &= validateNonEmptyTextField(this.projetCapacite);
+
+        isValid &= validateNonEmptyTextField(this.projetTheme);
+
+        isValid &= validateNumberTextField(this.projetBudget);
+
+        return isValid;
     }
 
     private static boolean validateNonEmptyTextField(TextField textField) {
@@ -170,34 +260,20 @@ public class JavaFXGUI extends IHM {
     }
 
     @Override
-    public void informerUtilisateur(String msg, boolean succes) {
-        final Alert alert = new Alert(
-                succes ? Alert.AlertType.INFORMATION : Alert.AlertType.WARNING
-        );
-        alert.setTitle("GenEvent");
-        alert.setContentText(msg);
-        alert.showAndWait();
-    }
-
-    @Override
-    public void saisirUtilisateur() {
+    public void creerProjet() {
         try {
             FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("nouveau-projet-view.fxml"));
             newUserViewLoader.setController(this);
             Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
 
-            Stage newUserWindow = new Stage();
-            newUserWindow.setTitle("Créer un·e utilisa·teur/trice");
-            newUserWindow.initModality(Modality.APPLICATION_MODAL);
-            newUserWindow.setScene(newUserScene);
-            newUserWindow.showAndWait();
+            current.setTitle("Créer un Projet");
+            current.setScene(newUserScene);
+            //current.showAndWait();
         } catch (IOException exc) {
             throw new RuntimeException(exc);
         }
     }
 
-    @Override
-    public void saisirNouvelEvenement(Set<String> nomsExistants) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }

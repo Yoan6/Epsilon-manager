@@ -18,9 +18,10 @@ public class Main {
         try {
             genevent = Persisteur.lireEtat();
         }
-        catch (ClassNotFoundException | IOException ignored) {
+        catch (ClassNotFoundException | IOException e) {
             System.err.println("Erreur irrécupérable pendant le chargement de l'état : fin d'exécution !");
             System.err.flush();
+            e.printStackTrace();
             System.exit(Main.EXIT_ERR_LOAD);
         }
 
@@ -31,9 +32,9 @@ public class Main {
 
         try {
             Persisteur.sauverEtat(genevent);
-        }
-        catch (IOException ignored) {
+        } catch (IOException e) {
             System.err.println("Erreur irrécupérable pendant la sauvegarde de l'état : fin d'exécution !");
+            e.printStackTrace();
             System.err.flush();
             System.exit(Main.EXIT_ERR_SAVE);
         }

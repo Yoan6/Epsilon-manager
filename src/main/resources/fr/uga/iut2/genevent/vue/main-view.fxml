@@ -41,7 +41,7 @@
       <Label text="Epsilon Manager"/>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Créer nouveau projet"/>
+            <Button mnemonicParsing="false" onAction="#newProjetAction" text="Créer nouveau projet"/>
             <Button mnemonicParsing="false" text="Ouvrir projet"/>
          </children>
       </HBox>
