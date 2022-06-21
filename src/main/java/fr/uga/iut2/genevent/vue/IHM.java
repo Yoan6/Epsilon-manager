@@ -23,6 +23,10 @@ public abstract class IHM {
 
     public abstract void ouvrirProjets(Collection<Projet> projets);
 
+    public abstract void choixMateriaux();
+
+    public abstract void modifierProjet(Projet projet);
+
     public static class InfosProjet {
         public final String nom;
         public final Date dateDebut;

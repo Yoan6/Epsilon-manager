@@ -1,0 +1,19 @@
+.mainContainer {
+    -fx-background-color: #232323;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-padding: 10px;
+}
+
+.secondContainer {
+    -fx-background-color: #d9d9d9;
+}
+
+.secondContainer .label {
+    -fx-text-fill: black;
+}

@@ -2,35 +2,66 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <ImageView fx:id="backImage" fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true"
-                   preserveRatio="true">
-            <image>
-                <Image url="@retour.png"/>
-            </image>
-        </ImageView>
-        <Label alignment="BOTTOM_LEFT" text="Projets :" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
-            <VBox.margin>
-                <Insets top="20.0"/>
-            </VBox.margin>
-            <font>
-                <Font name="System Bold" size="24.0"/>
-            </font>
-        </Label>
-        <GridPane fx:id="projetsGridPane" prefHeight="476.0" prefWidth="532.0">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-            </columnConstraints>
-            <VBox.margin>
-                <Insets top="50.0"/>
-            </VBox.margin>
-        </GridPane>
-    </children>
-</VBox>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="500.0" prefWidth="655.0" styleClass="mainContainer" stylesheets="@main.css"
+            xmlns="http://javafx.com/javafx/16">
+    <center>
+        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+              prefHeight="347.0" prefWidth="432.0" styleClass="secondContainer">
+            <children>
+                <HBox alignment="CENTER">
+                    <children>
+                        <ImageView fx:id="backImage" fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack"
+                                   pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@retour.png"/>
+                            </image>
+                        </ImageView>
+                        <Region HBox.hgrow="ALWAYS">
+                            <HBox.margin>
+                                <Insets right="-37.0"/>
+                            </HBox.margin>
+                        </Region>
+                        <Label alignment="BOTTOM_LEFT" text="Projets :" textAlignment="CENTER"
+                               textOverrun="CENTER_ELLIPSIS">
+                            <font>
+                                <Font name="System Bold" size="24.0"/>
+                            </font>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS"/>
+                    </children>
+                </HBox>
+                <ScrollPane hbarPolicy="NEVER" prefHeight="324.0" prefWidth="500.0">
+                    <GridPane fx:id="projetsGridPane" prefHeight="476.0" prefWidth="484.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        </columnConstraints>
+                        <VBox.margin>
+                            <Insets top="50.0"/>
+                        </VBox.margin>
+                    </GridPane>
+                </ScrollPane>
+            </children>
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+        </VBox>
+    </center>
+    <top>
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Epsilon Manager"/>
+            </children>
+            <BorderPane.margin>
+                <Insets top="10.0"/>
+            </BorderPane.margin>
+        </HBox>
+    </top>
+</BorderPane>

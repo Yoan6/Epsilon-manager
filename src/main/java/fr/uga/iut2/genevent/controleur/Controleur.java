@@ -37,4 +37,12 @@ public class Controleur {
     public void supprimeProjet(String nom) {
         genevent.getEvenements().remove(nom);
     }
+
+    public void choixMateriaux() {
+        this.ihm.choixMateriaux();
+    }
+
+    public void modifierProjet(String nom) {
+        this.ihm.modifierProjet(genevent.getEvenements().get(nom));
+    }
 }

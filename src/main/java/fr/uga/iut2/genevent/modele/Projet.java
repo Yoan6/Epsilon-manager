@@ -58,4 +58,20 @@ public class Projet implements Serializable {
         assert !this.dateDebut.after(dateFin);
         this.dateFin = dateFin;
     }
+
+    public String getLieu() {
+        return lieu;
+    }
+
+    public int getCapacite() {
+        return capacite;
+    }
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public int getBudget() {
+        return budget;
+    }
 }

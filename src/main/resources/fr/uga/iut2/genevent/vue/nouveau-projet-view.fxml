@@ -5,7 +5,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16">
+            minWidth="-Infinity" prefHeight="500.0" prefWidth="655.0" styleClass="mainContainer" stylesheets="@main.css"
+            xmlns="http://javafx.com/javafx/16">
    <top>
       <Label text="Epsilon Manager" BorderPane.alignment="CENTER"/>
    </top>
@@ -18,18 +19,16 @@
       </Button>
    </bottom>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="351.0" prefWidth="500.0" styleClass="secondContainer" BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="backImage" fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true"
                        preserveRatio="true">
-               <image>
-                  <Image url="@retour.png"/>
-               </image>
+               <Image url="@retour.png"/>
             </ImageView>
-            <Label text="Nouveau Projet  :" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="247.0"
-                   AnchorPane.topAnchor="14.0"/>
-            <Label layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt;"/>
-            <VBox layoutX="16.0" layoutY="50.0" prefHeight="301.0" prefWidth="581.0">
+            <Label fx:id="labelTitre" text="Nouveau Projet :" AnchorPane.leftAnchor="247.0"
+                   AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="14.0"/>
+            <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt;"/>
+            <VBox layoutX="16.0" layoutY="50.0" prefHeight="301.0" prefWidth="475.0">
                <children>
                   <Label text="Nom :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
@@ -68,7 +67,7 @@
                      </children>
                   </HBox>
                   <Label text="Lieu :"/>
-                  <HBox prefHeight="26.0" prefWidth="451.0">
+                  <HBox prefHeight="30.0" prefWidth="524.0">
                      <children>
                         <TextField fx:id="projetLieu" prefHeight="26.0" prefWidth="355.0"/>
                         <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
@@ -126,6 +125,9 @@
                </children>
             </VBox>
          </children>
+         <BorderPane.margin>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+         </BorderPane.margin>
       </AnchorPane>
    </center>
 </BorderPane>

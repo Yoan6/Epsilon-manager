@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16">
+            minWidth="-Infinity" prefHeight="500.0" prefWidth="655.0" styleClass="mainContainer" stylesheets="@main.css"
+            xmlns="http://javafx.com/javafx/16">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER"/>
     </top>
@@ -13,29 +15,44 @@
         <Button mnemonicParsing="false" text="Suivant" BorderPane.alignment="CENTER"/>
     </bottom>
     <center>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="386.0" prefWidth="469.0" styleClass="secondContainer" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true"
+                           preserveRatio="true">
                     <image>
                         <Image url="@retour.png"/>
                     </image>
                 </ImageView>
-                <Label layoutX="269.0" layoutY="7.0" text="Matériaux" AnchorPane.leftAnchor="268.0"
-                       AnchorPane.rightAnchor="268.0" AnchorPane.topAnchor="7.0"/>
-                <Label layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt; Matériaux &gt;"/>
-                <VBox layoutX="16.0" layoutY="50.0" prefHeight="301.0" prefWidth="581.0" spacing="15.0">
+                <Label fx:id="labelTitre" layoutX="269.0" layoutY="7.0" text="Matériaux :" AnchorPane.leftAnchor="268.0"
+                       AnchorPane.rightAnchor="256.0" AnchorPane.topAnchor="7.0"/>
+                <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt; Matériaux &gt;"/>
+                <VBox layoutX="16.0" layoutY="50.0" prefHeight="303.0" prefWidth="580.0" spacing="15.0">
                     <children>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Locaux :"/>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Chaises :"/>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Tables :"/>
+                        <HBox prefHeight="0.0" prefWidth="580.0" spacing="15.0">
+                            <children>
+                                <Button prefHeight="26.0" prefWidth="350.0" text="Locaux :"/>
+                                <Label text="T'as un ptit local a 10€ total"/>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="0.0" prefWidth="580.0" spacing="15.0">
+                            <children>
+                                <Button onAction="#onChaiseAction" prefHeight="26.0" prefWidth="350.0"
+                                        text="Chaises :"/>
+                                <Label text="T'as 10000€ en chaises"/>
+                            </children>
+                        </HBox>
+                        <Button onAction="#onTableAction" prefHeight="26.0" prefWidth="350.0" text="Tables :"/>
                         <Button prefHeight="26.0" prefWidth="350.0" text="Éclairage :"/>
                         <Button prefHeight="26.0" prefWidth="350.0" text="Outils multimédia :"/>
                         <Button prefHeight="26.0" prefWidth="350.0" text="Supports :"/>
-                        <Label prefHeight="54.0" prefWidth="350.0" text="Budget : 100 000 €&#xA;Coût total : 45 153 €"/>
+                        <Label prefHeight="54.0" prefWidth="350.0" text="Budget : 100 000 €&#10;Coût total : 45 153 €"/>
 
                     </children>
                 </VBox>
             </children>
+            <BorderPane.margin>
+                <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+            </BorderPane.margin>
         </AnchorPane>
     </center>
 </BorderPane>
