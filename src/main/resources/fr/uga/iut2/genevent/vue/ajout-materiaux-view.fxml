@@ -30,7 +30,7 @@
                     <children>
                         <HBox prefHeight="0.0" prefWidth="580.0" spacing="15.0">
                             <children>
-                                <Button prefHeight="26.0" prefWidth="350.0" text="Locaux :"/>
+                                <Button onAction="#onLocauxAction" prefHeight="26.0" prefWidth="350.0" text="Locaux :"/>
                                 <Label text="T'as un ptit local a 10€ total"/>
                             </children>
                         </HBox>
@@ -42,9 +42,10 @@
                             </children>
                         </HBox>
                         <Button onAction="#onTableAction" prefHeight="26.0" prefWidth="350.0" text="Tables :"/>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Éclairage :"/>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Outils multimédia :"/>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Supports :"/>
+                        <Button onAction="#onEclairageAction" prefHeight="26.0" prefWidth="350.0" text="Éclairage :"/>
+                        <Button onAction="#onMultimediaAction" prefHeight="26.0" prefWidth="350.0"
+                                text="Outils multimédia :"/>
+                        <Button onAction="#onSupportAction" prefHeight="26.0" prefWidth="350.0" text="Supports :"/>
                         <Label prefHeight="54.0" prefWidth="350.0" text="Budget : 100 000 €&#10;Coût total : 45 153 €"/>
 
                     </children>

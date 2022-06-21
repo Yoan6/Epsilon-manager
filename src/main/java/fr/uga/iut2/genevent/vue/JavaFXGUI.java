@@ -282,6 +282,74 @@ public class JavaFXGUI extends IHM {
     }
 
     @FXML
+    private void onEclairageAction() {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("lumiere.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+
+            current.setTitle("Ajout de Éclairages");
+            current.setScene(newUserScene);
+            //current.showAndWait();
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
+        }
+    }
+
+    @FXML
+    private void onMultimediaAction() {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("multimedia.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+
+            current.setTitle("Ajout de multimedia");
+            current.setScene(newUserScene);
+            //current.showAndWait();
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
+        }
+    }
+
+    @FXML
+    private void onSupportAction() {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("support.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+
+            current.setTitle("Ajout de supports");
+            current.setScene(newUserScene);
+            //current.showAndWait();
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
+        }
+    }
+
+    @FXML
+    private void onLocauxAction() {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("local.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+
+            current.setTitle("Ajout de locaux");
+            current.setScene(newUserScene);
+            //current.showAndWait();
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
+        }
+    }
+
+    @FXML
     private void onTableAction() {
         try {
             FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("table.fxml"));
@@ -389,7 +457,11 @@ public class JavaFXGUI extends IHM {
                 modProj.setOnAction((e) -> {
                     controleur.modifierProjet(p.getNom());
                 });
-                MenuButton mb = new MenuButton("Choisir page", null, modProj, new MenuItem("Matériaux"), new MenuItem("Personnel"), new MenuItem("Artiste / Oeuvre"));
+                MenuItem modMate = new MenuItem("Matériaux");
+                modMate.setOnAction((e) -> {
+                    controleur.modifierMateriaux(p.getNom());
+                });
+                MenuButton mb = new MenuButton("Choisir page", null, modProj, modMate, new MenuItem("Personnel"), new MenuItem("Artiste / Oeuvre"));
                 GridPane.setRowIndex(mb, i);
                 GridPane.setColumnIndex(mb, 2);
 
@@ -467,6 +539,12 @@ public class JavaFXGUI extends IHM {
         } catch (IOException exc) {
             throw new RuntimeException(exc);
         }
+    }
+
+    @Override
+    public void choixMateriaux(String nom) {
+        //TODO ajouter les valeurs de materiaux au bon endroit
+        choixMateriaux();
     }
 
     @Override

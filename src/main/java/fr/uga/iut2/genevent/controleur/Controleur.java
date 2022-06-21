@@ -45,4 +45,8 @@ public class Controleur {
     public void modifierProjet(String nom) {
         this.ihm.modifierProjet(genevent.getEvenements().get(nom));
     }
+
+    public void modifierMateriaux(String nom) {
+        this.ihm.choixMateriaux(nom);
+    }
 }
