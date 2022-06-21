@@ -23,6 +23,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 import java.util.Stack;
 import java.util.concurrent.CountDownLatch;
 
@@ -221,22 +222,63 @@ public class JavaFXGUI extends IHM {
         changeLabel(e, true);
     }
 
+    //Table des prix de tous les prix des matériaux (ou autres)
+    private final Map<String, Float> prixs = Map.ofEntries(Map.entry("table1.JPG", 8.20f), Map.entry("table2.JPG", 10.50f),
+            Map.entry("table3.JPG", 5.70f), Map.entry("1.1.JPG", 3.01f), Map.entry("1.2.JPG", 2.50f));
+
+
     private void changeLabel(ActionEvent e, boolean increment) {
         Button b = (Button) e.getSource();
         Parent p1 = b.getParent();
         boolean isTop = p1.getChildrenUnmodifiable().get(0) == b;
         VBox labels = (VBox) p1.getParent().getChildrenUnmodifiable().get(1);
         Label l = (Label) labels.getChildren().get(isTop ? 0 : 1);
+        int p;
         if (isTop) {
-            l.setText((Integer.parseInt(l.getText()) + (increment ? 1 : -1)) + "");
+            p = Integer.parseInt(l.getText()) + (increment ? 1 : -1);
         } else {
-            l.setText((Integer.parseInt(l.getText()) + (increment ? 12 : -12)) + "");
+            p = Integer.parseInt(l.getText()) + (increment ? 12 : -12);
         }
+        if (p < 0) {
+            return;
+        }
+        l.setText(p + "");
+        //Calcul du prix
+        ImageView iv = (ImageView) p1.getParent().getParent().getParent().getParent().getChildrenUnmodifiable().get(0);
+        String[] parts = iv.getImage().getUrl().split("/");
+        String id = parts[parts.length - 1];
+        int quantite = Integer.parseInt(((Label) labels.getChildren().get(0)).getText());
+        int temps = Integer.parseInt(((Label) (labels.getChildren().get(1))).getText());
+        Float prix = prixs.get(id);
+        if (prix == null) {
+            System.err.println("Prix non trouvé !!!");
+            return;
+        }
+        float total = quantite * (temps / 12.0f) * prix;
+        Label lprix = (Label) ((Parent) ((Parent) ((Parent) p1.getParent().getParent().getParent().getParent().getChildrenUnmodifiable().
+                get(4)).getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1);
+        lprix.setText(String.valueOf(total));
+        Label ltemps = (Label) ((Parent) ((Parent) ((Parent) p1.getParent().getParent().getParent().getParent().getChildrenUnmodifiable().
+                get(4)).getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1)).getChildrenUnmodifiable().get(1);
+        ltemps.setText(((Label) labels.getChildren().get(1)).getText());
+
     }
 
     @FXML
     private void onChaiseAction() {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("chaises.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
 
+            current.setTitle("Ajout de chaises");
+            current.setScene(newUserScene);
+            //current.showAndWait();
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
+        }
     }
 
     @FXML

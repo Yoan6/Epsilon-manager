@@ -44,12 +44,12 @@
                                         <children>
                                             <VBox prefHeight="200.0" prefWidth="100.0">
                                                 <children>
-                                                    <Button mnemonicParsing="false" text="-">
+                                                    <Button mnemonicParsing="false" onAction="#onMatSub" text="-">
                                                         <VBox.margin>
                                                             <Insets top="30.0"/>
                                                         </VBox.margin>
                                                     </Button>
-                                                    <Button mnemonicParsing="false" text="-">
+                                                    <Button mnemonicParsing="false" onAction="#onMatSub" text="-">
                                                         <VBox.margin>
                                                             <Insets top="20.0"/>
                                                         </VBox.margin>
@@ -75,12 +75,12 @@
                                             </VBox>
                                             <VBox prefHeight="200.0" prefWidth="100.0">
                                                 <children>
-                                                    <Button mnemonicParsing="false" text="+">
+                                                    <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                         <VBox.margin>
                                                             <Insets top="30.0"/>
                                                         </VBox.margin>
                                                     </Button>
-                                                    <Button mnemonicParsing="false" text="+">
+                                                    <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                         <VBox.margin>
                                                             <Insets top="20.0"/>
                                                         </VBox.margin>
@@ -193,12 +193,12 @@
                                         <children>
                                             <VBox prefHeight="200.0" prefWidth="100.0">
                                                 <children>
-                                                    <Button mnemonicParsing="false" text="-">
+                                                    <Button mnemonicParsing="false" onAction="#onMatSub" text="-">
                                                         <VBox.margin>
                                                             <Insets top="30.0"/>
                                                         </VBox.margin>
                                                     </Button>
-                                                    <Button mnemonicParsing="false" text="-">
+                                                    <Button mnemonicParsing="false" onAction="#onMatSub" text="-">
                                                         <VBox.margin>
                                                             <Insets top="20.0"/>
                                                         </VBox.margin>
@@ -224,12 +224,12 @@
                                             </VBox>
                                             <VBox prefHeight="200.0" prefWidth="100.0">
                                                 <children>
-                                                    <Button mnemonicParsing="false" text="+">
+                                                    <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                         <VBox.margin>
                                                             <Insets top="30.0"/>
                                                         </VBox.margin>
                                                     </Button>
-                                                    <Button mnemonicParsing="false" text="+">
+                                                    <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                         <VBox.margin>
                                                             <Insets top="20.0"/>
                                                         </VBox.margin>
@@ -342,12 +342,12 @@
                                         <children>
                                             <VBox prefHeight="200.0" prefWidth="100.0">
                                                 <children>
-                                                    <Button mnemonicParsing="false" text="-">
+                                                    <Button mnemonicParsing="false" onAction="#onMatSub" text="-">
                                                         <VBox.margin>
                                                             <Insets top="30.0"/>
                                                         </VBox.margin>
                                                     </Button>
-                                                    <Button mnemonicParsing="false" text="-">
+                                                    <Button mnemonicParsing="false" onAction="#onMatSub" text="-">
                                                         <VBox.margin>
                                                             <Insets top="20.0"/>
                                                         </VBox.margin>
@@ -373,12 +373,12 @@
                                             </VBox>
                                             <VBox prefHeight="200.0" prefWidth="100.0">
                                                 <children>
-                                                    <Button mnemonicParsing="false" text="+">
+                                                    <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                         <VBox.margin>
                                                             <Insets top="30.0"/>
                                                         </VBox.margin>
                                                     </Button>
-                                                    <Button mnemonicParsing="false" text="+">
+                                                    <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                         <VBox.margin>
                                                             <Insets top="20.0"/>
                                                         </VBox.margin>
