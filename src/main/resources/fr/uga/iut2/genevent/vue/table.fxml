@@ -5,18 +5,19 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="410.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16">
     <children>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
                 <ImageView fitHeight="200.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@table1.JPG" />
-                    </image></ImageView>
+                        <Image url="@table1.JPG"/>
+                    </image>
+                </ImageView>
                 <Line endY="125.0" rotate="180.0">
                     <HBox.margin>
-                        <Insets />
+                        <Insets/>
                     </HBox.margin>
                 </Line>
                 <VBox prefHeight="200.0" prefWidth="100.0">
@@ -41,45 +42,45 @@
                                     <children>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
-                                                <Button mnemonicParsing="false" text="-">
+                                                <Button mnemonicParsing="false" onAction="#onMatSub" text="-">
                                                     <VBox.margin>
-                                                        <Insets top="30.0" />
+                                                        <Insets top="30.0"/>
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" text="-">
+                                                <Button mnemonicParsing="false" onAction="#onMatSub" text="-">
                                                     <VBox.margin>
-                                                        <Insets top="20.0" />
+                                                        <Insets top="20.0"/>
                                                     </VBox.margin>
                                                 </Button>
                                             </children>
                                         </VBox>
-                                        <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0">
+                                        <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0"
+                                              spacing="25.0">
                                             <children>
                                                 <Label text="0">
                                                     <VBox.margin>
-                                                        <Insets top="35.0" />
+                                                        <Insets top="35.0"/>
                                                     </VBox.margin>
-                                                </Label>
-                                                <Label text="0">
                                                     <padding>
-                                                        <Insets top="25.0" />
+                                                        <Insets left="10.0" right="10.0"/>
                                                     </padding>
                                                 </Label>
+                                                <Label text="0"/>
                                             </children>
                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
+                                                <Insets left="10.0" right="10.0"/>
                                             </HBox.margin>
                                         </VBox>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
-                                                <Button mnemonicParsing="false" text="+">
+                                                <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                     <VBox.margin>
-                                                        <Insets top="30.0" />
+                                                        <Insets top="30.0"/>
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" text="+">
+                                                <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                     <VBox.margin>
-                                                        <Insets top="20.0" />
+                                                        <Insets top="20.0"/>
                                                     </VBox.margin>
                                                 </Button>
                                             </children>
@@ -176,17 +177,18 @@
                         </Label>
                     </children>
                 </VBox>
-                <VBox prefHeight="200.0" prefWidth="100.0">
+                <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                     <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
-                                <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="0.0">
+                                <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                      prefHeight="102.0" prefWidth="190.0">
                                     <children>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
-                                                <Button mnemonicParsing="false" text="-">
+                                                <Button mnemonicParsing="false" onAction="#onMatSub" text="-">
                                                     <VBox.margin>
-                                                        <Insets top="30.0" />
+                                                        <Insets top="30.0"/>
                                                     </VBox.margin>
                                                 </Button>
                                                 <Button mnemonicParsing="false" text="-">
@@ -196,33 +198,30 @@
                                                 </Button>
                                             </children>
                                         </VBox>
-                                        <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0">
+                                        <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0"
+                                              spacing="25.0">
                                             <children>
                                                 <Label text="0">
                                                     <VBox.margin>
-                                                        <Insets top="35.0" />
+                                                        <Insets top="35.0"/>
                                                     </VBox.margin>
                                                 </Label>
-                                                <Label text="0">
-                                                    <padding>
-                                                        <Insets top="25.0" />
-                                                    </padding>
-                                                </Label>
+                                                <Label text="0"/>
                                             </children>
                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
+                                                <Insets left="10.0" right="10.0"/>
                                             </HBox.margin>
                                         </VBox>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
-                                                <Button mnemonicParsing="false" text="+">
+                                                <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                     <VBox.margin>
-                                                        <Insets top="30.0" />
+                                                        <Insets top="30.0"/>
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" text="+">
+                                                <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                     <VBox.margin>
-                                                        <Insets top="20.0" />
+                                                        <Insets top="20.0"/>
                                                     </VBox.margin>
                                                 </Button>
                                             </children>
@@ -319,17 +318,18 @@
                         </Label>
                     </children>
                 </VBox>
-                <VBox prefHeight="200.0" prefWidth="100.0">
+                <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                     <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
-                                <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="0.0">
+                                <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                      prefHeight="102.0" prefWidth="190.0">
                                     <children>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
-                                                <Button mnemonicParsing="false" text="-">
+                                                <Button mnemonicParsing="false" onAction="#onMatSub" text="-">
                                                     <VBox.margin>
-                                                        <Insets top="30.0" />
+                                                        <Insets top="30.0"/>
                                                     </VBox.margin>
                                                 </Button>
                                                 <Button mnemonicParsing="false" text="-">
@@ -339,33 +339,30 @@
                                                 </Button>
                                             </children>
                                         </VBox>
-                                        <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0">
+                                        <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0"
+                                              spacing="25.0">
                                             <children>
                                                 <Label text="0">
                                                     <VBox.margin>
-                                                        <Insets top="35.0" />
+                                                        <Insets top="35.0"/>
                                                     </VBox.margin>
                                                 </Label>
-                                                <Label text="0">
-                                                    <padding>
-                                                        <Insets top="25.0" />
-                                                    </padding>
-                                                </Label>
+                                                <Label text="0"/>
                                             </children>
                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
+                                                <Insets left="10.0" right="10.0"/>
                                             </HBox.margin>
                                         </VBox>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
-                                                <Button mnemonicParsing="false" text="+">
+                                                <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                     <VBox.margin>
-                                                        <Insets top="30.0" />
+                                                        <Insets top="30.0"/>
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" text="+">
+                                                <Button mnemonicParsing="false" onAction="#onMatAdd" text="+">
                                                     <VBox.margin>
-                                                        <Insets top="20.0" />
+                                                        <Insets top="20.0"/>
                                                     </VBox.margin>
                                                 </Button>
                                             </children>
@@ -439,10 +436,10 @@
         </Line>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                <Button mnemonicParsing="false" text="Retour">
+                <Button mnemonicParsing="false" onAction="#onBack" text="Retour">
 
                     <HBox.margin>
-                        <Insets left="50.0" top="10.0" />
+                        <Insets left="50.0" top="10.0"/>
                     </HBox.margin>
                 </Button>
                 <Label text="Budget initial :">
