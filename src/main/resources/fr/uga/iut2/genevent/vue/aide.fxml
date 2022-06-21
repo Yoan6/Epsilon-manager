@@ -9,13 +9,6 @@
   <top>
     <Label text="Epsilon Manager" BorderPane.alignment="CENTER" />
   </top>
-  <bottom>
-    <Button mnemonicParsing="false" text="Suivant" BorderPane.alignment="CENTER">
-      <BorderPane.margin>
-        <Insets bottom="5.0" />
-      </BorderPane.margin>
-    </Button>
-  </bottom>
   <center>
     <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
       <children>
@@ -82,6 +75,11 @@
                    </ImageView>
                </children>
             </VBox>
+            <ImageView fitHeight="32.0" fitWidth="37.0" layoutX="14.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@retour.png" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
   </center>
