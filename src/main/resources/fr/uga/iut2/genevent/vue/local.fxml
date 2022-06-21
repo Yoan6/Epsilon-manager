@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1350.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane hbarPolicy="NEVER">
+<VBox>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text=" Pavillon Cambon Capucines">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin></Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@local1.png" />
+                  </ImageView>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@local1_2.png" />
+                  </ImageView>
+                  <VBox prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Informations du local :">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin></Label>
+                        <Hyperlink text="Se rendre sur le site">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Hyperlink>
+                        <Label text="Salles : 4 ">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Prix : 3058€/jour">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin></Label>
+                        <Label text="Capacité : ">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="800 personnes  ">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" text="Choisir ce local">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin></Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Line endX="685.0" startX="-100.0" />
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text=" Bal Rock">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin></Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@local2.png" />
+                  </ImageView>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@local2_2.png" />
+                  </ImageView>
+                  <VBox prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Informations du local :">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin></Label>
+                        <Hyperlink text="Se rendre sur le site">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Hyperlink>
+                        <Label text="Salles : 1">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Prix : 1002€/jour">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin></Label>
+                        <Label text="Capacité : ">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="1400 personnes  ">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" text="Choisir ce local">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin></Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Line endX="685.0" startX="-100.0" />
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text=" Espace vinci">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin></Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@local3.png" />
+                  </ImageView>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@local3_2.png" />
+                  </ImageView>
+                  <VBox prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Informations du local :">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin></Label>
+                        <Hyperlink text="Se rendre sur le site">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Hyperlink>
+                        <Label text="Salles : 110 au choix">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Prix : 360€/jour">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin></Label>
+                        <Label text="Capacité : ">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="50 personnes  ">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" text="Choisir ce local">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin></Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Line endX="685.0" startX="-100.0" />
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text=" Espace Saint martin">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin></Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@local4_2.png" />
+                  </ImageView>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@local4_.png" />
+                  </ImageView>
+                  <VBox prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Informations du local :">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin></Label>
+                        <Hyperlink text="Se rendre sur le site">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Hyperlink>
+                        <Label text="Salles : 9 au choix">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Prix : 723€/jour">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin></Label>
+                        <Label text="Capacité : ">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="350 personnes  ">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" text="Choisir ce local">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin></Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Line endX="685.0" startX="-100.0" />
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text=" Espace Clery">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin></Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@local_5.png" />
+                  </ImageView>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@local_5_2.png" />
+                  </ImageView>
+                  <VBox prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Informations du local :">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin></Label>
+                        <Hyperlink text="Se rendre sur le site">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Hyperlink>
+                        <Label text="Salles : 20 au choix">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Prix : 900€">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin></Label>
+                        <Label text="Capacité : ">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="200 personnes  ">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" text="Choisir ce local">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin></Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Line endX="685.0" startX="-100.0" />
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text=" Maison de l'amerique latine">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin></Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@Local_6_1.png" />
+                  </ImageView>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@Local_6_2.png" />
+                  </ImageView>
+                  <VBox prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Informations du local :">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin></Label>
+                        <Hyperlink text="Se rendre sur le site">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Hyperlink>
+                        <Label text="Salles : 8">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Prix : 2341€">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin></Label>
+                        <Label text="Capacité : ">
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="200 personnes  ">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" text="Choisir ce local">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin></Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+
+         </children>
+      </VBox>
+      <Line endX="685.0" startX="-100.0" />
+   </children>
+</VBox>
+</ScrollPane>
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Button mnemonicParsing="false" text="Retour">
+
+            <HBox.margin>
+               <Insets bottom="10.0" left="50.0" top="10.0" />
+            </HBox.margin>
+         </Button>
+         <Label text="Budget initial :">
+
+            <HBox.margin>
+               <Insets left="150.0" top="10.0" />
+            </HBox.margin>
+         </Label>
+         <Label text="Coût :">
+            <HBox.margin>
+               <Insets left="140.0" top="10.0" />
+            </HBox.margin>
+         </Label>
+         <Button mnemonicParsing="false" text="Valider">
+            <HBox.margin>
+               <Insets bottom="10.0" left="150.0" top="10.0" />
+            </HBox.margin>
+         </Button>
+      </children>
+   </HBox>
+</VBox>
