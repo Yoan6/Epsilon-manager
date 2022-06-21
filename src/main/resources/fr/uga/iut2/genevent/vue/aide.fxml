@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+  <top>
+    <Label text="Epsilon Manager" BorderPane.alignment="CENTER" />
+  </top>
+  <bottom>
+    <Button mnemonicParsing="false" text="Suivant" BorderPane.alignment="CENTER">
+      <BorderPane.margin>
+        <Insets bottom="5.0" />
+      </BorderPane.margin>
+    </Button>
+  </bottom>
+  <center>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <children>
+        <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@chaise.png" />
+          </image>
+        </ImageView>
+        <Label layoutX="286.0" layoutY="8.0" prefHeight="17.0" prefWidth="29.0" text="Aide" AnchorPane.leftAnchor="286.0" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="8.0" />
+            <VBox layoutX="1.0" layoutY="42.0" prefHeight="296.0" prefWidth="600.0">
+               <children>
+                  <Label text="A propos d'Epsilon Manager">
+                     <VBox.margin>
+                        <Insets left="222.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Email : yoan.delannoy1@gmail.com">
+                     <VBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </VBox.margin></Label>
+                  <Label text="Téléphone : 07 82 77 15 12">
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin></Label>
+                  <HBox prefHeight="31.0" prefWidth="600.0">
+                     <children>
+                        <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@facebook.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Twitter-Logo.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@instagram.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                         <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                             <image>
+                                 <Image url="@Whatsapp.png" />
+                             </image>
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                         </ImageView>                     </children></HBox>
+                  <Label text="FAQ">
+                     <VBox.margin>
+                        <Insets left="290.0" />
+                     </VBox.margin></Label>
+                   <ImageView fitHeight="61.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                   </ImageView>
+               </children>
+            </VBox>
+      </children>
+    </AnchorPane>
+  </center>
+</BorderPane>
