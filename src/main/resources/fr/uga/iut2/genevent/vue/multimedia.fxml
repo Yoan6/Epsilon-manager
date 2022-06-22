@@ -5,18 +5,19 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="805" prefWidth="805.0" xmlns="http://javafx.com/javafx/16">
 
-<ScrollPane prefHeight="805" prefWidth="805.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <ImageView fitHeight="200.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@tele.JPG" />
-               </image></ImageView>
-            <Line endY="115.0" rotate="180.0">
+   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0"
+         prefWidth="805.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+      <children>
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <ImageView fitHeight="200.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@tele.JPG"/>
+                  </image>
+               </ImageView>
+               <Line endY="115.0" rotate="180.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -883,9 +884,9 @@
                   <Insets left="140.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" text="Valider">
+            <Button mnemonicParsing="false" onAction="#onMatValider" text="Valider">
                <HBox.margin>
-                  <Insets left="150.0" top="10.0" />
+                  <Insets left="150.0" top="10.0"/>
                </HBox.margin>
             </Button>
          </children>

@@ -27,8 +27,6 @@ public abstract class IHM {
 
     public abstract void modifierProjet(Projet projet);
 
-    public abstract void choixMateriaux(String nom);
-
     public static class InfosProjet {
         public final String nom;
         public final Date dateDebut;

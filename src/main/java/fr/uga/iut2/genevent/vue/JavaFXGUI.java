@@ -1,6 +1,7 @@
 package fr.uga.iut2.genevent.vue;
 
 import fr.uga.iut2.genevent.controleur.Controleur;
+import fr.uga.iut2.genevent.modele.Location;
 import fr.uga.iut2.genevent.modele.Projet;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -214,12 +215,36 @@ public class JavaFXGUI extends IHM {
 
     @FXML
     private void onMatSub(ActionEvent e) {
-        changeLabel(e, false);
+        changeLabel((Node) e.getSource(), false);
     }
 
     @FXML
     private void onMatAdd(ActionEvent e) {
-        changeLabel(e, true);
+        changeLabel((Node) e.getSource(), true);
+    }
+
+    @FXML
+    private void onMatValider(ActionEvent e) {
+        Button b = (Button) e.getSource();
+        Parent p1 = b.getParent().getParent();
+        ObservableList<Node> childrenUnmodifiable = p1.getChildrenUnmodifiable();
+        for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
+            Parent p = (Parent) childrenUnmodifiable.get(i);
+            ImageView iv = (ImageView) p.getChildrenUnmodifiable().get(0);
+            String[] parts = iv.getImage().getUrl().split("/");
+            String id = parts[parts.length - 1];
+            Parent fbox = (Parent) ((Parent) ((Parent) ((Parent) p.getChildrenUnmodifiable().get(3)).getChildrenUnmodifiable().get(0)).
+                    getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1);
+            int qt = Integer.parseInt(((Label) fbox.getChildrenUnmodifiable().get(0)).getText());
+            int temps = Integer.parseInt(((Label) fbox.getChildrenUnmodifiable().get(1)).getText());
+            if (qt != 0 && temps != 0) {
+                Location l = new Location(id, qt, temps);
+                this.controleur.addLocation(l);
+            } else {
+                this.controleur.removeLocation(id);
+            }
+        }
+        onBack();
     }
 
     //Table des prix de tous les prix des matériaux (ou autres)
@@ -227,8 +252,7 @@ public class JavaFXGUI extends IHM {
             Map.entry("table3.JPG", 5.70f), Map.entry("1.1.JPG", 3.01f), Map.entry("1.2.JPG", 2.50f), Map.entry("1.3.JPG", 2.55f), Map.entry("support1.JPG", 12.0f), Map.entry("support2.JPG", 1.12f), Map.entry("support3.JPG", 3.99f), Map.entry("tablette.JPG", 7.80f), Map.entry("tele.JPG", 33.50f), Map.entry("projo.JPG", 23.90f), Map.entry("lumiere1.JPG", 7.20f), Map.entry("lumiere2.JPG", 3.80f), Map.entry("lumiere3.JPG", 1.95f), Map.entry("ecouteur.JPG", 63.20f), Map.entry("camera.JPG", 39.99f), Map.entry("enceinte.JPG", 14.90f));
 
 
-    private void changeLabel(ActionEvent e, boolean increment) {
-        Button b = (Button) e.getSource();
+    private void changeLabel(Node b, boolean increment) {
         Parent p1 = b.getParent();
         boolean isTop = p1.getChildrenUnmodifiable().get(0) == b;
         VBox labels = (VBox) p1.getParent().getChildrenUnmodifiable().get(1);
@@ -272,6 +296,8 @@ public class JavaFXGUI extends IHM {
             Scene newUserScene = new Scene(newUserViewLoader.load());
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
+            // Chargement des materiaux
+            chargeMateriaux(newUserScene.getRoot());
 
             current.setTitle("Ajout de chaises");
             current.setScene(newUserScene);
@@ -306,6 +332,8 @@ public class JavaFXGUI extends IHM {
             Scene newUserScene = new Scene(newUserViewLoader.load());
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
+            // Chargement des materiaux
+            chargeMateriaux(newUserScene.getRoot());
 
             current.setTitle("Ajout de multimedia");
             current.setScene(newUserScene);
@@ -323,6 +351,8 @@ public class JavaFXGUI extends IHM {
             Scene newUserScene = new Scene(newUserViewLoader.load());
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
+            // Chargement des materiaux
+            chargeMateriaux(newUserScene.getRoot());
 
             current.setTitle("Ajout de supports");
             current.setScene(newUserScene);
@@ -357,12 +387,42 @@ public class JavaFXGUI extends IHM {
             Scene newUserScene = new Scene(newUserViewLoader.load());
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
+            // Chargement des materiaux
+            chargeMateriaux(newUserScene.getRoot());
 
             current.setTitle("Ajout de tables");
             current.setScene(newUserScene);
             //current.showAndWait();
         } catch (IOException exc) {
             throw new RuntimeException(exc);
+        }
+    }
+
+    private void chargeMateriaux(Parent root) {
+        ObservableList<Node> childrenUnmodifiable = root.getChildrenUnmodifiable();
+        for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
+            Parent p = (Parent) childrenUnmodifiable.get(i);
+            ImageView iv = (ImageView) p.getChildrenUnmodifiable().get(0);
+            String[] parts = iv.getImage().getUrl().split("/");
+            String id = parts[parts.length - 1];
+            int[] infos = this.controleur.getLocation(id);
+            if (infos == null) {
+                continue;
+            }
+            Parent fbox = (Parent) ((Parent) ((Parent) ((Parent) p.getChildrenUnmodifiable().get(3)).getChildrenUnmodifiable().get(0)).
+                    getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1);
+            Parent lbox = (Parent) ((Parent) p.getChildrenUnmodifiable().get(4)).getChildrenUnmodifiable().get(0);
+            ((Label) fbox.getChildrenUnmodifiable().get(0)).setText(infos[0] + "");
+            ((Label) fbox.getChildrenUnmodifiable().get(1)).setText(infos[1] + "");
+            Float prix = prixs.get(id);
+            if (prix == null) {
+                System.err.println("Prix non trouvé !!!");
+                return;
+            }
+            float total = infos[0] * (infos[1] / 12.0f) * prix;
+            ((Label) ((Parent) lbox.getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1)).setText(total + "");
+            ((Label) ((Parent) lbox.getChildrenUnmodifiable().get(1)).getChildrenUnmodifiable().get(1)).setText(infos[1] + "");
+
         }
     }
 
@@ -541,11 +601,6 @@ public class JavaFXGUI extends IHM {
         }
     }
 
-    @Override
-    public void choixMateriaux(String nom) {
-        //TODO ajouter les valeurs de materiaux au bon endroit
-        choixMateriaux();
-    }
 
     @Override
     public void creerProjet() {
