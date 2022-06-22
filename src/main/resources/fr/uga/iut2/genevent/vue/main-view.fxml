@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="640.0"
-      styleClass="mainContainer" stylesheets="@main.css" xmlns="http://javafx.com/javafx/16">
+
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="640.0" styleClass="mainContainer" stylesheets="@main.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="TOP_CENTER" text="Epsilon Manager"/>
+      <Label alignment="TOP_CENTER" text="Epsilon Manager" />
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#newProjetAction" prefWidth="151.0" text="Créer nouveau projet"
-                    textAlignment="CENTER"/>
-            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS"/>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openProjetAction"
-                    prefWidth="151.0" text="Ouvrir projet" textAlignment="CENTER"/>
+            <Button mnemonicParsing="false" onAction="#newProjetAction" prefHeight="36.0" prefWidth="162.0" text="Créer nouveau projet" textAlignment="CENTER" />
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openProjetAction" prefWidth="151.0" text="Ouvrir projet" textAlignment="CENTER" />
          </children>
          <VBox.margin>
-            <Insets left="20.0" right="20.0" top="100.0"/>
+            <Insets left="20.0" right="20.0" top="100.0" />
          </VBox.margin>
       </HBox>
-      <Button mnemonicParsing="false" prefWidth="151.0" text="Aide" textAlignment="CENTER"/>
+      <Button mnemonicParsing="false" prefWidth="151.0" text="Aide" textAlignment="CENTER" />
    </children>
 </VBox>
