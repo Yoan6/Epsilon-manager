@@ -2,6 +2,7 @@ package fr.uga.iut2.genevent.controleur;
 
 import fr.uga.iut2.genevent.modele.Inventaire;
 import fr.uga.iut2.genevent.modele.Location;
+import fr.uga.iut2.genevent.modele.Oeuvre;
 import fr.uga.iut2.genevent.vue.IHM;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
 
@@ -71,5 +72,27 @@ public class Controleur {
         } else {
             return new int[]{l.getQuantite(), l.getTemps()};
         }
+    }
+
+    public void choixPersonnel() {
+        this.ihm.choixPersonnel();
+    }
+
+    public void modifierPersonnel(String nom) {
+        this.current = nom;
+        this.ihm.choixPersonnel();
+    }
+
+    public void choixArtiste() {
+        this.ihm.choixArtiste();
+    }
+
+    public void modificationArtiste(String nom) {
+        this.current = nom;
+        this.ihm.modifierArtiste(genevent.getEvenements().get(nom));
+    }
+
+    public void addOeuvre(Oeuvre o) {
+        this.genevent.getEvenements().get(current).getOeuvres().add(o);
     }
 }

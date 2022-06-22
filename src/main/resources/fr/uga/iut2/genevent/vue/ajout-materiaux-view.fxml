@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="655.0" styleClass="mainContainer" stylesheets="@main.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER" />
     </top>
     <bottom>
-        <Button mnemonicParsing="false" text="Suivant" BorderPane.alignment="CENTER" />
+        <Button mnemonicParsing="false" onAction="#materiauxSuivant" text="Suivant" BorderPane.alignment="CENTER"/>
     </bottom>
     <center>
         <AnchorPane prefHeight="383.0" prefWidth="596.0" styleClass="secondContainer" BorderPane.alignment="CENTER">

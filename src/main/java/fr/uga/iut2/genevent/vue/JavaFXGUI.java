@@ -2,28 +2,30 @@ package fr.uga.iut2.genevent.vue;
 
 import fr.uga.iut2.genevent.controleur.Controleur;
 import fr.uga.iut2.genevent.modele.Location;
+import fr.uga.iut2.genevent.modele.Oeuvre;
 import fr.uga.iut2.genevent.modele.Projet;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 import java.util.Map;
 import java.util.Stack;
 import java.util.concurrent.CountDownLatch;
@@ -44,7 +46,6 @@ import java.util.concurrent.CountDownLatch;
  */
 public class JavaFXGUI extends IHM {
 
-    public static final SimpleDateFormat FORMAT_DATETIME = new SimpleDateFormat("dd/MM/yyyy/HH-mm");
     private final Controleur controleur;
     private final CountDownLatch eolBarrier;  // /!\ ne pas supprimer /!\ : suivi de la durée de vie de l'interface
 
@@ -61,9 +62,9 @@ public class JavaFXGUI extends IHM {
     @FXML
     private TextField projetNomTextField;
     @FXML
-    private TextField projetDateDebut;
+    private DatePicker projetDateDebut;
     @FXML
-    private TextField projetDateFin;
+    private DatePicker projetDateFin;
     @FXML
     private TextField projetLieu;
     @FXML
@@ -81,6 +82,14 @@ public class JavaFXGUI extends IHM {
     @FXML
     private GridPane projetsGridPane;
 
+
+    @FXML
+    private GridPane artistreGridPane;
+
+    @FXML
+    private TextField oeuvreTextField;
+    @FXML
+    private TextField artisteTextField;
     // Vue matériaux
 
     public JavaFXGUI(Controleur controleur) {
@@ -88,16 +97,9 @@ public class JavaFXGUI extends IHM {
         this.eolBarrier = new CountDownLatch(1);  // /!\ ne pas supprimer /!\
     }
 
-    private static boolean validateDateCoherenceTextField(TextField dateDebut, TextField dateFin) {
-        boolean isValid = false;
-        try {
-            Date debut = FORMAT_DATETIME.parse(dateDebut.getText());
-            Date fin = FORMAT_DATETIME.parse(dateFin.getText());
-            isValid = debut.compareTo(fin) <= 0;
-        } catch (ParseException e) {
-
-        }
-        markTextFieldErrorStatus(dateDebut, isValid);
+    private static boolean validateDateCoherenceTextField(DatePicker dateDebut, DatePicker dateFin) {
+        boolean isValid = dateDebut.getValue().isBefore(dateFin.getValue());
+        markTextFieldErrorStatus(dateDebut.getEditor(), isValid);
         return isValid;
     }
 
@@ -110,14 +112,9 @@ public class JavaFXGUI extends IHM {
 
     // menu principal  -----
 
-    private static boolean validateDateTextField(TextField textField) {
-        boolean isValid = false;
-        try {
-            FORMAT_DATETIME.parse(textField.getText());
-            isValid = true;
-        } catch (ParseException e) {
-        }
-        markTextFieldErrorStatus(textField, isValid);
+    private static boolean validateDateTextField(DatePicker picker) {
+        boolean isValid = picker.getValue() != null;
+        markTextFieldErrorStatus(picker.getEditor(), isValid);
         return isValid;
     }
 
@@ -145,11 +142,7 @@ public class JavaFXGUI extends IHM {
     private static void markTextFieldErrorStatus(TextField textField, boolean isValid) {
         ObservableList<Node> list = textField.getParent().getChildrenUnmodifiable();
         Node errorCheck = list.get(list.size() - 1);
-        if (isValid) {
-            errorCheck.setVisible(false);
-        } else {
-            errorCheck.setVisible(true);
-        }
+        errorCheck.setVisible(!isValid);
     }
 
     /**
@@ -186,19 +179,15 @@ public class JavaFXGUI extends IHM {
     private void createNewProjetAction() {
         if (validateTextFields()) {
             InfosProjet data;
-            try {
-                data = new InfosProjet(
-                        this.projetNomTextField.getText().strip(),
-                        FORMAT_DATETIME.parse(this.projetDateDebut.getText().strip()),
-                        FORMAT_DATETIME.parse(this.projetDateFin.getText().strip()),
-                        this.projetLieu.getText().strip(),
-                        Integer.parseInt(this.projetCapacite.getText().strip()),
-                        this.projetTheme.getText().strip(),
-                        Integer.parseInt(this.projetBudget.getText().strip())
-                );
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }
+            data = new InfosProjet(
+                    this.projetNomTextField.getText().strip(),
+                    this.projetDateDebut.getValue(),
+                    this.projetDateFin.getValue(),
+                    this.projetLieu.getText().strip(),
+                    Integer.parseInt(this.projetCapacite.getText().strip()),
+                    this.projetTheme.getText().strip(),
+                    Integer.parseInt(this.projetBudget.getText().strip())
+            );
             this.controleur.creerProjet(data);
             this.controleur.choixMateriaux();
         }
@@ -212,6 +201,16 @@ public class JavaFXGUI extends IHM {
     }
 
     //Vue matériaux
+
+    @FXML
+    private void materiauxSuivant() {
+        this.controleur.choixPersonnel();
+    }
+
+    @FXML
+    private void personnelSuivant() {
+        this.controleur.choixArtiste();
+    }
 
     @FXML
     private void onMatSub(ActionEvent e) {
@@ -432,10 +431,10 @@ public class JavaFXGUI extends IHM {
         isValid = validateNonEmptyTextField(this.projetNomTextField);
 
         isValid &= validateDateTextField(this.projetDateDebut);
-        isValid &= validateNonEmptyTextField(this.projetDateDebut);
+        isValid &= validateNonEmptyTextField(this.projetDateDebut.getEditor());
 
         isValid &= validateDateTextField(this.projetDateFin);
-        isValid &= validateNonEmptyTextField(this.projetDateFin);
+        isValid &= validateNonEmptyTextField(this.projetDateFin.getEditor());
 
         isValid &= validateDateCoherenceTextField(this.projetDateDebut, this.projetDateFin);
 
@@ -514,14 +513,14 @@ public class JavaFXGUI extends IHM {
                 GridPane.setColumnIndex(b, 1);
 
                 MenuItem modProj = new MenuItem("Modifier projet");
-                modProj.setOnAction((e) -> {
-                    controleur.modifierProjet(p.getNom());
-                });
+                modProj.setOnAction((e) -> controleur.modifierProjet(p.getNom()));
                 MenuItem modMate = new MenuItem("Matériaux");
-                modMate.setOnAction((e) -> {
-                    controleur.modifierMateriaux(p.getNom());
-                });
-                MenuButton mb = new MenuButton("Choisir page", null, modProj, modMate, new MenuItem("Personnel"), new MenuItem("Artiste / Oeuvre"));
+                modMate.setOnAction((e) -> controleur.modifierMateriaux(p.getNom()));
+                MenuItem modPers = new MenuItem("Personnel");
+                modPers.setOnAction((e) -> controleur.modifierPersonnel(p.getNom()));
+                MenuItem modArtiste = new MenuItem("Artiste / Oeuvre");
+                modArtiste.setOnAction((e) -> controleur.modificationArtiste(p.getNom()));
+                MenuButton mb = new MenuButton("Choisir page", null, modProj, modMate, modPers, modArtiste);
                 GridPane.setRowIndex(mb, i);
                 GridPane.setColumnIndex(mb, 2);
 
@@ -583,8 +582,8 @@ public class JavaFXGUI extends IHM {
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             projetNomTextField.setText(projet.getNom());
-            projetDateDebut.setText(FORMAT_DATETIME.format(projet.getDateDebut()));
-            projetDateFin.setText(FORMAT_DATETIME.format(projet.getDateFin()));
+            projetDateDebut.setValue(projet.getDateDebut());
+            projetDateFin.setValue(projet.getDateFin());
             projetLieu.setText(projet.getLieu());
             projetCapacite.setText(projet.getCapacite() + "");
             projetTheme.setText(projet.getTheme());
@@ -601,6 +600,95 @@ public class JavaFXGUI extends IHM {
         }
     }
 
+    @Override
+    public void choixPersonnel() {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("ajout-personnel-view.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+            filAriane.setText(calculFilAriane());
+
+            current.setTitle("Choisir les personnels");
+            current.setScene(newUserScene);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void choixArtiste() {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("ajouter-artiste-oeuvre.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+            filAriane.setText(calculFilAriane());
+
+            current.setTitle("Choisir les Artistes et oeuvres");
+            current.setScene(newUserScene);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void modifierArtiste(Projet projet) {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("ajouter-artiste-oeuvre.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            for (Oeuvre o : projet.getOeuvres()) {
+                ajouteOeuvre(o);
+            }
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+            filAriane.setText(calculFilAriane());
+
+
+            current.setTitle("Choisir les Artistes et oeuvres");
+            current.setScene(newUserScene);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void onAddOeuvre() {
+        Oeuvre o = new Oeuvre(oeuvreTextField.getText(), artisteTextField.getText());
+        this.controleur.addOeuvre(o);
+        ajouteOeuvre(o);
+    }
+
+    private void ajouteOeuvre(Oeuvre o) {
+        int cols = artistreGridPane.getColumnCount() - 3;
+        //moving down all
+        for (Node n : artistreGridPane.getChildren()) {
+            if (GridPane.getRowIndex(n) >= cols) {
+                artistreGridPane.getChildren().remove(n);
+                artistreGridPane.add(n, GridPane.getColumnIndex(n), GridPane.getRowIndex(n) + 1);
+            }
+        }
+        Label lab = new Label((cols + 1) + ". " + o.getNomArtiste() + " - " + o.getNom());
+        GridPane.setHgrow(lab, Priority.ALWAYS);
+        ImageView mod = new ImageView(JavaFXGUI.class.getResource("Modifier.png").toString());
+        mod.setFitHeight(23);
+        mod.setFitWidth(25);
+        GridPane.setHalignment(mod, HPos.CENTER);
+        GridPane.setValignment(mod, VPos.CENTER);
+        ImageView suppr = new ImageView(JavaFXGUI.class.getResource("Supprimer.png").toString());
+        suppr.setFitHeight(23);
+        suppr.setFitWidth(25);
+        GridPane.setHalignment(suppr, HPos.CENTER);
+        GridPane.setValignment(suppr, VPos.CENTER);
+        artistreGridPane.addRow(cols, lab, mod, suppr);
+    }
+
 
     @Override
     public void creerProjet() {
@@ -611,7 +699,24 @@ public class JavaFXGUI extends IHM {
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             filAriane.setText(calculFilAriane());
-
+            projetDateDebut.setDayCellFactory((cell) -> new DateCell() {
+                @Override
+                public void updateItem(LocalDate item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (projetDateFin.getValue() != null && item.isAfter(projetDateFin.getValue())) {
+                        setDisable(true);
+                    }
+                }
+            });
+            projetDateFin.setDayCellFactory((cell) -> new DateCell() {
+                @Override
+                public void updateItem(LocalDate item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (projetDateDebut.getValue() != null && item.isBefore(projetDateDebut.getValue())) {
+                        setDisable(true);
+                    }
+                }
+            });
             current.setTitle("Créer un Projet");
             current.setScene(newUserScene);
             //current.showAndWait();

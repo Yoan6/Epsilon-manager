@@ -1,9 +1,11 @@
 package fr.uga.iut2.genevent.modele;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 
 public class Projet implements Serializable {
@@ -12,9 +14,11 @@ public class Projet implements Serializable {
     private final Inventaire genevent;
 
     private final Map<String, Location> locations;
+
+    private final Set<Oeuvre> oeuvres;
     private String nom;
-    private Date dateDebut;
-    private Date dateFin;
+    private LocalDate dateDebut;
+    private LocalDate dateFin;
 
     private String lieu;
     private int capacite;
@@ -25,8 +29,8 @@ public class Projet implements Serializable {
     //     qui est équivalent à !(dateDebut > dateFin).
 
 
-    public Projet(Inventaire genevent, String nom, Date dateDebut, Date dateFin, String lieu, int capacite, String theme, int budget) {
-        assert !dateDebut.after(dateFin);
+    public Projet(Inventaire genevent, String nom, LocalDate dateDebut, LocalDate dateFin, String lieu, int capacite, String theme, int budget) {
+        assert !dateDebut.isAfter(dateFin);
         this.genevent = genevent;
         this.nom = nom;
         this.dateDebut = dateDebut;
@@ -36,9 +40,10 @@ public class Projet implements Serializable {
         this.theme = theme;
         this.budget = budget;
         this.locations = new HashMap<>();
+        this.oeuvres = new HashSet<>();
     }
 
-    public static Projet initialiseEvenement(Inventaire genevent, String nom, Date dateDebut, Date dateFin, String lieu, int capacite, String theme, int budget) {
+    public static Projet initialiseEvenement(Inventaire genevent, String nom, LocalDate dateDebut, LocalDate dateFin, String lieu, int capacite, String theme, int budget) {
         return new Projet(genevent, nom, dateDebut, dateFin, lieu, capacite, theme, budget);
     }
 
@@ -46,21 +51,21 @@ public class Projet implements Serializable {
         return this.nom;
     }
 
-    public Date getDateDebut() {
+    public LocalDate getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut) {
-        assert !dateDebut.after(this.dateFin);
+    public void setDateDebut(LocalDate dateDebut) {
+        assert !dateDebut.isAfter(this.dateFin);
         this.dateDebut = dateDebut;
     }
 
-    public Date getDateFin() {
+    public LocalDate getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
-        assert !this.dateDebut.after(dateFin);
+    public void setDateFin(LocalDate dateFin) {
+        assert !this.dateDebut.isAfter(dateFin);
         this.dateFin = dateFin;
     }
 
@@ -110,5 +115,9 @@ public class Projet implements Serializable {
 
     public void setBudget(int budget) {
         this.budget = budget;
+    }
+
+    public Set<Oeuvre> getOeuvres() {
+        return oeuvres;
     }
 }

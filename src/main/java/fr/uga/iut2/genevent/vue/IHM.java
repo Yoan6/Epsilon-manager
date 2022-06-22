@@ -2,8 +2,8 @@ package fr.uga.iut2.genevent.vue;
 
 import fr.uga.iut2.genevent.modele.Projet;
 
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 
 
 public abstract class IHM {
@@ -27,16 +27,22 @@ public abstract class IHM {
 
     public abstract void modifierProjet(Projet projet);
 
+    public abstract void choixPersonnel();
+
+    public abstract void choixArtiste();
+
+    public abstract void modifierArtiste(Projet projet);
+
     public static class InfosProjet {
         public final String nom;
-        public final Date dateDebut;
-        public final Date dateFin;
+        public final LocalDate dateDebut;
+        public final LocalDate dateFin;
         public final String lieu;
         public final int capacite;
         public final String theme;
         public final int budget;
 
-        public InfosProjet(String nom, Date dateDebut, Date dateFin, String lieu, int capacite, String theme, int budget) {
+        public InfosProjet(String nom, LocalDate dateDebut, LocalDate dateFin, String lieu, int capacite, String theme, int budget) {
             this.nom = nom;
             this.dateDebut = dateDebut;
             this.dateFin = dateFin;
