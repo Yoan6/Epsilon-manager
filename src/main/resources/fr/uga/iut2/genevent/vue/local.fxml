@@ -4,417 +4,417 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.Line?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity" prefHeight="500.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/11.0.14-internal">
-   <ScrollPane hbarPolicy="NEVER" prefHeight="500.0">
-      <VBox>
-         <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text=" Pavillon Cambon Capucines">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="30.0"/>
-                     </VBox.margin>
-                  </Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@local1.png" />
-                        </ImageView>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@local1_2.png" />
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Informations du local :">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin></Label>
-                              <Hyperlink text="Se rendre sur le site">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </Hyperlink>
-                              <Label text="Salles : 4 ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Prix : 3058€/jour">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin></Label>
-                              <Label text="Capacité : ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="800 personnes  ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Button mnemonicParsing="false" text="Choisir ce local">
-                                 <VBox.margin>
-                                    <Insets left="30.0" top="10.0" />
-                                 </VBox.margin></Button>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text=" Bal Rock">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets top="30.0" />
-                     </padding></Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@local2.png" />
-                        </ImageView>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@local2_2.png" />
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Informations du local :">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin></Label>
-                              <Hyperlink text="Se rendre sur le site">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </Hyperlink>
-                              <Label text="Salles : 1">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Prix : 1002€/jour">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin></Label>
-                              <Label text="Capacité : ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="1400 personnes  ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Button mnemonicParsing="false" text="Choisir ce local">
-                                 <VBox.margin>
-                                    <Insets left="30.0" top="10.0" />
-                                 </VBox.margin></Button>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text=" Espace vinci">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets top="30.0" />
-                     </padding></Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@local3.png" />
-                        </ImageView>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@local3_2.png" />
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Informations du local :">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin></Label>
-                              <Hyperlink text="Se rendre sur le site">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </Hyperlink>
-                              <Label text="Salles : 110 au choix">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Prix : 360€/jour">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin></Label>
-                              <Label text="Capacité : ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="50 personnes  ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Button mnemonicParsing="false" text="Choisir ce local">
-                                 <VBox.margin>
-                                    <Insets left="30.0" top="10.0" />
-                                 </VBox.margin></Button>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text=" Espace Saint martin">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets top="30.0" />
-                     </padding></Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@local4_2.png" />
-                        </ImageView>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@local4_.png" />
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Informations du local :">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin></Label>
-                              <Hyperlink text="Se rendre sur le site">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </Hyperlink>
-                              <Label text="Salles : 9 au choix">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Prix : 723€/jour">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin></Label>
-                              <Label text="Capacité : ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="350 personnes  ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Button mnemonicParsing="false" text="Choisir ce local">
-                                 <VBox.margin>
-                                    <Insets left="30.0" top="10.0" />
-                                 </VBox.margin></Button>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text=" Espace Clery">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets top="30.0" />
-                     </padding></Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@local_5.png" />
-                        </ImageView>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@local_5_2.png" />
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Informations du local :">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin></Label>
-                              <Hyperlink text="Se rendre sur le site">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </Hyperlink>
-                              <Label text="Salles : 20 au choix">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Prix : 900€">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin></Label>
-                              <Label text="Capacité : ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="200 personnes  ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Button mnemonicParsing="false" text="Choisir ce local">
-                                 <VBox.margin>
-                                    <Insets left="30.0" top="10.0" />
-                                 </VBox.margin></Button>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text=" Maison de l'amerique latine">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets top="30.0" />
-                     </padding></Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@Local_6_1.png" />
-                        </ImageView>
-                        <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@Local_6_2.png" />
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Informations du local :">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin></Label>
-                              <Hyperlink text="Se rendre sur le site">
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </Hyperlink>
-                              <Label text="Salles : 8">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Prix : 2341€">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin></Label>
-                              <Label text="Capacité : ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="200 personnes  ">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Button mnemonicParsing="false" text="Choisir ce local">
-                                 <VBox.margin>
-                                    <Insets left="30.0" top="10.0" />
-                                 </VBox.margin></Button>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </VBox>
-                     </children>
-                  </HBox>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-               </children>
-            </VBox>
-            <Line endX="685.0" startX="-100.0" />
-         </children>
-      </VBox>
-   </ScrollPane>
-   <HBox prefHeight="100.0" prefWidth="200.0">
-      <children>
-         <Button mnemonicParsing="false" onAction="#onBack" text="Retour">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1470.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <ScrollPane hbarPolicy="NEVER">
+        <VBox prefWidth="1000.0">
+            <children>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Label text=" Pavillon Cambon Capucines">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="30.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font></Label>
+                        <HBox prefHeight="180.0" prefWidth="915.0">
+                            <children>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@local1.png" />
+                                </ImageView>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@local1_2.png" />
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <GridPane prefWidth="600.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Hyperlink>
+                                        <Label text="Nombre de salles : 4" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Label text="Prix : 3058€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Label>
+                                        <Label text="Capacité : 800 personnes" GridPane.rowIndex="2" />
+                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Button>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="30.0" />
+                                    </HBox.margin>
+                                </GridPane>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Label text=" Bal Rock">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <padding>
+                                <Insets top="30.0" />
+                            </padding></Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@local2.png" />
+                                </ImageView>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@local2_2.png" />
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <GridPane prefWidth="600.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Hyperlink>
+                                        <Label text="Nombre de salles : 1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Label text="Prix : 1002€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Label>
+                                        <Label text="Capacité : 1400 personnes" GridPane.rowIndex="2" />
+                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Button>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="30.0" />
+                                    </HBox.margin>
+                                </GridPane>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Label text=" Espace vinci">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="30.0" />
+                            </padding>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font></Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@local3.png" />
+                                </ImageView>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@local3_2.png" />
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <GridPane prefWidth="600.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Hyperlink>
+                                        <Label text="Nombre de salles : 110 au choix" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Label text="Prix : 360€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Label>
+                                        <Label text="Capacité : 50 personnes" GridPane.rowIndex="2" />
+                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Button>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="30.0" />
+                                    </HBox.margin>
+                                </GridPane>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Label text=" Espace Saint martin">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="30.0" />
+                            </padding>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font></Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@local4_2.png" />
+                                </ImageView>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@local4_.png" />
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <GridPane prefWidth="600.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Hyperlink>
+                                        <Label text="Nombre de salles : 9 au choix" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Label text="Prix : 723€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Label>
+                                        <Label text="Capacité : 350 personnes" GridPane.rowIndex="2" />
+                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Button>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="30.0" />
+                                    </HBox.margin>
+                                </GridPane>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Label text=" Espace Clery">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="30.0" />
+                            </padding>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font></Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@local_5.png" />
+                                </ImageView>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@local_5_2.png" />
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <GridPane prefWidth="600.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Hyperlink>
+                                        <Label text="Nombre de Salles : 20 au choix" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Label text="Prix : 900€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Label>
+                                        <Label text="Capacité : 200 personnes" GridPane.rowIndex="2" />
+                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Button>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="30.0" />
+                                    </HBox.margin>
+                                </GridPane>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Label text=" Maison de l'amerique latine">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="30.0" />
+                            </padding>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font></Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@Local_6_1.png" />
+                                </ImageView>
+                                <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@Local_6_2.png" />
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <GridPane prefWidth="600.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Hyperlink>
+                                        <Label text="Nombre de salles : 8" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin></Label>
+                                        <Label text="Prix : 2341€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Label>
+                                        <Label text="Capacité : 200 personnes" GridPane.rowIndex="2" />
+                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets left="20.0" />
+                                            </GridPane.margin></Button>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="30.0" />
+                                    </HBox.margin>
+                                </GridPane>
+                            </children>
+                        </HBox>
 
-            <HBox.margin>
-               <Insets bottom="10.0" left="50.0" top="10.0" />
-            </HBox.margin>
-         </Button>
-         <Label text="Budget initial :">
-
-            <HBox.margin>
-               <Insets left="150.0" top="10.0" />
-            </HBox.margin>
-         </Label>
-         <Label text="Coût :">
-            <HBox.margin>
-               <Insets left="140.0" top="10.0" />
-            </HBox.margin>
-         </Label>
-         <Button mnemonicParsing="false" text="Valider">
-            <HBox.margin>
-               <Insets bottom="10.0" left="150.0" top="10.0" />
-            </HBox.margin>
-         </Button>
-      </children>
-   </HBox>
+                    </children>
+                </VBox>
+                <Line endX="685.0" startX="-100.0" />
+            </children>
+        </VBox>
+    </ScrollPane>
+    <GridPane minHeight="50.0" prefHeight="50.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Button mnemonicParsing="false" text="Retour" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" text="Valider" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label text="Budget :" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label text="Coût total :" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+        </children>
+        <VBox.margin>
+            <Insets top="5.0" />
+        </VBox.margin>
+    </GridPane>
 </VBox>
