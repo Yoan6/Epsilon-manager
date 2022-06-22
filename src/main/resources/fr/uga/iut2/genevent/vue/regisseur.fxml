@@ -6,33 +6,33 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="299.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <HBox prefHeight="411.0" prefWidth="800.0">
+        <HBox prefHeight="202.0" prefWidth="800.0">
             <children>
-                <Label text="Prix : 17,30€ /h">
+                <Label text="Philippe Gourdin">
                     <HBox.margin>
-                        <Insets left="30.0" top="183.0" />
+                        <Insets left="30.0" top="123.0" />
+                    </HBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+                </Label>
+                <Label prefHeight="22.0" prefWidth="82.0" text="Prix : 17,30€ /h">
+                    <HBox.margin>
+                        <Insets left="100.0" top="120.0" />
                     </HBox.margin>
                 </Label>
-                <Label prefHeight="22.0" prefWidth="198.0" text="Phillipe Gourdin">
+                <Line endY="250.0" rotate="180.0">
                     <HBox.margin>
-                        <Insets left="20.0" top="180.0" />
-                    </HBox.margin>
-                    <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                    </font>
-                </Label>
-                <Line endY="359.0" rotate="180.0">
-                    <HBox.margin>
-                        <Insets left="50.0" />
+                        <Insets left="170.0" />
                     </HBox.margin>
                 </Line>
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <Label prefHeight="16.0" prefWidth="71.0" text="Quantité">
+                        <Label prefHeight="16.0" prefWidth="71.0" text="Personnes">
                             <VBox.margin>
-                                <Insets left="20.0" top="125.0" />
+                                <Insets left="20.0" top="80.0" />
                             </VBox.margin>
                         </Label>
                         <Label prefHeight="16.0" prefWidth="54.0" text="Temps">
@@ -52,7 +52,7 @@
                                             <children>
                                                 <Button mnemonicParsing="false" text="-">
                                                     <VBox.margin>
-                                                        <Insets top="120.0" />
+                                                        <Insets top="75.0" />
                                                     </VBox.margin>
                                                 </Button>
                                                 <Button mnemonicParsing="false" text="-">
@@ -66,7 +66,7 @@
                                             <children>
                                                 <Label text="0">
                                                     <VBox.margin>
-                                                        <Insets top="125.0" />
+                                                        <Insets top="80.0" />
                                                     </VBox.margin>
                                                 </Label>
                                                 <Label text="0">
@@ -86,7 +86,7 @@
                                             <children>
                                                 <Button mnemonicParsing="false" text="+">
                                                     <VBox.margin>
-                                                        <Insets top="120.0" />
+                                                        <Insets top="75.0" />
                                                     </VBox.margin>
                                                 </Button>
                                                 <Button mnemonicParsing="false" text="+">
@@ -116,15 +116,15 @@
                                     <children>
                                         <Label text="Prix :">
                                             <HBox.margin>
-                                                <Insets top="125.0" />
+                                                <Insets top="80.0" />
                                             </HBox.margin></Label>
                                         <Label text="0">
                                             <HBox.margin>
-                                                <Insets left="25.0" top="125.0" />
+                                                <Insets left="25.0" top="80.0" />
                                             </HBox.margin></Label>
                                         <Label text="€">
                                             <HBox.margin>
-                                                <Insets left="5.0" top="125.0" />
+                                                <Insets left="5.0" top="80.0" />
                                             </HBox.margin>
                                         </Label>
                                     </children>
@@ -173,7 +173,7 @@
                 <Insets />
             </VBox.margin>
         </Line>
-        <HBox prefHeight="100.0" prefWidth="200.0">
+        <HBox prefHeight="38.0" prefWidth="800.0">
             <children>
                 <Button mnemonicParsing="false" text="Retour">
 
