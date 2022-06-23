@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
-            xmlns="http://javafx.com/javafx/11.0.14-internal">
+            xmlns="http://javafx.com/javafx/16">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
             <font>
@@ -30,7 +30,7 @@
                     </image>
                 </ImageView>
                 <Label fx:id="labelTitre" alignment="CENTER" layoutX="330.0" layoutY="4.0" prefHeight="16.0"
-                       prefWidth="101.0" text="Personnel " AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="369.0"
+                       prefWidth="101.0" text="Personnel :" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="369.0"
                        AnchorPane.topAnchor="4.0">
                     <font>
                         <Font size="17.0"/>
@@ -40,15 +40,17 @@
                        text="Créer nouveau projet &gt; Matériels &gt; Personnel &gt;"/>
                 <VBox layoutX="16.0" layoutY="50.0" prefHeight="300.0" prefWidth="600.0" spacing="15.0">
                     <children>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Agent de sécurité :">
+                        <Button onAction="#onAgentSecuriteAction" prefHeight="26.0" prefWidth="350.0"
+                                text="Agent de sécurité :">
                             <VBox.margin>
                                 <Insets top="10.0"/>
                             </VBox.margin>
                         </Button>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Guide :"/>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Régisseur :"/>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Personnel acceuil :"/>
-                        <Button prefHeight="26.0" prefWidth="350.0" text="Cuisinier :"/>
+                        <Button onAction="#onGuideAction" prefHeight="26.0" prefWidth="350.0" text="Guide :"/>
+                        <Button onAction="#onRegisseurAction" prefHeight="26.0" prefWidth="350.0" text="Régisseur :"/>
+                        <Button onAction="#onAccueilAction" prefHeight="26.0" prefWidth="350.0"
+                                text="Personnel acceuil :"/>
+                        <Button onAction="#onCuisinierAction" prefHeight="26.0" prefWidth="350.0" text="Cuisinier :"/>
                         <Label prefHeight="54.0" prefWidth="350.0" text="Budget : 100 000 € Coût total : 45 153 €"/>
 
                     </children>

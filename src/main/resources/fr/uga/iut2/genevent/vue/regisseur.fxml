@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="299.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="299.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16">
     <children>
         <HBox prefHeight="202.0" prefWidth="800.0">
             <children>
@@ -174,10 +175,10 @@
         </Line>
         <HBox prefHeight="38.0" prefWidth="800.0">
             <children>
-                <Button mnemonicParsing="false" text="Retour">
+                <Button mnemonicParsing="false" onAction="#onBack" text="Retour">
 
                     <HBox.margin>
-                        <Insets left="50.0" top="10.0" />
+                        <Insets left="50.0" top="10.0"/>
                     </HBox.margin>
                 </Button>
                 <Label text="Budget initial :">

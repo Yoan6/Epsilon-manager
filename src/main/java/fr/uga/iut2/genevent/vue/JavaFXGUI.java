@@ -19,7 +19,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -92,6 +91,10 @@ public class JavaFXGUI extends IHM {
     @FXML
     private TextField artisteTextField;
     // Vue matériaux
+    @FXML
+    private Label budgetLabel;
+    @FXML
+    private Label coutLabel;
 
     public JavaFXGUI(Controleur controleur) {
         this.controleur = controleur;
@@ -223,20 +226,34 @@ public class JavaFXGUI extends IHM {
         changeLabel((Node) e.getSource(), true);
     }
 
+    private static Node getNodeAt(GridPane gp, Integer col, Integer row) {
+        col = col == null ? 0 : col;
+        row = row == null ? 0 : row;
+        for (Node n : gp.getChildrenUnmodifiable()) {
+            int rowI = GridPane.getRowIndex(n) == null ? 0 : GridPane.getRowIndex(n);
+            int colI = GridPane.getColumnIndex(n) == null ? 0 : GridPane.getColumnIndex(n);
+            if (rowI == row && colI == col) {
+                return n;
+            }
+        }
+        return null;
+    }
+
+    //Table des prix de tous les prix des matériaux (ou autres)
+    private final Map<String, Float> prixs = Map.ofEntries(Map.entry("table1.JPG", 8.20f), Map.entry("table2.JPG", 10.50f),
+            Map.entry("table3.JPG", 5.70f), Map.entry("1.1.JPG", 3.01f), Map.entry("1.2.JPG", 2.50f), Map.entry("1.3.JPG", 2.55f), Map.entry("support1.JPG", 12.0f), Map.entry("support2.JPG", 1.12f), Map.entry("support3.JPG", 3.99f), Map.entry("tablette.JPG", 7.80f), Map.entry("tele.JPG", 33.50f), Map.entry("projo.JPG", 23.90f), Map.entry("lumiere1.JPG", 7.20f), Map.entry("lumiere2.JPG", 3.80f), Map.entry("lumiere3.JPG", 1.95f), Map.entry("ecouteur.JPG", 63.20f), Map.entry("camera.JPG", 39.99f), Map.entry("enceinte.JPG", 14.90f));
+
     @FXML
     private void onMatValider(ActionEvent e) {
-        Button b = (Button) e.getSource();
-        Parent p1 = b.getParent().getParent();
-        ObservableList<Node> childrenUnmodifiable = p1.getChildrenUnmodifiable();
+        ObservableList<Node> childrenUnmodifiable = ((Parent) e.getSource()).getScene().getRoot().getChildrenUnmodifiable();
         for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
             Parent p = (Parent) childrenUnmodifiable.get(i);
             ImageView iv = (ImageView) p.getChildrenUnmodifiable().get(0);
             String[] parts = iv.getImage().getUrl().split("/");
             String id = parts[parts.length - 1];
-            Parent fbox = (Parent) ((Parent) ((Parent) ((Parent) p.getChildrenUnmodifiable().get(3)).getChildrenUnmodifiable().get(0)).
-                    getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1);
-            int qt = Integer.parseInt(((Label) fbox.getChildrenUnmodifiable().get(0)).getText());
-            int temps = Integer.parseInt(((Label) fbox.getChildrenUnmodifiable().get(1)).getText());
+            GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(2);
+            int qt = Integer.parseInt(((Label) getNodeAt(fbox, 2, 0)).getText());
+            int temps = Integer.parseInt(((Label) getNodeAt(fbox, 2, 1)).getText());
             if (qt != 0 && temps != 0) {
                 Location l = new Location(id, qt, temps);
                 this.controleur.addLocation(l);
@@ -247,16 +264,10 @@ public class JavaFXGUI extends IHM {
         onBack();
     }
 
-    //Table des prix de tous les prix des matériaux (ou autres)
-    private final Map<String, Float> prixs = Map.ofEntries(Map.entry("table1.JPG", 8.20f), Map.entry("table2.JPG", 10.50f),
-            Map.entry("table3.JPG", 5.70f), Map.entry("1.1.JPG", 3.01f), Map.entry("1.2.JPG", 2.50f), Map.entry("1.3.JPG", 2.55f), Map.entry("support1.JPG", 12.0f), Map.entry("support2.JPG", 1.12f), Map.entry("support3.JPG", 3.99f), Map.entry("tablette.JPG", 7.80f), Map.entry("tele.JPG", 33.50f), Map.entry("projo.JPG", 23.90f), Map.entry("lumiere1.JPG", 7.20f), Map.entry("lumiere2.JPG", 3.80f), Map.entry("lumiere3.JPG", 1.95f), Map.entry("ecouteur.JPG", 63.20f), Map.entry("camera.JPG", 39.99f), Map.entry("enceinte.JPG", 14.90f));
-
-
     private void changeLabel(Node b, boolean increment) {
-        Parent p1 = b.getParent();
-        boolean isTop = p1.getChildrenUnmodifiable().get(0) == b;
-        VBox labels = (VBox) p1.getParent().getChildrenUnmodifiable().get(1);
-        Label l = (Label) labels.getChildren().get(isTop ? 0 : 1);
+        GridPane p1 = (GridPane) b.getParent();
+        boolean isTop = GridPane.getRowIndex(b) == null || GridPane.getRowIndex(b) == 0;
+        Label l = (Label) getNodeAt(p1, 2, GridPane.getRowIndex(b));
         int p;
         if (isTop) {
             p = Integer.parseInt(l.getText()) + (increment ? 1 : -1);
@@ -268,24 +279,29 @@ public class JavaFXGUI extends IHM {
         }
         l.setText(p + "");
         //Calcul du prix
-        ImageView iv = (ImageView) p1.getParent().getParent().getParent().getParent().getChildrenUnmodifiable().get(0);
+        Label qt = (Label) getNodeAt(p1, 2, 0);
+        Label tps = (Label) getNodeAt(p1, 2, 1);
+
+        ImageView iv = (ImageView) p1.getParent().getChildrenUnmodifiable().get(0);
         String[] parts = iv.getImage().getUrl().split("/");
         String id = parts[parts.length - 1];
-        int quantite = Integer.parseInt(((Label) labels.getChildren().get(0)).getText());
-        int temps = Integer.parseInt(((Label) (labels.getChildren().get(1))).getText());
+        int quantite = Integer.parseInt(qt.getText());
+        int temps = Integer.parseInt(tps.getText());
         Float prix = prixs.get(id);
         if (prix == null) {
             System.err.println("Prix non trouvé !!!");
             return;
         }
         float total = quantite * (temps / 12.0f) * prix;
-        Label lprix = (Label) ((Parent) ((Parent) ((Parent) p1.getParent().getParent().getParent().getParent().getChildrenUnmodifiable().
-                get(4)).getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1);
-        lprix.setText(String.valueOf(total));
-        Label ltemps = (Label) ((Parent) ((Parent) ((Parent) p1.getParent().getParent().getParent().getParent().getChildrenUnmodifiable().
-                get(4)).getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1)).getChildrenUnmodifiable().get(1);
-        ltemps.setText(((Label) labels.getChildren().get(1)).getText());
+        total = Math.round(total * 100.0f) / 100.0f;
+        Label lprix = (Label) getNodeAt(p1, 4, 0);
+        Label ltemps = (Label) getNodeAt(p1, 4, 1);
+        lprix.setText("Prix : " + total + "€");
+        ltemps.setText("Temps : " + tps.getText() + "H");
 
+        // Chargement budget
+        budgetLabel.setText("Budget : " + this.controleur.getBudget());
+        coutLabel.setText("Coût total : " + getCoutTotal(b.getScene().getRoot()));
     }
 
     @FXML
@@ -315,6 +331,7 @@ public class JavaFXGUI extends IHM {
             Scene newUserScene = new Scene(newUserViewLoader.load());
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
+            chargeMateriaux(newUserScene.getRoot());
 
             current.setTitle("Ajout de Éclairages");
             current.setScene(newUserScene);
@@ -409,22 +426,83 @@ public class JavaFXGUI extends IHM {
             if (infos == null) {
                 continue;
             }
-            Parent fbox = (Parent) ((Parent) ((Parent) ((Parent) p.getChildrenUnmodifiable().get(3)).getChildrenUnmodifiable().get(0)).
-                    getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1);
-            Parent lbox = (Parent) ((Parent) p.getChildrenUnmodifiable().get(4)).getChildrenUnmodifiable().get(0);
-            ((Label) fbox.getChildrenUnmodifiable().get(0)).setText(infos[0] + "");
-            ((Label) fbox.getChildrenUnmodifiable().get(1)).setText(infos[1] + "");
+
+            GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(2);
+            Label qt = ((Label) getNodeAt(fbox, 2, 0));
+            Label temps = ((Label) getNodeAt(fbox, 2, 1));
+            qt.setText(infos[0] + "");
+            temps.setText(infos[1] + "");
             Float prix = prixs.get(id);
             if (prix == null) {
                 System.err.println("Prix non trouvé !!!");
                 return;
             }
             float total = infos[0] * (infos[1] / 12.0f) * prix;
-            ((Label) ((Parent) lbox.getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1)).setText(total + "");
-            ((Label) ((Parent) lbox.getChildrenUnmodifiable().get(1)).getChildrenUnmodifiable().get(1)).setText(infos[1] + "");
+            total = Math.round(total * 100.0f) / 100.0f;
+            Label lprix = (Label) getNodeAt(fbox, 4, 0);
+            Label ltemps = (Label) getNodeAt(fbox, 4, 1);
+            lprix.setText("Prix : " + total + "€");
+            ltemps.setText("Temps : " + infos[1] + "H");
+        }
+        // Chargement budget
+        budgetLabel.setText("Budget : " + this.controleur.getBudget());
+        coutLabel.setText("Coût total : " + getCoutTotal(root));
+    }
 
+    private String getCoutTotal(Parent root) {
+        double total = 0;
+        for (int i = 0, size = root.getChildrenUnmodifiable().size(); i < size - 1; i += 2) {
+            Parent p = (Parent) root.getChildrenUnmodifiable().get(i);
+
+            GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(2);
+            Label lprix = (Label) getNodeAt(fbox, 4, 0);
+            total += Double.parseDouble(lprix.getText().substring(7, lprix.getText().length() - 1));
+        }
+        return String.valueOf(total);
+    }
+
+    // Vue personnel
+    @FXML
+    private void onAgentSecuriteAction() {
+        openPage("agentsecurite.fxml", "Ajout d'agent de securité");
+    }
+
+    @FXML
+    private void onGuideAction() {
+        openPage("guide.fxml", "Ajout de guide");
+    }
+
+    @FXML
+    private void onRegisseurAction() {
+        openPage("regisseur.fxml", "Ajout de régisseur");
+    }
+
+    @FXML
+    private void onAccueilAction() {
+        openPage("acceuil.fxml", "Ajout de personnel d'accueil");
+    }
+
+    @FXML
+    private void onCuisinierAction() {
+        openPage("cuisinier.fxml", "Ajout de cuisinier");
+    }
+
+    private void openPage(String fileName, String title) {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource(fileName));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+
+            current.setTitle(title);
+            current.setScene(newUserScene);
+            //current.showAndWait();
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
         }
     }
+
 
     private boolean validateTextFields() {
         boolean isValid;

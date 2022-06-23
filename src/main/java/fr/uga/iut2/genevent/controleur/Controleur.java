@@ -99,4 +99,8 @@ public class Controleur {
     public void removeOeuvre(Oeuvre o) {
         this.genevent.getEvenements().get(current).getOeuvres().remove(o);
     }
+
+    public int getBudget() {
+        return this.genevent.getEvenements().get(current).getBudget();
+    }
 }
