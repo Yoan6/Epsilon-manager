@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="550.0" maxWidth="1000.0" minHeight="550.0" minWidth="1000.0"
             prefHeight="550.0" prefWidth="1000.0" styleClass="mainContainer" stylesheets="@main.css"
-            xmlns="http://javafx.com/javafx/16">
+            xmlns="http://javafx.com/javafx/11.0.14-internal">
    <top>
       <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -71,8 +71,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
          </rowConstraints>
          <children>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" text="Quitter" GridPane.halignment="CENTER"
-                    GridPane.valignment="CENTER"/>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onQuitterAction" text="Quitter"
+                    GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
             <Button alignment="CENTER" mnemonicParsing="false" text="Suivant" GridPane.columnIndex="1"
                     GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
          </children>

@@ -47,7 +47,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Label text="Date de début                            Date de fin :" />
+                  <Label text="Date de début :                   Date de fin :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
                         <DatePicker fx:id="projetDateDebut" prefHeight="26.0" prefWidth="175.0"
@@ -68,7 +68,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Label text="Lieu (région) :" />
+                  <Label text="Lieu :"/>
                   <HBox prefHeight="30.0" prefWidth="524.0">
                      <children>
                         <TextField fx:id="projetLieu" prefHeight="26.0" prefWidth="355.0" promptText="ex : Bretagne" />

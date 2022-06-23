@@ -17,8 +17,9 @@
                                 <Insets bottom="5.0" top="30.0"/>
                             </VBox.margin>
                             <font>
-                                <Font name="System Bold" size="16.0" />
-                            </font></Label>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Label>
                         <HBox prefHeight="180.0" prefWidth="915.0">
                             <children>
                                 <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
@@ -32,8 +33,12 @@
                                 </ImageView>
                                 <GridPane prefWidth="600.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0"
+                                                           prefWidth="172.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0"
+                                                           prefWidth="157.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0"
+                                                           prefWidth="87.0"/>
                                     </columnConstraints>
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -41,28 +46,44 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site"
+                                                   GridPane.columnIndex="1" GridPane.halignment="LEFT"
+                                                   GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Hyperlink>
-                                        <Label text="Nombre de salles : 4" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Hyperlink>
+                                        <Label text="Nombre de salles : 4" GridPane.halignment="LEFT"
+                                               GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Label text="Prix : 3058€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Prix : 3058€/jour" GridPane.columnIndex="1"
+                                               GridPane.halignment="LEFT" GridPane.rowIndex="1"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Label>
-                                        <Label text="Capacité : 800 personnes" GridPane.rowIndex="2" />
-                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Capacité : 800 personnes" GridPane.rowIndex="2"/>
+                                        <Button mnemonicParsing="false" onAction="#onLocalClick" text="Choisir ce local"
                                                 GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets left="20.0"/>
                                             </GridPane.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0"
+                                                text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font size="10.0"/>
+                                            </font>
                                         </Button>
                                     </children>
                                     <HBox.margin>
@@ -77,14 +98,15 @@
                     <children>
                         <Label text=" Bal Rock">
                             <VBox.margin>
-                                <Insets bottom="5.0" top="5.0" />
+                                <Insets bottom="5.0" top="5.0"/>
                             </VBox.margin>
                             <font>
-                                <Font name="System Bold" size="16.0" />
+                                <Font name="System Bold" size="16.0"/>
                             </font>
                             <padding>
-                                <Insets top="30.0" />
-                            </padding></Label>
+                                <Insets top="30.0"/>
+                            </padding>
+                        </Label>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
                                 <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
@@ -98,8 +120,12 @@
                                 </ImageView>
                                 <GridPane prefWidth="600.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0"
+                                                           prefWidth="172.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0"
+                                                           prefWidth="157.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0"
+                                                           prefWidth="87.0"/>
                                     </columnConstraints>
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -107,28 +133,44 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site"
+                                                   GridPane.columnIndex="1" GridPane.halignment="LEFT"
+                                                   GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Hyperlink>
-                                        <Label text="Nombre de salles : 1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Hyperlink>
+                                        <Label text="Nombre de salles : 4" GridPane.halignment="LEFT"
+                                               GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Label text="Prix : 1002€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Prix : 633€/jour" GridPane.columnIndex="1"
+                                               GridPane.halignment="LEFT" GridPane.rowIndex="1"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Label>
-                                        <Label text="Capacité : 1400 personnes" GridPane.rowIndex="2" />
-                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Capacité : 800 personnes" GridPane.rowIndex="2"/>
+                                        <Button mnemonicParsing="false" onAction="#onLocalClick" text="Choisir ce local"
                                                 GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets left="20.0"/>
                                             </GridPane.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0"
+                                                text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font size="10.0"/>
+                                            </font>
                                         </Button>
                                     </children>
                                     <HBox.margin>
@@ -143,14 +185,15 @@
                     <children>
                         <Label text=" Espace vinci">
                             <VBox.margin>
-                                <Insets bottom="5.0" top="5.0" />
+                                <Insets bottom="5.0" top="5.0"/>
                             </VBox.margin>
                             <padding>
-                                <Insets top="30.0" />
+                                <Insets top="30.0"/>
                             </padding>
                             <font>
-                                <Font name="System Bold" size="16.0" />
-                            </font></Label>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Label>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
                                 <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
@@ -164,8 +207,12 @@
                                 </ImageView>
                                 <GridPane prefWidth="600.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0"
+                                                           prefWidth="172.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0"
+                                                           prefWidth="157.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0"
+                                                           prefWidth="87.0"/>
                                     </columnConstraints>
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -173,28 +220,44 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site"
+                                                   GridPane.columnIndex="1" GridPane.halignment="LEFT"
+                                                   GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Hyperlink>
-                                        <Label text="Nombre de salles : 110 au choix" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Hyperlink>
+                                        <Label text="Nombre de salles : 4" GridPane.halignment="LEFT"
+                                               GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Label text="Prix : 360€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Prix : 300€/jour" GridPane.columnIndex="1"
+                                               GridPane.halignment="LEFT" GridPane.rowIndex="1"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Label>
-                                        <Label text="Capacité : 50 personnes" GridPane.rowIndex="2" />
-                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Capacité : 800 personnes" GridPane.rowIndex="2"/>
+                                        <Button mnemonicParsing="false" onAction="#onLocalClick" text="Choisir ce local"
                                                 GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets left="20.0"/>
                                             </GridPane.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0"
+                                                text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font size="10.0"/>
+                                            </font>
                                         </Button>
                                     </children>
                                     <HBox.margin>
@@ -209,14 +272,15 @@
                     <children>
                         <Label text=" Espace Saint martin">
                             <VBox.margin>
-                                <Insets bottom="5.0" top="5.0" />
+                                <Insets bottom="5.0" top="5.0"/>
                             </VBox.margin>
                             <padding>
-                                <Insets top="30.0" />
+                                <Insets top="30.0"/>
                             </padding>
                             <font>
-                                <Font name="System Bold" size="16.0" />
-                            </font></Label>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Label>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
                                 <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
@@ -230,8 +294,12 @@
                                 </ImageView>
                                 <GridPane prefWidth="600.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0"
+                                                           prefWidth="172.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0"
+                                                           prefWidth="157.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0"
+                                                           prefWidth="87.0"/>
                                     </columnConstraints>
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -239,28 +307,44 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site"
+                                                   GridPane.columnIndex="1" GridPane.halignment="LEFT"
+                                                   GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Hyperlink>
-                                        <Label text="Nombre de salles : 9 au choix" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Hyperlink>
+                                        <Label text="Nombre de salles : 4" GridPane.halignment="LEFT"
+                                               GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Label text="Prix : 723€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Prix : 758€/jour" GridPane.columnIndex="1"
+                                               GridPane.halignment="LEFT" GridPane.rowIndex="1"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Label>
-                                        <Label text="Capacité : 350 personnes" GridPane.rowIndex="2" />
-                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Capacité : 800 personnes" GridPane.rowIndex="2"/>
+                                        <Button mnemonicParsing="false" onAction="#onLocalClick" text="Choisir ce local"
                                                 GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets left="20.0"/>
                                             </GridPane.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0"
+                                                text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font size="10.0"/>
+                                            </font>
                                         </Button>
                                     </children>
                                     <HBox.margin>
@@ -275,14 +359,15 @@
                     <children>
                         <Label text=" Espace Clery">
                             <VBox.margin>
-                                <Insets bottom="5.0" top="5.0" />
+                                <Insets bottom="5.0" top="5.0"/>
                             </VBox.margin>
                             <padding>
-                                <Insets top="30.0" />
+                                <Insets top="30.0"/>
                             </padding>
                             <font>
-                                <Font name="System Bold" size="16.0" />
-                            </font></Label>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Label>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
                                 <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
@@ -296,8 +381,12 @@
                                 </ImageView>
                                 <GridPane prefWidth="600.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0"
+                                                           prefWidth="172.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0"
+                                                           prefWidth="157.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0"
+                                                           prefWidth="87.0"/>
                                     </columnConstraints>
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -305,28 +394,44 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site"
+                                                   GridPane.columnIndex="1" GridPane.halignment="LEFT"
+                                                   GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Hyperlink>
-                                        <Label text="Nombre de Salles : 20 au choix" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Hyperlink>
+                                        <Label text="Nombre de salles : 4" GridPane.halignment="LEFT"
+                                               GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Label text="Prix : 900€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Prix : 900€/jour" GridPane.columnIndex="1"
+                                               GridPane.halignment="LEFT" GridPane.rowIndex="1"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Label>
-                                        <Label text="Capacité : 200 personnes" GridPane.rowIndex="2" />
-                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Capacité : 800 personnes" GridPane.rowIndex="2"/>
+                                        <Button mnemonicParsing="false" onAction="#onLocalClick" text="Choisir ce local"
                                                 GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets left="20.0"/>
                                             </GridPane.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0"
+                                                text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font size="10.0"/>
+                                            </font>
                                         </Button>
                                     </children>
                                     <HBox.margin>
@@ -341,14 +446,15 @@
                     <children>
                         <Label text=" Maison de l'amerique latine">
                             <VBox.margin>
-                                <Insets bottom="5.0" top="5.0" />
+                                <Insets bottom="5.0" top="5.0"/>
                             </VBox.margin>
                             <padding>
-                                <Insets top="30.0" />
+                                <Insets top="30.0"/>
                             </padding>
                             <font>
-                                <Font name="System Bold" size="16.0" />
-                            </font></Label>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Label>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
                                 <ImageView fitHeight="180.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
@@ -362,8 +468,12 @@
                                 </ImageView>
                                 <GridPane prefWidth="600.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="174.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0" prefWidth="234.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0"
+                                                           prefWidth="172.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="0.0"
+                                                           prefWidth="157.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0"
+                                                           prefWidth="87.0"/>
                                     </columnConstraints>
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -371,28 +481,44 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Label text="Informations du local :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                        <Label text="Informations du local :" GridPane.halignment="LEFT"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site"
+                                                   GridPane.columnIndex="1" GridPane.halignment="LEFT"
+                                                   GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Hyperlink>
-                                        <Label text="Nombre de salles : 8" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Hyperlink>
+                                        <Label text="Nombre de salles : 4" GridPane.halignment="LEFT"
+                                               GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
-                                            </GridPane.margin></Label>
-                                        <Label text="Prix : 2341€/jour" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                <Insets/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Prix : 2341€/jour" GridPane.columnIndex="1"
+                                               GridPane.halignment="LEFT" GridPane.rowIndex="1"
+                                               GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Label>
-                                        <Label text="Capacité : 200 personnes" GridPane.rowIndex="2" />
-                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Capacité : 800 personnes" GridPane.rowIndex="2"/>
+                                        <Button mnemonicParsing="false" onAction="#onLocalClick" text="Choisir ce local"
                                                 GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets left="20.0"/>
                                             </GridPane.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0"
+                                                text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font size="10.0"/>
+                                            </font>
                                         </Button>
                                     </children>
                                     <HBox.margin>

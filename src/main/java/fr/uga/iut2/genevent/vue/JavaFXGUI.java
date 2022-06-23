@@ -556,6 +556,16 @@ public class JavaFXGUI extends IHM {
     }
 
     @FXML
+    private void onOuiAction() {
+        openPage("main-view.fxml", "accueil");
+    }
+
+    @FXML
+    private void onQuitterAction() {
+        openPage("fermer-projet-view.fxml", "fermer le projet");
+    }
+
+    @FXML
     private void onGuideAction() {
         openPage("guide.fxml", "Ajout de guide");
     }

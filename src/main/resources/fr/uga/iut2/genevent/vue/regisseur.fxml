@@ -3,201 +3,119 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity" prefHeight="299.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16">
+      minWidth="-Infinity" prefHeight="150.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal">
     <children>
-        <HBox prefHeight="202.0" prefWidth="800.0">
+        <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                <Label prefHeight="15.0" prefWidth="145.0" text="Philippe Gourdin">
+                <Label prefHeight="93.0" prefWidth="222.0"
+                       text="Epsilon propose une societe de regisseurs étant effective en   France metropolitaine"
+                       wrapText="true">
                     <HBox.margin>
-                        <Insets left="30.0" top="123.0"/>
-                    </HBox.margin>
-                    <font>
-                        <Font name="System Bold Italic" size="12.0"/>
-                    </font>
-                </Label>
-                <Label prefHeight="22.0" prefWidth="125.0" text="Prix : 17,30€ /h">
-                    <HBox.margin>
-                        <Insets left="100.0" top="120.0"/>
+                        <Insets left="10.0" right="20.0" top="10.0"/>
                     </HBox.margin>
                 </Label>
-                <Line endY="250.0" rotate="180.0">
+                <Label prefHeight="16.0" prefWidth="124.0" text="Prix : 17.30€ / h">
                     <HBox.margin>
-                        <Insets left="170.0" />
+                        <Insets left="20.0" right="50.0" top="45.0"/>
                     </HBox.margin>
-                </Line>
-                <VBox prefHeight="200.0" prefWidth="100.0">
+                </Label>
+                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="84.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="26.0"/>
+                        <ColumnConstraints hgrow="ALWAYS" maxWidth="80.0" minWidth="10.0" prefWidth="80.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="47.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="138.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
                     <children>
-                        <Label prefHeight="16.0" prefWidth="71.0" text="Personnes">
-                            <VBox.margin>
-                                <Insets left="20.0" top="80.0" />
-                            </VBox.margin>
+                        <Label prefHeight="17.0" prefWidth="67.0" text="Quantité :">
+                            <GridPane.margin>
+                                <Insets left="5.0"/>
+                            </GridPane.margin>
                         </Label>
-                        <Label prefHeight="16.0" prefWidth="54.0" text="Temps">
-                            <VBox.margin>
-                                <Insets left="20.0" top="100.0" />
-                            </VBox.margin>
+                        <Label text="Temps :" GridPane.rowIndex="1">
+                            <padding>
+                                <Insets left="5.0"/>
+                            </padding>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#onMatSub" text="-" GridPane.columnIndex="1">
+                            <GridPane.margin>
+                                <Insets top="1.0"/>
+                            </GridPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onMatAdd" text="+" GridPane.columnIndex="3"
+                                GridPane.valignment="CENTER"/>
+                        <Button mnemonicParsing="false" onAction="#onMatSub" text="-" GridPane.columnIndex="1"
+                                GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets top="1.0"/>
+                            </GridPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onMatAdd" text="+" GridPane.columnIndex="3"
+                                GridPane.rowIndex="1"/>
+                        <Label styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER"
+                               GridPane.valignment="CENTER">
+                            <opaqueInsets>
+                                <Insets top="1.0"/>
+                            </opaqueInsets>
+                        </Label>
+                        <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2"
+                               GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                        </Label>
+                        <Label text="Temps : 12H" GridPane.columnIndex="4" GridPane.rowIndex="1"
+                               GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                        </Label>
+                        <Label text="Prix : 0€" GridPane.columnIndex="4" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
                         </Label>
                     </children>
-                </VBox>
-                <VBox prefHeight="200.0" prefWidth="100.0">
-                    <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                            <children>
-                                <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="0.0">
-                                    <children>
-                                        <VBox prefHeight="200.0" prefWidth="100.0">
-                                            <children>
-                                                <Button mnemonicParsing="false" text="-">
-                                                    <VBox.margin>
-                                                        <Insets top="75.0" />
-                                                    </VBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" text="-">
-                                                    <VBox.margin>
-                                                        <Insets top="95.0" />
-                                                    </VBox.margin>
-                                                </Button>
-                                            </children>
-                                        </VBox>
-                                        <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0">
-                                            <children>
-                                                <Label text="0">
-                                                    <VBox.margin>
-                                                        <Insets top="80.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label text="0">
-                                                    <padding>
-                                                        <Insets top="25.0" />
-                                                    </padding>
-                                                    <VBox.margin>
-                                                        <Insets top="78.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                            </children>
-                                            <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                            </HBox.margin>
-                                        </VBox>
-                                        <VBox prefHeight="200.0" prefWidth="100.0">
-                                            <children>
-                                                <Button mnemonicParsing="false" text="+">
-                                                    <VBox.margin>
-                                                        <Insets top="75.0" />
-                                                    </VBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" text="+">
-                                                    <VBox.margin>
-                                                        <Insets top="95.0" />
-                                                    </VBox.margin>
-                                                </Button>
-                                            </children>
-                                            <HBox.margin>
-                                                <Insets right="30.0" />
-                                            </HBox.margin>
-                                        </VBox>
-                                    </children>
-                                    <HBox.margin>
-                                        <Insets right="-20.0" />
-                                    </HBox.margin>
-                                </HBox>
-                            </children>
-                        </HBox>
-                    </children>
-                </VBox>
-                <HBox prefHeight="100.0" prefWidth="100.0">
-                    <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                            <children>
-                                <HBox prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                        <Label text="Prix :">
-                                            <HBox.margin>
-                                                <Insets top="80.0" />
-                                            </HBox.margin></Label>
-                                        <Label text="0">
-                                            <HBox.margin>
-                                                <Insets left="25.0" top="80.0" />
-                                            </HBox.margin></Label>
-                                        <Label text="€">
-                                            <HBox.margin>
-                                                <Insets left="5.0" top="80.0" />
-                                            </HBox.margin>
-                                        </Label>
-                                    </children>
-                                </HBox>
-                                <HBox prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                        <Label text="Temps :">
-                                            <HBox.margin>
-                                                <Insets top="100.0" />
-                                            </HBox.margin></Label>
-                                        <Label text="0">
-                                            <HBox.margin>
-                                                <Insets left="5.0" top="91.0" />
-                                            </HBox.margin>
-                                            <padding>
-                                                <Insets top="10.0" />
-                                            </padding></Label>
-                                        <Label text="H">
-                                            <padding>
-                                                <Insets top="10.0" />
-                                            </padding>
-                                            <HBox.margin>
-                                                <Insets left="5.0" top="91.0" />
-                                            </HBox.margin>
-                                        </Label>
-                                    </children>
-                                </HBox>
-                            </children>
-                        </VBox>
-                    </children>
-                </HBox>
+                    <HBox.margin>
+                        <Insets left="5.0"/>
+                    </HBox.margin>
+                </GridPane>
             </children>
         </HBox>
-        <Line endX="700.0" startX="-100.0">
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
-        </Line>
-        <Line endX="700.0" startX="-100.0">
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
-        </Line>
-        <Line endX="700.0" startX="-100.0">
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
-        </Line>
-        <HBox prefHeight="38.0" prefWidth="800.0">
+        <Separator prefWidth="200.0"/>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
             <children>
-                <Button mnemonicParsing="false" onAction="#onBack" text="Retour">
-
-                    <HBox.margin>
-                        <Insets left="50.0" top="10.0"/>
-                    </HBox.margin>
-                </Button>
-                <Label text="Budget initial :">
-
-                    <HBox.margin>
-                        <Insets left="150.0" top="10.0" />
-                    </HBox.margin>
-                </Label>
-                <Label text="Coût :">
-                    <HBox.margin>
-                        <Insets left="140.0" top="10.0" />
-                    </HBox.margin>
-                </Label>
-                <Button mnemonicParsing="false" text="Valider">
-                    <HBox.margin>
-                        <Insets left="150.0" top="10.0" />
-                    </HBox.margin>
-                </Button>
+                <Button mnemonicParsing="false" onAction="#onBack" text="Retour" GridPane.halignment="CENTER"
+                        GridPane.valignment="CENTER"/>
+                <Button mnemonicParsing="false" onAction="#onMatValider" text="Valider" GridPane.columnIndex="3"
+                        GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+                <Label fx:id="budgetLabel" text="Budget :" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                       GridPane.valignment="CENTER"/>
+                <Label fx:id="coutLabel" text="Coût total :" GridPane.columnIndex="2" GridPane.halignment="CENTER"
+                       GridPane.valignment="CENTER"/>
             </children>
-        </HBox>
+            <VBox.margin>
+                <Insets top="5.0"/>
+            </VBox.margin>
+        </GridPane>
     </children>
 </VBox>
