@@ -5,8 +5,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="500.0" maxWidth="900.0" minHeight="500.0" minWidth="900.0"
+            prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
             xmlns="http://javafx.com/javafx/11.0.14-internal">
    <top>
       <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
@@ -18,24 +18,18 @@
          </font>
       </Label>
    </top>
-   <bottom>
-      <Button fx:id="projetSuivantButton" mnemonicParsing="false" onAction="#createNewProjetAction" text="Suivant" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0"/>
-         </BorderPane.margin>
-      </Button>
-   </bottom>
    <center>
       <AnchorPane minHeight="370.0" prefHeight="370.0" prefWidth="900.0" styleClass="secondContainer"
                   BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="backImage" fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true"
+            <ImageView fx:id="backImage" fitHeight="35.0" fitWidth="40.0" onMouseClicked="#onBack" pickOnBounds="true"
                        preserveRatio="true">
                <Image url="@retour.png"/>
             </ImageView>
-            <Label fx:id="labelTitre" text="Nouveau Projet :" AnchorPane.leftAnchor="247.0"
+            <Label fx:id="labelTitre" text="Nouveau Projet :" AnchorPane.leftAnchor="330.0"
                    AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="14.0"/>
-            <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt;"/>
+            <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt;"
+                   AnchorPane.topAnchor="45.0"/>
             <VBox layoutX="16.0" layoutY="50.0" prefHeight="301.0" prefWidth="475.0">
                <children>
                   <Label text="Nom :"/>
@@ -45,7 +39,7 @@
                                    promptText="ex : EpsilonEvent"/>
                         <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
-                              <Insets left="40.0" />
+                              <Insets left="40.0"/>
                            </HBox.margin>
                            <image>
                               <Image url="@croix.png" />
@@ -122,20 +116,48 @@
                         <TextField fx:id="projetBudget" prefHeight="26.0" prefWidth="355.0" promptText="ex : 600"/>
                         <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
-                              <Insets left="40.0" />
+                              <Insets left="40.0"/>
                            </HBox.margin>
                            <image>
-                              <Image url="@croix.png" />
+                              <Image url="@croix.png"/>
                            </image>
                         </ImageView>
                      </children>
                   </HBox>
                </children>
+               <padding>
+                  <Insets top="20.0"/>
+               </padding>
             </VBox>
          </children>
          <BorderPane.margin>
-            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
          </BorderPane.margin>
       </AnchorPane>
    </center>
+
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+         </rowConstraints>
+         <children>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" text="Quitter" GridPane.halignment="CENTER"
+                    GridPane.valignment="CENTER"/>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNewProjetAction" text="Suivant"
+                    GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+         </children>
+         <padding>
+            <Insets bottom="20.0"/>
+         </padding>
+         <opaqueInsets>
+            <Insets/>
+         </opaqueInsets>
+      </GridPane>
+   </bottom>
+
 </BorderPane>

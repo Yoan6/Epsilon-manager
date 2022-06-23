@@ -4,8 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity" prefHeight="273.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal">
+<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="273.0" maxWidth="800.0" minHeight="273.0" minWidth="800.0"
+      prefHeight="273.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal">
     <children>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>

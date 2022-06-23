@@ -5,25 +5,34 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" styleClass="mainContainer"
-            stylesheets="@main.css" xmlns="http://javafx.com/javafx/16">
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="550.0" maxWidth="1000.0" minHeight="550.0" minWidth="1000.0"
+            prefHeight="550.0" prefWidth="1000.0" styleClass="mainContainer" stylesheets="@main.css"
+            xmlns="http://javafx.com/javafx/11.0.14-internal">
    <top>
-      <Label text="Epsilon Manager" BorderPane.alignment="CENTER"/>
+      <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets/>
+         </BorderPane.margin>
+         <font>
+            <Font name="Noto Looped Thai Bold" size="26.0"/>
+         </font>
+      </Label>
    </top>
-   <bottom>
-      <Button mnemonicParsing="false" text="Suivant" BorderPane.alignment="CENTER"/>
-   </bottom>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="secondContainer" BorderPane.alignment="CENTER">
          <ImageView fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true" preserveRatio="true">
             <Image url="@retour.png"/>
          </ImageView>
-         <Label fx:id="labelTitre" layoutX="399.0" layoutY="5.0" prefHeight="18.0" prefWidth="102.0"
-                text="Artiste/Oeuvre :" AnchorPane.leftAnchor="399.0" AnchorPane.rightAnchor="399.0"
+         <Label fx:id="labelTitre" layoutX="399.0" layoutY="5.0" prefHeight="18.0" prefWidth="116.0"
+                text="Artiste/Oeuvre " AnchorPane.leftAnchor="399.0" AnchorPane.rightAnchor="385.0"
                 AnchorPane.topAnchor="5.0"/>
          <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0"
-                text="Créer nouveau projet &gt; Matériaux &gt; Personnel &gt; Artiste / Oeuvre"/>
+                text="Créer nouveau projet &gt; Matériaux &gt; Personnel &gt; Artiste / Oeuvre">
+            <padding>
+               <Insets top="10.0"/>
+            </padding>
+         </Label>
          <GridPane fx:id="artistreGridPane" hgap="15.0" layoutY="64.0" prefHeight="210.0" prefWidth="899.0" vgap="15.0"
                    AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
             <columnConstraints>
@@ -38,17 +47,37 @@
             </rowConstraints>
             <TextField fx:id="artisteTextField" maxWidth="200.0" prefHeight="26.0" prefWidth="200.0"
                        promptText="Nom de l'artiste" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="129.0" text="Ajouter en masse"
-                    GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Button maxWidth="120.0" minWidth="50.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0"
+                    text="Ajouter en masse" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"/>
             <TextArea disable="true" focusTraversable="false" maxWidth="400.0" prefHeight="200.0" prefWidth="400.0"
-                      visible="false" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                      visible="false" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
             <Button mnemonicParsing="false" onAction="#onAddOeuvre" text="Ajouter" GridPane.columnIndex="2"
                     GridPane.rowIndex="0" GridPane.vgrow="ALWAYS"/>
             <TextField fx:id="oeuvreTextField" promptText="Oeuvre" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
          </GridPane>
          <BorderPane.margin>
-            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+            <Insets left="50.0" right="50.0" top="20.0"/>
          </BorderPane.margin>
       </AnchorPane>
    </center>
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+         </rowConstraints>
+         <children>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" text="Quitter" GridPane.halignment="CENTER"
+                    GridPane.valignment="CENTER"/>
+            <Button alignment="CENTER" mnemonicParsing="false" text="Suivant" GridPane.columnIndex="1"
+                    GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" top="20.0"/>
+         </BorderPane.margin>
+      </GridPane>
+   </bottom>
 </BorderPane>
