@@ -2,63 +2,144 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="490.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
+            xmlns="http://javafx.com/javafx/11.0.14-internal">
     <top>
-        <Label text="Epsilon Manager" BorderPane.alignment="CENTER" />
+        <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="15.0"/>
+            </BorderPane.margin>
+            <font>
+                <Font name="Noto Looped Thai Bold" size="26.0"/>
+            </font>
+        </Label>
     </top>
     <bottom>
-        <Button mnemonicParsing="false" text="Valider" BorderPane.alignment="CENTER" />
+        <GridPane BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Button contentDisplay="CENTER" mnemonicParsing="false" text="Quitter" GridPane.halignment="CENTER"
+                        GridPane.valignment="CENTER">
+                    <GridPane.margin>
+                        <Insets/>
+                    </GridPane.margin>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" text="Retourner à l'accueil" GridPane.columnIndex="1"
+                        GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+            </children>
+            <padding>
+                <Insets bottom="25.0"/>
+            </padding>
+            <BorderPane.margin>
+                <Insets top="30.0"/>
+            </BorderPane.margin>
+        </GridPane>
     </bottom>
     <center>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <VBox maxHeight="360.0" minHeight="360.0" prefWidth="100.0" styleClass="secondContainer"
+              BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@retour.png" />
-                    </image>
-                </ImageView>
-                <Label layoutX="229.0" layoutY="8.0" prefHeight="17.0" prefWidth="143.0" text="Récapitulatif du formulaire" AnchorPane.leftAnchor="229.0" AnchorPane.rightAnchor="228.0" AnchorPane.topAnchor="8.0" />
-                <Label layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt; Matériaux &gt; Personnel &gt; Artiste / Oeuvre &gt; Récapitulatif" />
-                <VBox layoutX="16.0" layoutY="50.0" prefHeight="301.0" prefWidth="581.0" spacing="15.0">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label prefHeight="25.0" prefWidth="200.0" text="Coût total :">
-                           <HBox.margin>
-                              <Insets left="40.0" top="30.0" />
-                           </HBox.margin>
+                <HBox prefHeight="39.0" prefWidth="900.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@retour.png"/>
+                            </image>
+                        </ImageView>
+                        <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0"
+                               text="Créer nouveau projet &gt; Matériaux &gt; Personnel &gt; Artiste / Oeuvre &gt; Récapitulatif">
+                            <font>
+                                <Font size="10.0"/>
+                            </font>
+                            <padding>
+                                <Insets left="20.0"/>
+                            </padding>
                         </Label>
-                        <Label prefHeight="25.0" prefWidth="200.0" text="Budget initial :">
-                           <HBox.margin>
-                              <Insets left="100.0" top="30.0" />
-                           </HBox.margin>
+                    </children>
+                </HBox>
+                <Label alignment="CENTER" prefWidth="900.0" text="Récapitulatif du formulaire">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Label>
+                <GridPane prefHeight="100.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="287.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="524.0" minWidth="10.0" prefWidth="124.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="482.0" minWidth="10.0" prefWidth="235.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="458.0" minWidth="10.0" prefWidth="254.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="44.0" minHeight="0.0" prefHeight="44.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="16.0" prefWidth="142.0" text="Budget initial :" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets left="153.0"/>
+                            </GridPane.margin>
                         </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="40.0" prefWidth="581.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="170.0" text="Différence :">
-                           <HBox.margin>
-                              <Insets left="40.0" />
-                           </HBox.margin>
+                        <Label prefHeight="16.0" prefWidth="173.0" text="Différence :" GridPane.rowIndex="1"
+                               GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets left="170.0"/>
+                            </GridPane.margin>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="134.0" text="Le budget est suffisant">
-                           <HBox.margin>
-                              <Insets left="130.0" />
-                           </HBox.margin>
+                        <Label text="7777€" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                               GridPane.valignment="CENTER"/>
+                        <Label text="Coût total :" GridPane.columnIndex="2" GridPane.halignment="CENTER"
+                               GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
                         </Label>
-                     </children>
-                  </HBox>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="624.0" text="Générer la fiche technique">
-                     <VBox.margin>
-                        <Insets top="80.0" />
-                     </VBox.margin></Button>
-               </children>
-                </VBox>
+                        <Label text="0€" GridPane.columnIndex="3"/>
+                        <Label text="Le budget est : suffisant/pas" GridPane.columnIndex="2"
+                               GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="50.0"/>
+                    </VBox.margin>
+                </GridPane>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Button mnemonicParsing="false" text="Générer la fiche technique" GridPane.halignment="CENTER"
+                                GridPane.valignment="CENTER"/>
+                    </children>
+                    <padding>
+                        <Insets top="100.0"/>
+                    </padding>
+                </GridPane>
             </children>
-        </AnchorPane>
+        </VBox>
     </center>
+    <left>
+        <ImageView fitHeight="150.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true"
+                   BorderPane.alignment="CENTER"/>
+    </left>
+    <right>
+        <ImageView fitHeight="150.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true"
+                   BorderPane.alignment="CENTER"/>
+    </right>
 </BorderPane>

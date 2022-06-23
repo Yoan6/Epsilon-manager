@@ -27,7 +27,7 @@
          <Label fx:id="labelTitre" layoutX="399.0" layoutY="5.0" prefHeight="18.0" prefWidth="116.0"
                 text="Artiste/Oeuvre " AnchorPane.leftAnchor="399.0" AnchorPane.rightAnchor="385.0"
                 AnchorPane.topAnchor="5.0"/>
-         <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0"
+         <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0" prefHeight="26.0" prefWidth="463.0"
                 text="Créer nouveau projet &gt; Matériaux &gt; Personnel &gt; Artiste / Oeuvre">
             <padding>
                <Insets top="10.0"/>
@@ -47,7 +47,7 @@
             </rowConstraints>
             <TextField fx:id="artisteTextField" maxWidth="200.0" prefHeight="26.0" prefWidth="200.0"
                        promptText="Nom de l'artiste" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <Button maxWidth="120.0" minWidth="50.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0"
+            <Button maxWidth="154.0" minWidth="50.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="154.0"
                     text="Ajouter en masse" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"/>
             <TextArea disable="true" focusTraversable="false" maxWidth="400.0" prefHeight="200.0" prefWidth="400.0"
                       visible="false" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
@@ -55,6 +55,7 @@
                     GridPane.rowIndex="0" GridPane.vgrow="ALWAYS"/>
             <TextField fx:id="oeuvreTextField" promptText="Oeuvre" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
          </GridPane>
+         <Hyperlink layoutX="774.0" layoutY="387.0" onAction="#onAideAction" text="Une question ?"/>
          <BorderPane.margin>
             <Insets left="50.0" right="50.0" top="20.0"/>
          </BorderPane.margin>

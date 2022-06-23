@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
+            minWidth="-Infinity" prefHeight="480.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
             xmlns="http://javafx.com/javafx/11.0.14-internal">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
             <BorderPane.margin>
-                <Insets bottom="50.0"/>
+                <Insets bottom="60.0"/>
             </BorderPane.margin>
             <font>
                 <Font name="Noto Looped Thai Bold" size="26.0"/>
@@ -30,7 +30,7 @@
         <AnchorPane minHeight="360.0" prefHeight="330.0" prefWidth="800.0" styleClass="secondContainer"
                     BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true"
+                <ImageView fitHeight="30.0" fitWidth="25.0" onMouseClicked="#onBack" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
                         <Image url="@retour.png"/>
@@ -40,38 +40,37 @@
                        prefWidth="90.0" text="Matériels " AnchorPane.leftAnchor="355.0" AnchorPane.rightAnchor="355.0"
                        AnchorPane.topAnchor="6.0">
                     <font>
-                        <Font size="17.0"/>
+                        <Font size="18.0"/>
                     </font>
                 </Label>
                 <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt; Matériels &gt;"/>
-                <VBox layoutX="16.0" layoutY="50.0" prefHeight="353.0" prefWidth="580.0" spacing="15.0">
+                <VBox layoutX="16.0" layoutY="50.0" prefHeight="315.0" prefWidth="364.0" spacing="15.0">
                     <children>
-                        <HBox prefHeight="0.0" prefWidth="580.0" spacing="15.0">
-                            <children>
-                                <Button onAction="#onLocauxAction" prefHeight="26.0" prefWidth="350.0" text="Locaux :"/>
-                                <Label text="T'as un ptit local a 10€ total"/>
-                            </children>
-                        </HBox>
-                        <HBox prefHeight="0.0" prefWidth="580.0" spacing="15.0">
-                            <children>
-                                <Button onAction="#onChaiseAction" prefHeight="26.0" prefWidth="350.0"
-                                        text="Chaises :"/>
-                                <Label text="T'as 10000€ en chaises"/>
-                            </children>
-                        </HBox>
-                        <Button onAction="#onTableAction" prefHeight="26.0" prefWidth="350.0" text="Tables :"/>
-                        <Button onAction="#onEclairageAction" prefHeight="26.0" prefWidth="350.0" text="Éclairage :"/>
+
+                        <Button onAction="#onChaiseAction" prefHeight="26.0" prefWidth="350.0" text="Chaises "/>
+
+                        <Button onAction="#onTableAction" prefHeight="26.0" prefWidth="350.0" text="Tables "/>
+                        <Button onAction="#onEclairageAction" prefHeight="26.0" prefWidth="350.0" text="Éclairage "/>
                         <Button onAction="#onMultimediaAction" prefHeight="26.0" prefWidth="350.0"
-                                text="Outils multimédia :"/>
-                        <Button onAction="#onSupportAction" prefHeight="26.0" prefWidth="350.0" text="Supports :"/>
-                        <Label prefHeight="30.0" prefWidth="300.0" text="Budget : 100 000 € Coût total : 45 153 €">
-                            <VBox.margin>
-                                <Insets/>
-                            </VBox.margin>
-                        </Label>
+                                text="Outils multimédia "/>
+                        <Button onAction="#onSupportAction" prefHeight="26.0" prefWidth="350.0" text="Supports "/>
+                        <Button onAction="#onLocauxAction" prefHeight="26.0" prefWidth="350.0" text="Locaux "/>
 
                     </children>
                 </VBox>
+                <Label layoutX="409.0" layoutY="134.0" text="Budget :">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="409.0" layoutY="239.0" text="Coût total :">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="530.0" layoutY="136.0" text="LE PRIX"/>
+                <Label layoutX="530.0" layoutY="241.0" text="LE PRIX"/>
+                <Hyperlink layoutX="680.0" layoutY="335.0" onAction="#onAideAction" text="Une question ?"/>
             </children>
             <BorderPane.margin>
                 <Insets bottom="100.0" left="50.0" right="50.0" top="50.0"/>
@@ -96,6 +95,9 @@
             <padding>
                 <Insets bottom="25.0"/>
             </padding>
+            <BorderPane.margin>
+                <Insets top="30.0"/>
+            </BorderPane.margin>
         </GridPane>
     </bottom>
 </BorderPane>

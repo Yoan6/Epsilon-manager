@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
-            xmlns="http://javafx.com/javafx/16">
+            xmlns="http://javafx.com/javafx/11.0.14-internal">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
             <font>
@@ -20,7 +20,7 @@
         </Label>
     </top>
     <center>
-        <AnchorPane minHeight="360.0" prefHeight="390.0" prefWidth="800.0" styleClass="secondContainer"
+        <AnchorPane minHeight="345.0" prefHeight="345.0" prefWidth="800.0" styleClass="secondContainer"
                     BorderPane.alignment="CENTER">
             <children>
                 <ImageView fitHeight="32.0" fitWidth="37.0" layoutY="-2.0" onMouseClicked="#onBack" pickOnBounds="true"
@@ -33,28 +33,49 @@
                        prefWidth="101.0" text="Personnel :" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="369.0"
                        AnchorPane.topAnchor="4.0">
                     <font>
-                        <Font size="17.0"/>
+                        <Font size="18.0"/>
                     </font>
                 </Label>
                 <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0"
                        text="Créer nouveau projet &gt; Matériels &gt; Personnel &gt;"/>
-                <VBox layoutX="16.0" layoutY="50.0" prefHeight="300.0" prefWidth="600.0" spacing="15.0">
+                <VBox layoutX="16.0" layoutY="50.0" prefHeight="300.0" prefWidth="357.0" spacing="15.0">
                     <children>
                         <Button onAction="#onAgentSecuriteAction" prefHeight="26.0" prefWidth="350.0"
-                                text="Agent de sécurité :">
+                                text="Agent de sécurité ">
                             <VBox.margin>
                                 <Insets top="10.0"/>
                             </VBox.margin>
                         </Button>
-                        <Button onAction="#onGuideAction" prefHeight="26.0" prefWidth="350.0" text="Guide :"/>
-                        <Button onAction="#onRegisseurAction" prefHeight="26.0" prefWidth="350.0" text="Régisseur :"/>
+                        <Button onAction="#onGuideAction" prefHeight="26.0" prefWidth="350.0" text="Guide "/>
+                        <Button onAction="#onRegisseurAction" prefHeight="26.0" prefWidth="350.0" text="Régisseur "/>
                         <Button onAction="#onAccueilAction" prefHeight="26.0" prefWidth="350.0"
                                 text="Personnel acceuil :"/>
                         <Button onAction="#onCuisinierAction" prefHeight="26.0" prefWidth="350.0" text="Cuisinier :"/>
-                        <Label prefHeight="54.0" prefWidth="350.0" text="Budget : 100 000 € Coût total : 45 153 €"/>
 
                     </children>
                 </VBox>
+                <Label layoutX="425.0" layoutY="95.0" prefHeight="60.0" prefWidth="76.0" text="Budget : "
+                       wrapText="true">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="426.0" layoutY="192.0" text="Coût total :">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="555.0" layoutY="117.0" text="LE PRIX">
+                    <padding>
+                        <Insets top="2.0"/>
+                    </padding>
+                </Label>
+                <Label layoutX="555.0" layoutY="194.0" text="LE PRIX">
+                    <padding>
+                        <Insets top="3.0"/>
+                    </padding>
+                </Label>
+                <Hyperlink layoutX="680.0" layoutY="320.0" onAction="#onAideAction" text="Une question ?"/>
             </children>
             <BorderPane.margin>
                 <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>

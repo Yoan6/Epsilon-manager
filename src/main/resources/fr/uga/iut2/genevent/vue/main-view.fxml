@@ -36,8 +36,8 @@
             <Insets left="20.0" right="20.0" top="100.0"/>
          </VBox.margin>
       </HBox>
-      <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" text="Informations supplémentaires"
-              textAlignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#onAideAction" prefHeight="60.0" prefWidth="300.0"
+              text="Informations supplémentaires" textAlignment="CENTER">
          <VBox.margin>
             <Insets top="100.0"/>
          </VBox.margin>

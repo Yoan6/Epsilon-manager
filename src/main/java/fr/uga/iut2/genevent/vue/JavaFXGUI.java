@@ -468,6 +468,11 @@ public class JavaFXGUI extends IHM {
     }
 
     @FXML
+    private void onAideAction() {
+        openPage("aide.fxml", "Informations supplémentaires");
+    }
+
+    @FXML
     private void onGuideAction() {
         openPage("guide.fxml", "Ajout de guide");
     }
