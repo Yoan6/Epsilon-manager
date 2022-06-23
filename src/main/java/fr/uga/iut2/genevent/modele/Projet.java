@@ -120,4 +120,8 @@ public class Projet implements Serializable {
     public Set<Oeuvre> getOeuvres() {
         return oeuvres;
     }
+
+    public Map<String, Location> getLocations() {
+        return locations;
+    }
 }
