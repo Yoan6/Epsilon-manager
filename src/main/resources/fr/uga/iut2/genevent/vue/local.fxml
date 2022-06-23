@@ -58,10 +58,12 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin></Label>
                                         <Label text="Capacité : 800 personnes" GridPane.rowIndex="2" />
-                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Button>
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Button>
                                     </children>
                                     <HBox.margin>
                                         <Insets left="30.0" />
@@ -122,10 +124,12 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin></Label>
                                         <Label text="Capacité : 1400 personnes" GridPane.rowIndex="2" />
-                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Button>
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Button>
                                     </children>
                                     <HBox.margin>
                                         <Insets left="30.0" />
@@ -186,10 +190,12 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin></Label>
                                         <Label text="Capacité : 50 personnes" GridPane.rowIndex="2" />
-                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Button>
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Button>
                                     </children>
                                     <HBox.margin>
                                         <Insets left="30.0" />
@@ -250,10 +256,12 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin></Label>
                                         <Label text="Capacité : 350 personnes" GridPane.rowIndex="2" />
-                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Button>
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Button>
                                     </children>
                                     <HBox.margin>
                                         <Insets left="30.0" />
@@ -314,10 +322,12 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin></Label>
                                         <Label text="Capacité : 200 personnes" GridPane.rowIndex="2" />
-                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Button>
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Button>
                                     </children>
                                     <HBox.margin>
                                         <Insets left="30.0" />
@@ -378,10 +388,12 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin></Label>
                                         <Label text="Capacité : 200 personnes" GridPane.rowIndex="2" />
-                                        <Button mnemonicParsing="false" text="Choisir ce local" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Button onAction="#onLocalClick" mnemonicParsing="false" text="Choisir ce local"
+                                                GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
-                                                <Insets left="20.0" />
-                                            </GridPane.margin></Button>
+                                                <Insets left="20.0"/>
+                                            </GridPane.margin>
+                                        </Button>
                                     </children>
                                     <HBox.margin>
                                         <Insets left="30.0" />
@@ -408,9 +420,12 @@
         <children>
             <Button mnemonicParsing="false" onAction="#onBack" text="Retour" GridPane.halignment="CENTER"
                     GridPane.valignment="CENTER"/>
-            <Button mnemonicParsing="false" text="Valider" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Label text="Budget :" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Label text="Coût total :" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" text="Valider" GridPane.columnIndex="3" GridPane.halignment="CENTER"
+                    GridPane.valignment="CENTER"/>
+            <Label fx:id="budgetLabel" text="Budget :" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                   GridPane.valignment="CENTER"/>
+            <Label fx:id="coutLabel" text="Coût total :" GridPane.columnIndex="2" GridPane.halignment="CENTER"
+                   GridPane.valignment="CENTER"/>
         </children>
         <VBox.margin>
             <Insets top="5.0" />

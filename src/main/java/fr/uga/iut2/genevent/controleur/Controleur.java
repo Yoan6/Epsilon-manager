@@ -6,6 +6,8 @@ import fr.uga.iut2.genevent.modele.Oeuvre;
 import fr.uga.iut2.genevent.vue.IHM;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
 
+import java.util.Map;
+
 
 public class Controleur {
 
@@ -102,5 +104,9 @@ public class Controleur {
 
     public int getBudget() {
         return this.genevent.getEvenements().get(current).getBudget();
+    }
+
+    public Map<String, Location> getLocations() {
+        return this.genevent.getEvenements().get(current).getLocations();
     }
 }

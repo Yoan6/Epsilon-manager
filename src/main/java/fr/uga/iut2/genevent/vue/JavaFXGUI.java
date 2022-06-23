@@ -226,6 +226,16 @@ public class JavaFXGUI extends IHM {
         changeLabel((Node) e.getSource(), true);
     }
 
+    @FXML
+    private void onPersSub(ActionEvent e) {
+        changePersonnel((Node) e.getSource(), false);
+    }
+
+    @FXML
+    private void onPersAdd(ActionEvent e) {
+        changePersonnel((Node) e.getSource(), true);
+    }
+
     private static Node getNodeAt(GridPane gp, Integer col, Integer row) {
         col = col == null ? 0 : col;
         row = row == null ? 0 : row;
@@ -242,6 +252,23 @@ public class JavaFXGUI extends IHM {
     //Table des prix de tous les prix des matériaux (ou autres)
     private final Map<String, Float> prixs = Map.ofEntries(Map.entry("table1.JPG", 8.20f), Map.entry("table2.JPG", 10.50f),
             Map.entry("table3.JPG", 5.70f), Map.entry("1.1.JPG", 3.01f), Map.entry("1.2.JPG", 2.50f), Map.entry("1.3.JPG", 2.55f), Map.entry("support1.JPG", 12.0f), Map.entry("support2.JPG", 1.12f), Map.entry("support3.JPG", 3.99f), Map.entry("tablette.JPG", 7.80f), Map.entry("tele.JPG", 33.50f), Map.entry("projo.JPG", 23.90f), Map.entry("lumiere1.JPG", 7.20f), Map.entry("lumiere2.JPG", 3.80f), Map.entry("lumiere3.JPG", 1.95f), Map.entry("ecouteur.JPG", 63.20f), Map.entry("camera.JPG", 39.99f), Map.entry("enceinte.JPG", 14.90f));
+
+    @FXML
+    private void onLocalClick(ActionEvent e) {
+        Button b = (Button) e.getSource();
+        GridPane p = (GridPane) b.getParent();
+        Label lprix = (Label) getNodeAt(p, 1, 1);
+        int prix = Integer.parseInt(lprix.getText().substring(7, lprix.getText().length() - 6));
+        String id = ((Label) p.getParent().getParent().getChildrenUnmodifiable().get(0)).getText();
+        if (this.controleur.getLocation(id) != null) {
+            //déja inclus
+            return;
+        }
+        this.controleur.getLocations().values().stream().filter((l) -> !l.getId().contains(".")).findAny().ifPresent(location -> this.controleur.removeLocation(location.getId()));
+        Location l = new Location(id, prix, 1);
+        this.controleur.addLocation(l);
+        coutLabel.setText("Coût total : " + prix);
+    }
 
     @FXML
     private void onMatValider(ActionEvent e) {
@@ -303,6 +330,41 @@ public class JavaFXGUI extends IHM {
         budgetLabel.setText("Budget : " + this.controleur.getBudget());
         coutLabel.setText("Coût total : " + getCoutTotal(b.getScene().getRoot()));
     }
+
+    private void changePersonnel(Node b, boolean increment) {
+        GridPane p1 = (GridPane) b.getParent();
+        boolean isTop = GridPane.getRowIndex(b) == null || GridPane.getRowIndex(b) == 0;
+        Label l = (Label) getNodeAt(p1, 2, GridPane.getRowIndex(b));
+        int p;
+        if (isTop) {
+            p = Integer.parseInt(l.getText()) + (increment ? 1 : -1);
+        } else {
+            p = Integer.parseInt(l.getText()) + (increment ? 12 : -12);
+        }
+        if (p < 0) {
+            return;
+        }
+        l.setText(p + "");
+        //Calcul du prix
+        Label qt = (Label) getNodeAt(p1, 2, 0);
+        Label tps = (Label) getNodeAt(p1, 2, 1);
+
+        String sprix = ((Label) ((Parent) (p1.getParent().getChildrenUnmodifiable().get(1))).getChildrenUnmodifiable().get(1)).getText();
+        float prix = Float.parseFloat(sprix.substring(0, sprix.length() - 2));
+        int quantite = Integer.parseInt(qt.getText());
+        int temps = Integer.parseInt(tps.getText());
+        float total = quantite * (temps / 12.0f) * prix;
+        total = Math.round(total * 100.0f) / 100.0f;
+        Label lprix = (Label) getNodeAt(p1, 4, 0);
+        Label ltemps = (Label) getNodeAt(p1, 4, 1);
+        lprix.setText("Prix : " + total + "€");
+        ltemps.setText("Temps : " + tps.getText() + "H");
+
+        // Chargement budget
+        budgetLabel.setText("Budget : " + this.controleur.getBudget());
+        coutLabel.setText("Coût total : " + getCoutPersonnelTotal(b.getScene().getRoot()));
+    }
+
 
     @FXML
     private void onChaiseAction() {
@@ -387,6 +449,15 @@ public class JavaFXGUI extends IHM {
             Scene newUserScene = new Scene(newUserViewLoader.load());
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
+            //Chargement locals
+            budgetLabel.setText("Budget : " + this.controleur.getBudget());
+            coutLabel.setText("Coût total : 0");
+            //FIXME : meilleure détection
+            for (Location l : this.controleur.getLocations().values()) {
+                if (!l.getId().contains(".")) {
+                    coutLabel.setText("Coût total : " + l.getQuantite());
+                }
+            }
 
             current.setTitle("Ajout de locaux");
             current.setScene(newUserScene);
@@ -455,6 +526,18 @@ public class JavaFXGUI extends IHM {
             Parent p = (Parent) root.getChildrenUnmodifiable().get(i);
 
             GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(2);
+            Label lprix = (Label) getNodeAt(fbox, 4, 0);
+            total += Double.parseDouble(lprix.getText().substring(7, lprix.getText().length() - 1));
+        }
+        return String.valueOf(total);
+    }
+
+    private String getCoutPersonnelTotal(Parent root) {
+        double total = 0;
+        for (int i = 0, size = root.getChildrenUnmodifiable().size(); i < size - 1; i += 2) {
+            Parent p = (Parent) root.getChildrenUnmodifiable().get(i);
+
+            GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(3);
             Label lprix = (Label) getNodeAt(fbox, 4, 0);
             total += Double.parseDouble(lprix.getText().substring(7, lprix.getText().length() - 1));
         }

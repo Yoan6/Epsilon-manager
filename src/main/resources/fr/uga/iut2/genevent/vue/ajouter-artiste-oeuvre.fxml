@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="550.0" maxWidth="1000.0" minHeight="550.0" minWidth="1000.0"
             prefHeight="550.0" prefWidth="1000.0" styleClass="mainContainer" stylesheets="@main.css"
-            xmlns="http://javafx.com/javafx/11.0.14-internal">
+            xmlns="http://javafx.com/javafx/16">
    <top>
       <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -25,7 +25,7 @@
             <Image url="@retour.png"/>
          </ImageView>
          <Label fx:id="labelTitre" layoutX="399.0" layoutY="5.0" prefHeight="18.0" prefWidth="116.0"
-                text="Artiste/Oeuvre " AnchorPane.leftAnchor="399.0" AnchorPane.rightAnchor="385.0"
+                text="Artiste/Oeuvre :" AnchorPane.leftAnchor="399.0" AnchorPane.rightAnchor="385.0"
                 AnchorPane.topAnchor="5.0"/>
          <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0"
                 text="Créer nouveau projet &gt; Matériaux &gt; Personnel &gt; Artiste / Oeuvre">
