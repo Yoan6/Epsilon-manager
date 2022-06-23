@@ -3,16 +3,15 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox prefHeight="235.0" prefWidth="800.0">
             <children>
-                <Label prefHeight="85.0" prefWidth="196.0"
+                <Label prefHeight="85.0" prefWidth="228.0"
                        text="Société de guides Epsilon :&#10;&#10;La société de guides d'Epsilon&#10;propose une variété de guides,&#10;pour tous les besoins">
                     <HBox.margin>
-                        <Insets left="30.0" top="100.0"/>
+                        <Insets left="30.0" top="90.0"/>
                     </HBox.margin>
                     <font>
                         <Font name="System Bold Italic" size="12.0"/>
@@ -20,14 +19,10 @@
                 </Label>
                 <Label prefHeight="24.0" prefWidth="95.0" text="Prix : 15€ / h">
                     <HBox.margin>
-                        <Insets left="100.0" top="130.0"/>
+                        <Insets left="40.0" right="30.0" top="130.0"/>
                     </HBox.margin>
                 </Label>
-                <Line endY="250.0" rotate="180.0">
-                    <HBox.margin>
-                        <Insets left="80.0"/>
-                    </HBox.margin>
-                </Line>
+                <Separator orientation="VERTICAL" prefHeight="200.0"/>
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
                         <Label prefHeight="16.0" prefWidth="71.0" text="Personnes">
@@ -158,24 +153,10 @@
                 </HBox>
             </children>
         </HBox>
-        <Line endX="700.0" startX="-100.0">
-            <VBox.margin>
-                <Insets/>
-            </VBox.margin>
-        </Line>
-        <Line endX="700.0" startX="-100.0">
-            <VBox.margin>
-                <Insets/>
-            </VBox.margin>
-        </Line>
-        <Line endX="700.0" startX="-100.0">
-            <VBox.margin>
-                <Insets/>
-            </VBox.margin>
-        </Line>
+        <Separator prefWidth="200.0"/>
         <HBox prefHeight="46.0" prefWidth="800.0">
             <children>
-                <Button mnemonicParsing="false" text="Retour">
+                <Button mnemonicParsing="false" onAction="#onBack" text="Retour">
 
                     <HBox.margin>
                         <Insets left="50.0" top="10.0"/>
@@ -184,12 +165,12 @@
                 <Label text="Budget initial :">
 
                     <HBox.margin>
-                        <Insets left="150.0" top="10.0"/>
+                        <Insets left="150.0" top="15.0"/>
                     </HBox.margin>
                 </Label>
                 <Label text="Coût :">
                     <HBox.margin>
-                        <Insets left="140.0" top="10.0"/>
+                        <Insets left="140.0" top="15.0"/>
                     </HBox.margin>
                 </Label>
                 <Button mnemonicParsing="false" text="Valider">

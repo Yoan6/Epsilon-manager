@@ -2,7 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" styleClass="mainContainer"
@@ -31,40 +32,19 @@
                <ColumnConstraints minWidth="10.0" prefWidth="100.0"/>
             </columnConstraints>
             <rowConstraints>
-               <RowConstraints minHeight="10.0" prefHeight="30.0"/>
-               <RowConstraints minHeight="10.0" prefHeight="30.0"/>
-               <RowConstraints minHeight="10.0" prefHeight="30.0"/>
-               <RowConstraints minHeight="10.0" prefHeight="30.0"/>
-               <RowConstraints minHeight="10.0" prefHeight="30.0"/>
+               <RowConstraints minHeight="15.0" prefHeight="40.0"/>
+               <RowConstraints minHeight="15.0" prefHeight="40.0"/>
+               <RowConstraints minHeight="15.0" prefHeight="40.0"/>
             </rowConstraints>
-            <Label text="1. François dupont - Le Vieux Guitariste Aveugle" GridPane.hgrow="ALWAYS"/>
-            <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true"
-                       GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <Image url="@Modifier.png"/>
-            </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true"
-                       GridPane.columnIndex="2">
-               <Image url="@Supprimer.png"/>
-            </ImageView>
-            <Label text="2. Victoria dupont - La Joconde" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"/>
-            <ImageView fitHeight="31.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true"
-                       GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                       GridPane.valignment="CENTER">
-               <Image url="@Modifier.png"/>
-            </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true"
-                       GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <Image url="@Supprimer.png"/>
-            </ImageView>
             <TextField fx:id="artisteTextField" maxWidth="200.0" prefHeight="26.0" prefWidth="200.0"
-                       promptText="Nom de l'artiste" GridPane.rowIndex="2"/>
+                       promptText="Nom de l'artiste" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
             <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="129.0" text="Ajouter en masse"
-                    GridPane.rowIndex="3"/>
+                    GridPane.rowIndex="1" GridPane.columnIndex="0"/>
             <TextArea disable="true" focusTraversable="false" maxWidth="400.0" prefHeight="200.0" prefWidth="400.0"
-                      visible="false" GridPane.rowIndex="4"/>
+                      visible="false" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
             <Button mnemonicParsing="false" onAction="#onAddOeuvre" text="Ajouter" GridPane.columnIndex="2"
-                    GridPane.rowIndex="2" GridPane.vgrow="ALWAYS"/>
-            <TextField fx:id="oeuvreTextField" promptText="Oeuvre" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    GridPane.rowIndex="0" GridPane.vgrow="ALWAYS"/>
+            <TextField fx:id="oeuvreTextField" promptText="Oeuvre" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
          </GridPane>
          <BorderPane.margin>
             <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
