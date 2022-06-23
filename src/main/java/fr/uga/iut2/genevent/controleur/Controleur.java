@@ -95,8 +95,4 @@ public class Controleur {
     public void addOeuvre(Oeuvre o) {
         this.genevent.getEvenements().get(current).getOeuvres().add(o);
     }
-
-    public void removeOeuvre(Oeuvre o) {
-        this.genevent.getEvenements().get(current).getOeuvres().remove(o);
-    }
 }

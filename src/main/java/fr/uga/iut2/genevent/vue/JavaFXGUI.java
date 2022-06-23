@@ -26,7 +26,6 @@ import javafx.stage.WindowEvent;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.Stack;
 import java.util.concurrent.CountDownLatch;
@@ -669,55 +668,25 @@ public class JavaFXGUI extends IHM {
     private void ajouteOeuvre(Oeuvre o) {
         int cols = artistreGridPane.getColumnCount() - 3;
         //moving down all
-        for (ListIterator<Node> it = artistreGridPane.getChildren().listIterator(); it.hasNext(); ) {
-            Node n = it.next();
+        for (Node n : artistreGridPane.getChildren()) {
             if (GridPane.getRowIndex(n) >= cols) {
-                it.remove();
-                GridPane.setConstraints(n, GridPane.getColumnIndex(n), GridPane.getRowIndex(n) + 1);
-                it.add(n);
+                artistreGridPane.getChildren().remove(n);
+                artistreGridPane.add(n, GridPane.getColumnIndex(n), GridPane.getRowIndex(n) + 1);
             }
         }
-        Label lab = new Label(o.getNomArtiste() + " - " + o.getNom());
+        Label lab = new Label((cols + 1) + ". " + o.getNomArtiste() + " - " + o.getNom());
         GridPane.setHgrow(lab, Priority.ALWAYS);
         ImageView mod = new ImageView(JavaFXGUI.class.getResource("Modifier.png").toString());
         mod.setFitHeight(23);
         mod.setFitWidth(25);
         GridPane.setHalignment(mod, HPos.CENTER);
         GridPane.setValignment(mod, VPos.CENTER);
-        mod.setPreserveRatio(true);
-        mod.setPickOnBounds(true);
         ImageView suppr = new ImageView(JavaFXGUI.class.getResource("Supprimer.png").toString());
         suppr.setFitHeight(23);
         suppr.setFitWidth(25);
         GridPane.setHalignment(suppr, HPos.CENTER);
         GridPane.setValignment(suppr, VPos.CENTER);
-        suppr.setPreserveRatio(true);
-        suppr.setPickOnBounds(true);
-        suppr.setOnMouseClicked((e) -> removeOeuvre(o, lab, mod, suppr));
-        mod.setOnMouseClicked((e) -> {
-            artisteTextField.setText(o.getNomArtiste());
-            oeuvreTextField.setText(o.getNom());
-            removeOeuvre(o, lab, mod, suppr);
-        });
         artistreGridPane.addRow(cols, lab, mod, suppr);
-    }
-
-    private void removeOeuvre(Oeuvre o, Label lab, ImageView mod, ImageView suppr) {
-        int col = GridPane.getRowIndex(lab);
-        //BUMP
-        for (ListIterator<Node> it = artistreGridPane.getChildren().listIterator(); it.hasNext(); ) {
-            Node n = it.next();
-            if (GridPane.getRowIndex(n) > col) {
-                it.remove();
-                GridPane.setConstraints(n, GridPane.getColumnIndex(n), GridPane.getRowIndex(n) - 1);
-                it.add(n);
-            }
-        }
-        artistreGridPane.getChildren().remove(lab);
-        artistreGridPane.getChildren().remove(mod);
-        artistreGridPane.getChildren().remove(suppr);
-        artistreGridPane.getRowConstraints().remove(artistreGridPane.getRowConstraints().size() - 1);
-        this.controleur.removeOeuvre(o);
     }
 
 

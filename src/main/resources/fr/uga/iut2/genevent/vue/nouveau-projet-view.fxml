@@ -4,31 +4,45 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="655.0" styleClass="mainContainer" stylesheets="@main.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
+            xmlns="http://javafx.com/javafx/11.0.14-internal">
    <top>
-      <Label text="Epsilon Manager" BorderPane.alignment="CENTER" />
+      <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets/>
+         </BorderPane.margin>
+         <font>
+            <Font name="Noto Looped Thai Bold" size="26.0"/>
+         </font>
+      </Label>
    </top>
    <bottom>
       <Button fx:id="projetSuivantButton" mnemonicParsing="false" onAction="#createNewProjetAction" text="Suivant" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets bottom="5.0" />
+            <Insets bottom="20.0"/>
          </BorderPane.margin>
       </Button>
    </bottom>
    <center>
-      <AnchorPane prefHeight="351.0" prefWidth="500.0" styleClass="secondContainer" BorderPane.alignment="CENTER">
+      <AnchorPane minHeight="370.0" prefHeight="370.0" prefWidth="900.0" styleClass="secondContainer"
+                  BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="backImage" fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true" preserveRatio="true">
-               <Image url="@retour.png" />
+            <ImageView fx:id="backImage" fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@retour.png"/>
             </ImageView>
-            <Label fx:id="labelTitre" text="Nouveau Projet :" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="14.0" />
-            <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt;" />
+            <Label fx:id="labelTitre" text="Nouveau Projet :" AnchorPane.leftAnchor="247.0"
+                   AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="14.0"/>
+            <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt;"/>
             <VBox layoutX="16.0" layoutY="50.0" prefHeight="301.0" prefWidth="475.0">
                <children>
-                  <Label text="Nom :" />
+                  <Label text="Nom :"/>
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField fx:id="projetNomTextField" prefHeight="26.0" prefWidth="355.0" promptText="ex : Camille" />
+                        <TextField fx:id="projetNomTextField" prefHeight="26.0" prefWidth="355.0"
+                                   promptText="ex : EpsilonEvent"/>
                         <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
                               <Insets left="40.0" />
@@ -105,7 +119,7 @@
                   <Label text="Budget :" />
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
-                        <TextField fx:id="projetBudget" prefHeight="26.0" prefWidth="355.0" />
+                        <TextField fx:id="projetBudget" prefHeight="26.0" prefWidth="355.0" promptText="ex : 600"/>
                         <ImageView fitHeight="30.0" fitWidth="30.0" visible="false">
                            <HBox.margin>
                               <Insets left="40.0" />

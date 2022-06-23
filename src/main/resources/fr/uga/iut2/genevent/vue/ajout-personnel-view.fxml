@@ -5,15 +5,27 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="645.0" styleClass="mainContainer" stylesheets="@main.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
+            xmlns="http://javafx.com/javafx/11.0.14-internal">
     <top>
-        <Label text="Epsilon Manager" BorderPane.alignment="CENTER" />
+        <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="Noto Looped Thai Bold" size="26.0"/>
+            </font>
+        </Label>
     </top>
     <bottom>
-        <Button mnemonicParsing="false" onAction="#personnelSuivant" text="Suivant" BorderPane.alignment="CENTER"/>
+        <Button mnemonicParsing="false" onAction="#personnelSuivant" text="Suivant" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="10.0"/>
+            </BorderPane.margin>
+        </Button>
     </bottom>
     <center>
-        <AnchorPane prefHeight="273.0" prefWidth="543.0" styleClass="secondContainer" BorderPane.alignment="CENTER">
+        <AnchorPane minHeight="390.0" prefHeight="390.0" prefWidth="800.0" styleClass="secondContainer"
+                    BorderPane.alignment="CENTER">
             <children>
                 <ImageView fitHeight="32.0" fitWidth="37.0" layoutY="-2.0" onMouseClicked="#onBack" pickOnBounds="true"
                            preserveRatio="true">
@@ -21,9 +33,13 @@
                         <Image url="@retour.png"/>
                     </image>
                 </ImageView>
-                <Label fx:id="labelTitre" layoutX="239.0" layoutY="6.0" prefHeight="16.0" prefWidth="66.0"
-                       text="Personnel :" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="238.0"
-                       AnchorPane.topAnchor="6.0"/>
+                <Label fx:id="labelTitre" alignment="CENTER" layoutX="330.0" layoutY="4.0" prefHeight="16.0"
+                       prefWidth="101.0" text="Personnel " AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="369.0"
+                       AnchorPane.topAnchor="4.0">
+                    <font>
+                        <Font size="17.0"/>
+                    </font>
+                </Label>
                 <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0"
                        text="Créer nouveau projet &gt; Matériels &gt; Personnel &gt;"/>
                 <VBox layoutX="16.0" layoutY="50.0" prefHeight="300.0" prefWidth="600.0" spacing="15.0">
@@ -37,7 +53,7 @@
                         <Button prefHeight="26.0" prefWidth="350.0" text="Régisseur :"/>
                         <Button prefHeight="26.0" prefWidth="350.0" text="Personnel acceuil :"/>
                         <Button prefHeight="26.0" prefWidth="350.0" text="Cuisinier :"/>
-                        <Label prefHeight="54.0" prefWidth="350.0" text="Budget : 100 000 €&#10;Coût total : 45 153 €" />
+                        <Label prefHeight="54.0" prefWidth="350.0" text="Budget : 100 000 € Coût total : 45 153 €"/>
 
                     </children>
                 </VBox>

@@ -5,48 +5,76 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="655.0" styleClass="mainContainer" stylesheets="@main.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
+            xmlns="http://javafx.com/javafx/11.0.14-internal">
     <top>
-        <Label text="Epsilon Manager" BorderPane.alignment="CENTER" />
+        <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="50.0"/>
+            </BorderPane.margin>
+            <font>
+                <Font name="Noto Looped Thai Bold" size="26.0"/>
+            </font>
+        </Label>
     </top>
     <bottom>
-        <Button mnemonicParsing="false" onAction="#materiauxSuivant" text="Suivant" BorderPane.alignment="CENTER"/>
+        <Button mnemonicParsing="false" onAction="#materiauxSuivant" text="Suivant" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="10.0" top="50.0"/>
+            </BorderPane.margin>
+        </Button>
     </bottom>
     <center>
-        <AnchorPane prefHeight="383.0" prefWidth="596.0" styleClass="secondContainer" BorderPane.alignment="CENTER">
+        <AnchorPane minHeight="390.0" prefHeight="330.0" prefWidth="800.0" styleClass="secondContainer"
+                    BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="32.0" fitWidth="37.0" onMouseClicked="#onBack" pickOnBounds="true"
+                           preserveRatio="true">
                     <image>
-                        <Image url="@retour.png" />
+                        <Image url="@retour.png"/>
                     </image>
                 </ImageView>
-                <Label fx:id="labelTitre" layoutX="269.0" layoutY="7.0" text="Matériels :" AnchorPane.leftAnchor="268.0" AnchorPane.rightAnchor="256.0" AnchorPane.topAnchor="7.0" />
-                <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt; Matériels &gt;" />
+                <Label fx:id="labelTitre" contentDisplay="CENTER" layoutX="355.0" layoutY="6.0" prefHeight="21.0"
+                       prefWidth="90.0" text="Matériels " AnchorPane.leftAnchor="355.0" AnchorPane.rightAnchor="355.0"
+                       AnchorPane.topAnchor="6.0">
+                    <font>
+                        <Font size="17.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0" text="Créer nouveau projet &gt; Matériels &gt;"/>
                 <VBox layoutX="16.0" layoutY="50.0" prefHeight="353.0" prefWidth="580.0" spacing="15.0">
                     <children>
                         <HBox prefHeight="0.0" prefWidth="580.0" spacing="15.0">
                             <children>
-                                <Button onAction="#onLocauxAction" prefHeight="26.0" prefWidth="350.0" text="Locaux :" />
-                                <Label text="T'as un ptit local a 10€ total" />
+                                <Button onAction="#onLocauxAction" prefHeight="26.0" prefWidth="350.0" text="Locaux :"/>
+                                <Label text="T'as un ptit local a 10€ total"/>
                             </children>
                         </HBox>
                         <HBox prefHeight="0.0" prefWidth="580.0" spacing="15.0">
                             <children>
-                                <Button onAction="#onChaiseAction" prefHeight="26.0" prefWidth="350.0" text="Chaises :" />
-                                <Label text="T'as 10000€ en chaises" />
+                                <Button onAction="#onChaiseAction" prefHeight="26.0" prefWidth="350.0"
+                                        text="Chaises :"/>
+                                <Label text="T'as 10000€ en chaises"/>
                             </children>
                         </HBox>
-                        <Button onAction="#onTableAction" prefHeight="26.0" prefWidth="350.0" text="Tables :" />
-                        <Button onAction="#onEclairageAction" prefHeight="26.0" prefWidth="350.0" text="Éclairage :" />
-                        <Button onAction="#onMultimediaAction" prefHeight="26.0" prefWidth="350.0" text="Outils multimédia :" />
-                        <Button onAction="#onSupportAction" prefHeight="26.0" prefWidth="350.0" text="Supports :" />
-                        <Label prefHeight="54.0" prefWidth="350.0" text="Budget : 100 000 €&#10;Coût total : 45 153 €" />
+                        <Button onAction="#onTableAction" prefHeight="26.0" prefWidth="350.0" text="Tables :"/>
+                        <Button onAction="#onEclairageAction" prefHeight="26.0" prefWidth="350.0" text="Éclairage :"/>
+                        <Button onAction="#onMultimediaAction" prefHeight="26.0" prefWidth="350.0"
+                                text="Outils multimédia :"/>
+                        <Button onAction="#onSupportAction" prefHeight="26.0" prefWidth="350.0" text="Supports :"/>
+                        <Label prefHeight="30.0" prefWidth="300.0" text="Budget : 100 000 € Coût total : 45 153 €">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Label>
 
                     </children>
                 </VBox>
             </children>
             <BorderPane.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
             </BorderPane.margin>
         </AnchorPane>
     </center>

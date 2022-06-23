@@ -5,18 +5,19 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
-  <top>
-    <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-         <BorderPane.margin>
-            <Insets top="10.0" />
-         </BorderPane.margin></Label>
-  </top>
-  <center>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal">
+    <top>
+        <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="System Bold" size="13.0"/>
+            </font>
+            <BorderPane.margin>
+                <Insets top="10.0"/>
+            </BorderPane.margin>
+        </Label>
+    </top>
+    <center>
     <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
       <children>
         <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
@@ -26,11 +27,11 @@
         </ImageView>
             <VBox layoutX="1.0" layoutY="42.0" prefHeight="439.0" prefWidth="900.0">
                <children>
-              <Label prefHeight="17.0" prefWidth="142.0" text="Plus d'informations :">
-                     <VBox.margin>
-                        <Insets left="80.0" />
-                     </VBox.margin>
-                  </Label>
+                   <Label prefHeight="17.0" prefWidth="287.0" text="Plus d'informations sur l'application">
+                       <VBox.margin>
+                           <Insets left="80.0"/>
+                       </VBox.margin>
+                   </Label>
                    <ImageView fitHeight="61.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                    </ImageView>
                   <Label text="Comment se passe le paiement ?" underline="true">
@@ -81,14 +82,6 @@
                      <VBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </VBox.margin></Label>
-                  <Label text="Email : yoan.delannoy@etu.univ-grenoble-alpes.fr">
-                     <VBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </VBox.margin></Label>
-                  <Label text="Téléphone : 07 82 77 15 12">
-                     <VBox.margin>
-                        <Insets left="10.0" top="20.0" />
-                     </VBox.margin></Label>
                   <HBox prefHeight="31.0" prefWidth="600.0">
                      <children>
                         <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -112,24 +105,29 @@
                               <Image url="@instagram.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="10.0" top="10.0" />
+                               <Insets left="10.0" top="10.0"/>
                            </HBox.margin>
                         </ImageView>
                          <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                              <image>
-                                 <Image url="@Whatsapp.png" />
+                                 <Image url="@Whatsapp.png"/>
                              </image>
-                           <HBox.margin>
-                              <Insets left="10.0" top="10.0" />
-                           </HBox.margin>
-                         </ImageView>                     </children></HBox>
+                             <HBox.margin>
+                                 <Insets left="10.0" top="10.0"/>
+                             </HBox.margin>
+                         </ImageView>
+                         <Label text="Email : yoan.delannoy@etu.univ-grenoble-alpes.fr"/>
+                         <Label text="Téléphone : 07 82 77 15 12"/>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-            <ImageView fitHeight="32.0" fitWidth="37.0" layoutX="14.0" layoutY="1.0" onMouseClicked="#onBack" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@retour.png" />
-               </image>
-            </ImageView>
+          <ImageView fitHeight="32.0" fitWidth="37.0" layoutX="14.0" layoutY="-9.0" onMouseClicked="#onBack"
+                     pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@retour.png"/>
+              </image>
+          </ImageView>
       </children>
     </AnchorPane>
   </center>
