@@ -10,7 +10,7 @@
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
             <font>
-                <Font name="System Bold" size="13.0"/>
+                <Font name="Noto Looped Thai Bold" size="26.0"/>
             </font>
             <BorderPane.margin>
                 <Insets top="10.0"/>
@@ -20,84 +20,111 @@
     <center>
     <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
       <children>
-        <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-          <image>
-            <Image url="@chaise.png" />
-          </image>
-        </ImageView>
+          <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true"
+                     AnchorPane.bottomAnchor="0.0">
+              <image>
+                  <Image url="@chaise.png"/>
+              </image>
+          </ImageView>
             <VBox layoutX="1.0" layoutY="42.0" prefHeight="439.0" prefWidth="900.0">
                <children>
                    <Label prefHeight="17.0" prefWidth="287.0" text="Plus d'informations sur l'application">
                        <VBox.margin>
-                           <Insets left="80.0"/>
+                           <Insets left="10.0" top="10.0"/>
+                       </VBox.margin>
+                       <font>
+                           <Font size="16.0"/>
+                       </font>
+                   </Label>
+                   <Label text="Comment se passe le paiement ?">
+                       <font>
+                           <Font name="System Italic" size="13.0"/>
+                       </font>
+                       <VBox.margin>
+                           <Insets left="10.0" top="40.0"/>
                        </VBox.margin>
                    </Label>
-                   <ImageView fitHeight="61.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                   </ImageView>
-                  <Label text="Comment se passe le paiement ?" underline="true">
-                     <font>
-                        <Font name="System Italic" size="13.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin></Label>
                   <Label text="D'abord, il faudra finir de créer votre évènement et générer la fiche technique, que nous recevrons par la suite. &#10;Nous vous enverrons ensuite un devis à signer, vous recevrez par la suite une facture à payer, par virement ou par chèques.">
                      <VBox.margin>
-                        <Insets left="5.0" top="5.0" />
+                         <Insets left="10.0" top="5.0"/>
                      </VBox.margin></Label>
-                  <Label text="Comment se passe le transport ?" underline="true">
-                     <VBox.margin>
-                        <Insets left="10.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Italic" size="13.0" />
-                     </font></Label>
-                  <Label text="Nous déplaçons le matériel jusqu'au lieu d'exposition, nous ne livrons qu'en France métropolitaine et le coût de transport sera donc appliqué et obligatoire ">
-                     <VBox.margin>
-                        <Insets left="5.0" top="5.0" />
-                     </VBox.margin></Label>
-                  <Label text="Le matériel a été dégradé, que faire ?" underline="true">
-                     <VBox.margin>
-                        <Insets left="10.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Italic" size="13.0" />
-                     </font></Label>
+                   <Label text="Comment se passe le transport ?">
+                       <VBox.margin>
+                           <Insets left="10.0" top="20.0"/>
+                       </VBox.margin>
+                       <font>
+                           <Font name="System Italic" size="13.0"/>
+                       </font>
+                   </Label>
+                   <Label text="Nous déplaçons le matériel jusqu'au lieu d'exposition, nous ne livrons qu'en France métropolitaine et le coût de transport sera donc appliqué et obligatoire "
+                          wrapText="true">
+                       <VBox.margin>
+                           <Insets left="10.0" top="5.0"/>
+                       </VBox.margin>
+                   </Label>
+                   <Label text="Le matériel a été dégradé, que faire ?">
+                       <VBox.margin>
+                           <Insets left="10.0" top="20.0"/>
+                       </VBox.margin>
+                       <font>
+                           <Font name="System Italic" size="13.0"/>
+                       </font>
+                   </Label>
                   <Label text="Si le matériel a été dégradé, il y aura une caution à payer, elle sera indiquée sur le devis.">
                      <VBox.margin>
-                        <Insets left="5.0" top="5.0" />
+                         <Insets left="10.0" top="5.0"/>
                      </VBox.margin></Label>
-                  <Label text="L'application ne fonctionne plus, que faire ?" underline="true">
-                     <VBox.margin>
-                        <Insets left="10.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Italic" size="13.0" />
-                     </font></Label>
-                  <Label text="Redémarrez l'application, si cela ne fontionne toujours pas, redémarrez votre ordinateur. Si le problème persiste, veuillez nous contacter.">
-                     <VBox.margin>
-                        <Insets left="5.0" top="5.0" />
-                     </VBox.margin></Label>
-                  <Label text="Nous contacter :" underline="true">
-                     <VBox.margin>
-                        <Insets left="10.0" top="30.0" />
-                     </VBox.margin></Label>
+                   <Label text="L'application ne fonctionne plus, que faire ?">
+                       <VBox.margin>
+                           <Insets left="10.0" top="20.0"/>
+                       </VBox.margin>
+                       <font>
+                           <Font name="System Italic" size="13.0"/>
+                       </font>
+                   </Label>
+                   <Label text="Redémarrez l'application, si cela ne fontionne toujours pas, redémarrez votre ordinateur. Si le problème persiste, veuillez nous contacter."
+                          wrapText="true">
+                       <VBox.margin>
+                           <Insets left="10.0" top="5.0"/>
+                       </VBox.margin>
+                   </Label>
+                   <Label text="Nous contacter ">
+                       <VBox.margin>
+                           <Insets left="10.0" top="30.0"/>
+                       </VBox.margin>
+                   </Label>
                   <HBox prefHeight="31.0" prefWidth="600.0">
-                     <children>
-                        <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@facebook.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" top="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
+                      <children>
+                          <Label text="Téléphone : +33 82 77 15 12">
+                              <padding>
+                                  <Insets left="20.0" top="15.0"/>
+                              </padding>
+                              <HBox.margin>
+                                  <Insets left="25.0"/>
+                              </HBox.margin>
+                          </Label>
+                          <Label text="Email : Epsilon.serviceclient@hotmail.fr">
+                              <padding>
+                                  <Insets left="30.0" top="15.0"/>
+                              </padding>
+                              <HBox.margin>
+                                  <Insets left="50.0"/>
+                              </HBox.margin>
+                          </Label>
+                          <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                  <Image url="@facebook.png"/>
+                              </image>
+                              <HBox.margin>
+                                  <Insets left="100.0" top="10.0"/>
+                              </HBox.margin>
+                          </ImageView>
+                          <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
                               <Image url="@Twitter-Logo.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="10.0" top="10.0" />
+                               <Insets left="20.0" top="11.0"/>
                            </HBox.margin>
                         </ImageView>
                         <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -105,7 +132,7 @@
                               <Image url="@instagram.png" />
                            </image>
                            <HBox.margin>
-                               <Insets left="10.0" top="10.0"/>
+                               <Insets left="20.0" top="11.0"/>
                            </HBox.margin>
                         </ImageView>
                          <ImageView fitHeight="61.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -113,11 +140,9 @@
                                  <Image url="@Whatsapp.png"/>
                              </image>
                              <HBox.margin>
-                                 <Insets left="10.0" top="10.0"/>
+                                 <Insets left="20.0" top="10.0"/>
                              </HBox.margin>
                          </ImageView>
-                         <Label text="Email : yoan.delannoy@etu.univ-grenoble-alpes.fr"/>
-                         <Label text="Téléphone : 07 82 77 15 12"/>
                      </children>
                   </HBox>
                </children>
