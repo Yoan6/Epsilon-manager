@@ -26,10 +26,7 @@ import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
 
 
@@ -111,6 +108,8 @@ public class JavaFXGUI implements IHM {
     private GridPane infoPane;
     @FXML
     private GridPane matPane;
+    @FXML
+    private GridPane persPane;
 
     public JavaFXGUI(Controleur controleur) {
         this.controleur = controleur;
@@ -384,8 +383,7 @@ public class JavaFXGUI implements IHM {
         Label qt = (Label) getNodeAt(p1, 2, 0);
         Label tps = (Label) getNodeAt(p1, 2, 1);
 
-        String sprix = ((Label) ((Parent) (p1.getParent().getChildrenUnmodifiable().get(1))).getChildrenUnmodifiable().get(1)).getText();
-        float prix = Float.parseFloat(sprix.substring(0, sprix.length() - 2));
+        float prix = getPrix(p1.getParent());
         int quantite = Integer.parseInt(qt.getText());
         int temps = Integer.parseInt(tps.getText());
         float total = quantite * temps * prix;
@@ -397,9 +395,29 @@ public class JavaFXGUI implements IHM {
 
         // Chargement budget
         budgetLabel.setText("Budget : " + this.controleur.getBudget());
-        coutLabel.setText("Coût total : " + getCoutPersonnelTotal(b.getScene().getRoot()));
+        coutLabel.setText("Coût total : " + getPersCoutTotal(b.getScene().getRoot()));
         ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
         ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
+    }
+
+    private float getPrix(Parent comp) {
+        Node n = comp.getChildrenUnmodifiable().get(0);
+        //Prix detect
+        float prix;
+        if (n instanceof GridPane) {
+            //GP-sytle, cu
+            String sprix = ((Label) getNodeAt((GridPane) n, 1, 0)).getText();
+            prix = Float.parseFloat(sprix.substring(7, sprix.length() - 5));
+        } else if (n instanceof Label) {
+            //Direct,reg st
+            String sprix = ((Label) (comp.getChildrenUnmodifiable().get(1))).getText();
+            prix = Float.parseFloat(sprix.substring(7, sprix.length() - 5));
+        } else {
+            //VP-style, as
+            String sprix = ((Label) ((Parent) (comp.getChildrenUnmodifiable().get(1))).getChildrenUnmodifiable().get(1)).getText();
+            prix = Float.parseFloat(sprix.substring(0, sprix.length() - 2));
+        }
+        return prix;
     }
 
 
@@ -646,7 +664,82 @@ public class JavaFXGUI implements IHM {
     // Vue personnel
     @FXML
     private void onAgentSecuriteAction() {
-        openPage("agentsecurite.fxml", "Ajout d'agent de securité");
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("agentsecurite.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+            // Chargement des materiaux
+            chargePersonnel(newUserScene.getRoot());
+
+            current.setTitle("Ajout d'agent de securité");
+            current.setScene(newUserScene);
+            //current.showAndWait();
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
+        }
+    }
+
+    private void chargePersonnel(Parent root) {
+        ObservableList<Node> childrenUnmodifiable = root.getChildrenUnmodifiable();
+        for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
+            Parent p = (Parent) childrenUnmodifiable.get(i);
+            float prix = getPrix(p);
+            String id = getId(p);
+            int[] infos = this.controleur.getLocation(id);
+            if (infos == null) {
+                continue;
+            }
+            GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(p.getChildrenUnmodifiable().size() - 1);
+            Label qt = ((Label) getNodeAt(fbox, 2, 0));
+            Label temps = ((Label) getNodeAt(fbox, 2, 1));
+            qt.setText(infos[0] + "");
+            temps.setText(infos[1] + "");
+            float total = infos[0] * (infos[1] / 12.0f) * prix;
+            total = Math.round(total * 100.0f) / 100.0f;
+            Label lprix = (Label) getNodeAt(fbox, 4, 0);
+            Label ltemps = (Label) getNodeAt(fbox, 4, 1);
+            lprix.setText(String.format("Prix : %.2f €", total));
+            ltemps.setText("Temps : " + infos[1] + "H");
+        }
+        // Chargement budget
+        budgetLabel.setText("Budget : " + this.controleur.getBudget());
+        coutLabel.setText("Coût total : " + getPersCoutTotal(root));
+    }
+
+    private float getPersCoutTotal(Parent root) {
+        ObservableList<Node> childrenUnmodifiable = root.getChildrenUnmodifiable();
+        float total = 0;
+        for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
+            Parent p = (Parent) childrenUnmodifiable.get(i);
+            float prix = getPrix(p);
+            String id = getId(p);
+            int[] infos = this.controleur.getLocation(id);
+            if (infos == null) {
+                continue;
+            }
+            total += infos[0] * (infos[1] / 12.0f) * prix;
+        }
+        total = Math.round(total * 100.0f) / 100.0f;
+        return total;
+    }
+
+    private String getId(Parent p) {
+        Node n = p.getChildrenUnmodifiable().get(0);
+        //Prix detect
+        String txt;
+        if (n instanceof GridPane) {
+            //GP-sytle, cu
+            txt = ((Label) getNodeAt((GridPane) n, 0, 0)).getText();
+        } else if (n instanceof Label) {
+            //Direct,reg st
+            txt = ((Label) (p.getChildrenUnmodifiable().get(0))).getText();
+        } else {
+            //VP-style, as
+            txt = ((Label) ((Parent) (p.getChildrenUnmodifiable().get(0))).getChildrenUnmodifiable().get(1)).getText();
+        }
+        return "PERSONNEL" + txt;
     }
 
     @FXML
@@ -756,7 +849,8 @@ public class JavaFXGUI implements IHM {
 
     private String calculFilAriane() {
         StringBuilder sb = new StringBuilder();
-        for (Scene s : sceneStack) {
+        for (Iterator<Scene> it = sceneStack.descendingIterator(); it.hasNext(); ) {
+            Scene s = it.next();
             Node n = s.lookup("#labelTitre");
             if (n instanceof Label) {
                 String text = ((Label) n).getText();
@@ -1069,27 +1163,42 @@ public class JavaFXGUI implements IHM {
             ((Label) getNodeAt(infoPane, 0, 3)).setText("Capacité : " + projet.getCapacite());
             ((Label) getNodeAt(infoPane, 1, 3)).setText("Budget : " + projet.getBudget());
 
-            //locations (matériaux ?)
+            //locations (matériaux & personnel)
             int row = 1;
+            int rowP = 1;
             for (Location l : projet.getLocations().values()) {
-                RowConstraints rowc = new RowConstraints();
-                rowc.setMinHeight(166);
-                matPane.getRowConstraints().add(rowc);
                 String id = l.getId();
-                if (id.contains(".")) {
-                    ImageView iv = new ImageView(JavaFXGUI.class.getResource(id).toString());
-                    iv.setFitWidth(636);
-                    iv.setFitHeight(166);
-                    matPane.add(iv, 0, row);
-                } else {
+                if (id.startsWith("PERSONNEL")) {
+                    RowConstraints rowc = new RowConstraints();
+                    rowc.setMinHeight(166);
+                    persPane.getRowConstraints().add(rowc);
+                    id = id.substring(9);
                     Label lab = new Label(id);
-                    matPane.add(lab, 0, row);
+                    persPane.add(lab, 0, rowP);
+                    float prix = l.getQuantite() * l.getTemps();
+                    Label qt = new Label("Quantité : " + l.getQuantite() + "\nTemps : " + l.getTemps() + "H\nPrix : " + prix + "€");
+                    qt.setFont(Font.font(qt.getFont().getFamily(), 20));
+                    persPane.add(qt, 1, rowP);
+                    rowP++;
+                } else {
+                    RowConstraints rowc = new RowConstraints();
+                    rowc.setMinHeight(166);
+                    matPane.getRowConstraints().add(rowc);
+                    if (id.contains(".")) {
+                        ImageView iv = new ImageView(JavaFXGUI.class.getResource(id).toString());
+                        iv.setFitWidth(636);
+                        iv.setFitHeight(166);
+                        matPane.add(iv, 0, row);
+                    } else {
+                        Label lab = new Label(id);
+                        matPane.add(lab, 0, row);
+                    }
+                    float prix = l.getQuantite() * l.getTemps() * prixs.get(l.getId());
+                    Label qt = new Label("Quantité : " + l.getQuantite() + "\nTemps : " + l.getTemps() + "H\nPrix : " + prix + "€");
+                    qt.setFont(Font.font(qt.getFont().getFamily(), 20));
+                    matPane.add(qt, 1, row);
+                    row++;
                 }
-                float prix = l.getQuantite() * l.getTemps() * prixs.get(l.getId());
-                Label qt = new Label("Quantité : " + l.getQuantite() + "\nTemps : " + l.getTemps() + "H\nPrix : " + prix + "€");
-                qt.setFont(Font.font(qt.getFont().getFamily(), 20));
-                matPane.add(qt, 1, row);
-                row++;
             }
 
             current.setTitle("Devis");
