@@ -275,7 +275,7 @@ public class JavaFXGUI implements IHM {
 
     @FXML
     private void onMatValider(ActionEvent e) {
-        ObservableList<Node> childrenUnmodifiable = ((Parent) e.getSource()).getScene().getRoot().getChildrenUnmodifiable();
+        ObservableList<Node> childrenUnmodifiable = matContainer.getChildrenUnmodifiable();
         for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
             Parent p = (Parent) childrenUnmodifiable.get(i);
             ImageView iv = (ImageView) p.getChildrenUnmodifiable().get(0);
