@@ -26,9 +26,9 @@ import javafx.stage.WindowEvent;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.Stack;
 import java.util.concurrent.CountDownLatch;
 
 
@@ -45,12 +45,15 @@ import java.util.concurrent.CountDownLatch;
  * {@link fr.uga.iut2.genevent.controleur.Controleur} via l'appel de la méthode
  * {@link #demarrerInteraction()}.
  */
+
+
 public class JavaFXGUI implements IHM {
 
     private final Controleur controleur;
     private final CountDownLatch eolBarrier;  // /!\ ne pas supprimer /!\ : suivi de la durée de vie de l'interface
 
-    private final LinkedList<Scene> sceneStack = new LinkedList<>();
+    private final Stack<Scene> sceneStack = new Stack<>();
+
 
     // Par vue non spéciale
     @FXML
@@ -101,11 +104,21 @@ public class JavaFXGUI implements IHM {
     @FXML
     private VBox matContainer;
 
+    /**
+     * Constructeur de la classe JavaFXGUI.
+     * @param controleur
+     */
     public JavaFXGUI(Controleur controleur) {
         this.controleur = controleur;
         this.eolBarrier = new CountDownLatch(1);  // /!\ ne pas supprimer /!\
     }
 
+    /**
+     * Valide la cohérence des dates dans les champs de saisie de dates.
+     * @param dateDebut
+     * @param dateFin
+     * @return
+     */
     private static boolean validateDateCoherenceTextField(DatePicker dateDebut, DatePicker dateFin) {
         boolean isValid = dateDebut.getValue().isBefore(dateFin.getValue());
         markTextFieldErrorStatus(dateDebut.getEditor(), isValid);
@@ -114,6 +127,7 @@ public class JavaFXGUI implements IHM {
 
 //-----  Éléments du dialogue  -------------------------------------------------
 
+
     private void exitAction() {
         // fermeture de l'interface JavaFX : on notifie sa fin de vie
         this.eolBarrier.countDown();
@@ -121,11 +135,14 @@ public class JavaFXGUI implements IHM {
 
     // menu principal  -----
 
+
+
     private static boolean validateDateTextField(DatePicker picker) {
         boolean isValid = picker.getValue() != null;
         markTextFieldErrorStatus(picker.getEditor(), isValid);
         return isValid;
     }
+
 
     @FXML
     private void exitMenuItemAction() {
@@ -135,6 +152,11 @@ public class JavaFXGUI implements IHM {
 
     // vue nouveau projet  -----
 
+    /**
+     * Valide la cohérence des champs de saisie de nombres.
+     * @param textField
+     * @return
+     */
     private static boolean validateNumberTextField(TextField textField) {
         boolean isValid = true;
         try {
@@ -147,7 +169,11 @@ public class JavaFXGUI implements IHM {
 
         return isValid;
     }
-
+    /**
+     * Méthode qui met en évidence les champs de texte en erreur.
+     * @param textField
+     * @param isValid
+     */
     private static void markTextFieldErrorStatus(TextField textField, boolean isValid) {
         ObservableList<Node> list = textField.getParent().getChildrenUnmodifiable();
         Node errorCheck = list.get(list.size() - 1);
@@ -162,7 +188,7 @@ public class JavaFXGUI implements IHM {
      * @throws IOException si le chargement de la vue FXML échoue.
      * @see javafx.application.Application#start(Stage)
      */
-    private void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {
         FXMLLoader mainViewLoader = new FXMLLoader(getClass().getResource("main-view.fxml"));
         mainViewLoader.setController(this);
         Scene mainScene = new Scene(mainViewLoader.load());
@@ -170,18 +196,27 @@ public class JavaFXGUI implements IHM {
         primaryStage.setTitle("GenEvent");
         primaryStage.setScene(mainScene);
         primaryStage.show();
+        primaryStage.setOnCloseRequest((WindowEvent t) -> this.exitAction());
     }
 
+    //-----  Créer un nouveau projet  --------------------------------------
     @FXML
     private void newProjetAction() {
         this.controleur.creerProjet();
     }
+    //-----  Ouvrir un projet existant  --------------------------------------
 
     @FXML
     private void openProjetAction() {
         this.controleur.ouvrirProjets();
     }
 
+
+    // javadoc de la méthode createNewProjetAction()
+
+    /**
+     * Méthode appelée lorsque l'utilisateur clique sur le bouton "Créer un nouveau projet".
+     */
     @FXML
     private void createNewProjetAction() {
         if (validateTextFields()) {
@@ -200,6 +235,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode appelée lorsque l'utilisateur clique sur le bouton "Retour".
+     */
     @FXML
     private void onBack() {
         Scene old = sceneStack.pop();
@@ -214,31 +252,57 @@ public class JavaFXGUI implements IHM {
         this.controleur.choixPersonnel();
     }
 
-
+    //Vue personnel
     @FXML
     private void personnelSuivant() {
         this.controleur.choixArtiste();}
 
+    // javadoc de la méthode onMatSub(ActionEvent event)
+
+    /**
+     * Méthode appelée lorsque l'utilisateur clique sur le bouton "-".
+     * @param e
+     */
     @FXML
     private void onMatSub(ActionEvent e) {
         changeLabel((Node) e.getSource(), false);
     }
 
+    /**
+     * Méthode appelée lorsque l'utilisateur clique sur le bouton "+".
+     * @param e
+     */
     @FXML
     private void onMatAdd(ActionEvent e) {
         changeLabel((Node) e.getSource(), true);
     }
 
+    /**
+     * Méthode appelée lorsque l'utilisateur clique sur le bouton "-".
+     * @param e
+     */
     @FXML
     private void onPersSub(ActionEvent e) {
         changePersonnel((Node) e.getSource(), false);
     }
 
+    /**
+     * Méthode appelée lorsque l'utilisateur clique sur le bouton "+".
+     * @param e
+     */
     @FXML
     private void onPersAdd(ActionEvent e) {
         changePersonnel((Node) e.getSource(), true);
     }
 
+    /**
+     * Méthode qui retourne le node situé à la position (col, row) dans le
+     * GridPane gp.
+     * @param gp
+     * @param col
+     * @param row
+     * @return
+     */
     private static Node getNodeAt(GridPane gp, Integer col, Integer row) {
         col = col == null ? 0 : col;
         row = row == null ? 0 : row;
@@ -256,6 +320,12 @@ public class JavaFXGUI implements IHM {
     private final Map<String, Float> prixs = Map.ofEntries(Map.entry("table1.JPG", 8.20f), Map.entry("table2.JPG", 10.50f),
             Map.entry("table3.JPG", 5.70f), Map.entry("1.1.JPG", 3.01f), Map.entry("1.2.JPG", 2.50f), Map.entry("1.3.JPG", 2.55f), Map.entry("support1.JPG", 12.0f), Map.entry("support2.JPG", 1.12f), Map.entry("support3.JPG", 3.99f), Map.entry("tablette.JPG", 7.80f), Map.entry("tele.JPG", 33.50f), Map.entry("projo.JPG", 23.90f), Map.entry("lumiere1.JPG", 7.20f), Map.entry("lumiere2.JPG", 3.80f), Map.entry("lumiere3.JPG", 1.95f), Map.entry("ecouteur.JPG", 63.20f), Map.entry("camera.JPG", 39.99f), Map.entry("enceinte.JPG", 14.90f));
 
+    // javadoc de la méthode onLocalClick(ActionEvent e)
+
+    /**
+     * Méthode appelée lorsque l'utilisateur clique sur un matériel de "local".
+     * @param e
+     */
     @FXML
     private void onLocalClick(ActionEvent e) {
         Button b = (Button) e.getSource();
@@ -273,9 +343,14 @@ public class JavaFXGUI implements IHM {
         coutLabel.setText("Coût total : " + prix);
     }
 
+    /**
+     * Méthode appelée lorsque l'utilisateur clique sur le bouton "Valider".
+     * @param e
+     */
+
     @FXML
     private void onMatValider(ActionEvent e) {
-        ObservableList<Node> childrenUnmodifiable = matContainer.getChildrenUnmodifiable();
+        ObservableList<Node> childrenUnmodifiable = ((Parent) e.getSource()).getScene().getRoot().getChildrenUnmodifiable();
         for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
             Parent p = (Parent) childrenUnmodifiable.get(i);
             ImageView iv = (ImageView) p.getChildrenUnmodifiable().get(0);
@@ -294,6 +369,13 @@ public class JavaFXGUI implements IHM {
         onBack();
     }
 
+    // javadoc de la méthode changeLabel(Node b, boolean increment)
+
+    /**
+     * Méthode qui change le label d'un prix d'un matériel.
+     * @param b
+     * @param increment
+     */
     private void changeLabel(Node b, boolean increment) {
         GridPane p1 = (GridPane) b.getParent();
         boolean isTop = GridPane.getRowIndex(b) == null || GridPane.getRowIndex(b) == 0;
@@ -332,15 +414,13 @@ public class JavaFXGUI implements IHM {
         // Chargement budget
         budgetLabel.setText("Budget : " + this.controleur.getBudget());
         coutLabel.setText("Coût total : " + getCoutTotal(matContainer));
-
-        ((Label) sceneStack.get(sceneStack.size() - 2).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
-        ((Label) sceneStack.get(sceneStack.size() - 2).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
     }
 
-    private float getCoutTotalApp() {
-        return this.controleur.getLocations().values().stream().map((l) -> (prixs.get(l.getId()) == null ? 1 : prixs.get(l.getId())) * l.getQuantite() * l.getTemps()).reduce(0.0f, Float::sum);
-    }
-
+    /**
+     * Méthode qui change le label du prix d'un personnel.
+     * @param b
+     * @param increment
+     */
     private void changePersonnel(Node b, boolean increment) {
         GridPane p1 = (GridPane) b.getParent();
         boolean isTop = GridPane.getRowIndex(b) == null || GridPane.getRowIndex(b) == 0;
@@ -373,11 +453,12 @@ public class JavaFXGUI implements IHM {
         // Chargement budget
         budgetLabel.setText("Budget : " + this.controleur.getBudget());
         coutLabel.setText("Coût total : " + getCoutPersonnelTotal(b.getScene().getRoot()));
-        ((Label) sceneStack.get(sceneStack.size() - 2).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
-        ((Label) sceneStack.get(sceneStack.size() - 2).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
     }
 
 
+    /**
+     * Méthode qui gère l'action de la chaise.
+     */
     @FXML
     private void onChaiseAction() {
         try {
@@ -397,6 +478,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui gère l'action de l'eclairage.
+     */
     @FXML
     private void onEclairageAction() {
         try {
@@ -415,6 +499,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui gère l'action des multimedias.
+     */
     @FXML
     private void onMultimediaAction() {
         try {
@@ -439,42 +526,53 @@ public class JavaFXGUI implements IHM {
         App.application.getHostServices().showDocument("https://www.google.com");
     }
 
+    // ajout d'un lien google form
+
     @FXML
     private void onHyperlinkgoogleform() {
         App.application.getHostServices().showDocument("https://docs.google.com/forms/d/e/1FAIpQLSfzUVhsAZjntj6sbYNkvxeA6iz2waNJmZJf6fbV4sHzwdx0IA/viewform?vc=0&c=0&w=1&flr=0");
     }
 
+    // ajout d'un lien de local
+
     @FXML
     private void onHyperlinklocal1() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-pavillon-cambon-capucines/");
     }
+    // ajout d'un lien de local
 
     @FXML
     private void onHyperlinklocal2() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-bal-rock/");
     }
-
-    @FXML
-    private void onHyperlinklocal5() {
-        App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-clery/");
-    }
+    // ajout d'un lien de local
 
     @FXML
     private void onHyperlinklocal3() {
-        App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-vinci/");
+        App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-clery/");
     }
+    // ajout d'un lien de local
 
     @FXML
     private void onHyperlinklocal4() {
+        App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-vinci/");
+    }
+    // ajout d'un lien de local
+
+    @FXML
+    private void onHyperlinklocal5() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-saint-martin/");
     }
+    // ajout d'un lien de local
 
     @FXML
     private void onHyperlinklocal6() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-maison-de-lamerique-latine/");
     }
 
-
+    /**
+     * Méthode qui gère l'action des supports.
+     */
     @FXML
     private void onSupportAction() {
         try {
@@ -494,6 +592,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui gère l'action des locaux.
+     */
     @FXML
     private void onLocauxAction() {
         try {
@@ -520,6 +621,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui gère l'action des tables.
+     */
     @FXML
     private void onTableAction() {
         try {
@@ -539,8 +643,13 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui charge les materiaux dans le conteneur.
+     *
+     * @param root
+     */
     private void chargeMateriaux(Parent root) {
-        ObservableList<Node> childrenUnmodifiable = root.getChildrenUnmodifiable();
+        ObservableList<Node> childrenUnmodifiable = ((Parent) ((Parent) root.getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable();
         for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
             Parent p = (Parent) childrenUnmodifiable.get(i);
             ImageView iv = (ImageView) p.getChildrenUnmodifiable().get(0);
@@ -565,7 +674,7 @@ public class JavaFXGUI implements IHM {
             total = Math.round(total * 100.0f) / 100.0f;
             Label lprix = (Label) getNodeAt(fbox, 4, 0);
             Label ltemps = (Label) getNodeAt(fbox, 4, 1);
-            lprix.setText(String.format("Prix : %.2f €", total));
+            lprix.setText("Prix : " + total + "€");
             ltemps.setText("Temps : " + infos[1] + "H");
         }
         // Chargement budget
@@ -573,6 +682,12 @@ public class JavaFXGUI implements IHM {
         coutLabel.setText("Coût total : " + getCoutTotal(root));
     }
 
+    /**
+     * Méthode qui calcule le coût total.
+     *
+     * @param root
+     * @return
+     */
     private String getCoutTotal(Parent root) {
         double total = 0;
         for (int i = 0, size = root.getChildrenUnmodifiable().size(); i < size - 1; i += 2) {
@@ -582,9 +697,16 @@ public class JavaFXGUI implements IHM {
             Label lprix = (Label) getNodeAt(fbox, 4, 0);
             total += Double.parseDouble(lprix.getText().substring(7, lprix.getText().length() - 1));
         }
-        return String.format("%.2f", total);
+        total = Math.round(total * 100.0f) / 100.0f;
+        return String.valueOf(total);
     }
 
+    /**
+     * Méthode qui calcule le coût total du personnel.
+     *
+     * @param root
+     * @return
+     */
     private String getCoutPersonnelTotal(Parent root) {
         double total = 0;
         for (int i = 0, size = root.getChildrenUnmodifiable().size(); i < size - 1; i += 2) {
@@ -598,80 +720,75 @@ public class JavaFXGUI implements IHM {
         return String.valueOf(total);
     }
 
-    // Vue personnel
+    /**
+     * Méthode qui ouvre la page agent de sécurite.
+     */
     @FXML
     private void onAgentSecuriteAction() {
         openPage("agentsecurite.fxml", "Ajout d'agent de securité");
     }
 
+    /**
+     * Méthode qui ouvre la page aide.
+     */
     @FXML
     private void onAideAction() {
         openPage("aide.fxml", "Informations supplémentaires");
     }
 
+    /**
+     * Méthode qui renvoie a la page main.
+     */
     @FXML
     private void onOuiAction() {
-        Stage window = (Stage) sceneStack.peek().getWindow();
-        while (sceneStack.size() > 1) {
-            sceneStack.pop();
-        }
-        window.setScene(sceneStack.peek());
+        openPage("main-view.fxml", "accueil");
     }
-
-    @FXML
-    private void onRecapAction(ActionEvent e) {
-        openPage("devis.fxml", "Devis");
-    }
-
-    @FXML
-    private void onArtisteAction() {
-        try {
-            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("recapitulatif.fxml"));
-            newUserViewLoader.setController(this);
-            Scene newUserScene = new Scene(newUserViewLoader.load());
-            Stage current = (Stage) sceneStack.peek().getWindow();
-            sceneStack.push(newUserScene);
-            filAriane.setText(calculFilAriane());
-
-            current.setTitle("Récapitulatif");
-            current.setScene(newUserScene);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
+    /**
+     * Méthode qui ferme le projet.
+     */
     @FXML
     private void onQuitterAction() {
         openPage("fermer-projet-view.fxml", "fermer le projet");
     }
 
+    /**
+     * Méthode qui ouvre la page guide.
+     */
     @FXML
     private void onGuideAction() {
         openPage("guide.fxml", "Ajout de guide");
     }
 
+    /**
+     * Méthode qui ouvre la page regisseur.
+     */
     @FXML
     private void onRegisseurAction() {
         openPage("regisseur.fxml", "Ajout de régisseur");
     }
 
+    /**
+     * Méthode qui ouvre la page de personnel d'acceuil.
+     */
     @FXML
     private void onAccueilAction() {
         openPage("acceuil.fxml", "Ajout de personnel d'accueil");
     }
 
+    /**
+     * Méthode qui ouvre la page cuisinier.
+     */
     @FXML
     private void onCuisinierAction() {
         openPage("cuisinier.fxml", "Ajout de cuisinier");
     }
 
-    @FXML
-    private void onSupprLocal() {
-        this.controleur.getLocations().values().stream().filter((l) -> !l.getId().contains(".")).findAny().ifPresent(location -> this.controleur.removeLocation(location.getId()));
-        coutLabel.setText("Coût total : 0");
-    }
-
+    /**
+     * Méthode qui ouvre une page.
+     *
+     * @param fileName
+     * @param title
+     */
     private void openPage(String fileName, String title) {
         try {
             FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource(fileName));
@@ -689,6 +806,11 @@ public class JavaFXGUI implements IHM {
     }
 
 
+    /**
+     * Méthode qui valide les champs de texte.
+     *
+     * @return
+     */
     private boolean validateTextFields() {
         boolean isValid;
 
@@ -714,6 +836,12 @@ public class JavaFXGUI implements IHM {
         return isValid;
     }
 
+    /**
+     * Méthode qui valide le champ de texte non vide. Le champ de texte doit être superieur à 0.
+     *
+     * @param textField
+     * @return isValid
+     */
     private static boolean validateNonEmptyTextField(TextField textField) {
         boolean isValid = textField.getText().strip().length() > 0;
 
@@ -722,6 +850,11 @@ public class JavaFXGUI implements IHM {
         return isValid;
     }
 
+    /**
+     * Méthode qui calcule le fil d'Ariane.
+     *
+     * @return sb.toString()
+     */
     private String calculFilAriane() {
         StringBuilder sb = new StringBuilder();
         for (Scene s : sceneStack) {
@@ -736,6 +869,9 @@ public class JavaFXGUI implements IHM {
 
 //-----  Implémentation des méthodes abstraites  -------------------------------
 
+    /**
+     * Méthode qui démarre l'interaction avec l'utilisateur.
+     */
     @Override
     public void demarrerInteraction() {
         // démarrage de l'interface JavaFX
@@ -759,6 +895,11 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui ouvre le projet, permettant de le modifier ou de le supprimer.
+     *
+     * @param projets
+     */
     @Override
     public void ouvrirProjets(Collection<Projet> projets) {
         try {
@@ -772,8 +913,7 @@ public class JavaFXGUI implements IHM {
                 projetsGridPane.getRowConstraints().add(new RowConstraints());
                 Label l = new Label(p.getNom());
                 GridPane.setRowIndex(l, i);
-                Button b = new Button("Ouvrir Devis");
-                b.setOnAction(this::onRecapAction);
+                Button b = new Button("OuvrirFicheTec");
                 GridPane.setRowIndex(b, i);
                 GridPane.setColumnIndex(b, 1);
 
@@ -785,9 +925,7 @@ public class JavaFXGUI implements IHM {
                 modPers.setOnAction((e) -> controleur.modifierPersonnel(p.getNom()));
                 MenuItem modArtiste = new MenuItem("Artiste / Oeuvre");
                 modArtiste.setOnAction((e) -> controleur.modificationArtiste(p.getNom()));
-                MenuItem modRecap = new MenuItem("Récapitulatif");
-                modRecap.setOnAction((e) -> onArtisteAction());
-                MenuButton mb = new MenuButton("Choisir page", null, modProj, modMate, modPers, modArtiste, modRecap);
+                MenuButton mb = new MenuButton("Choisir page", null, modProj, modMate, modPers, modArtiste);
                 GridPane.setRowIndex(mb, i);
                 GridPane.setColumnIndex(mb, 2);
 
@@ -822,6 +960,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui ouvre la fenêtre de choix des matériaux.
+     */
     @Override
     public void choixMateriaux() {
         try {
@@ -831,8 +972,6 @@ public class JavaFXGUI implements IHM {
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             filAriane.setText(calculFilAriane());
-            budgetLabel.setText(this.controleur.getBudget() + "");
-            coutLabel.setText(String.format("%.2f", getCoutTotalApp()));
 
             current.setTitle("Choisir les matériaux");
             current.setScene(newUserScene);
@@ -842,6 +981,11 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui ouvre la fenêtre de modification d'un projet, son nom, date etc...
+     *
+     * @param projet
+     */
     @Override
     public void modifierProjet(Projet projet) {
         try {
@@ -869,6 +1013,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui ouvre la fenêtre de choix du personnel.
+     */
     @Override
     public void choixPersonnel() {
         try {
@@ -878,8 +1025,6 @@ public class JavaFXGUI implements IHM {
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             filAriane.setText(calculFilAriane());
-            budgetLabel.setText(this.controleur.getBudget() + "");
-            coutLabel.setText(String.format("%.2f", getCoutTotalApp()));
 
             current.setTitle("Choisir les personnels");
             current.setScene(newUserScene);
@@ -889,6 +1034,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui ouvre la fenêtre de choix des artistes ainsi que les oeuvres.
+     */
     @Override
     public void choixArtiste() {
         try {
@@ -907,6 +1055,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui ouvre la fenêtre de modification des artistes ainsi que les oeuvres.
+     */
     @Override
     public void modifierArtiste(Projet projet) {
         try {
@@ -929,6 +1080,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Méthode qui ajoute une oeuvre et son artiste à la liste des oeuvres du projet.
+     */
     @FXML
     private void onAddOeuvre() {
         Oeuvre o = new Oeuvre(oeuvreTextField.getText(), artisteTextField.getText());
@@ -938,6 +1092,9 @@ public class JavaFXGUI implements IHM {
         ajouteOeuvre(o);
     }
 
+    /**
+     * Méthode de la page d'ajout d'un artiste et d'une oeuvre.
+     */
     private void ajouteOeuvre(Oeuvre o) {
         int cols = artistreGridPane.getColumnCount() - 3;
         //moving down all
@@ -975,6 +1132,9 @@ public class JavaFXGUI implements IHM {
         artistreGridPane.addRow(cols, lab, mod, suppr);
     }
 
+    /**
+     * Méthode qui permet de supprimer un artiste et son oeuvre.
+     */
     private void removeOeuvre(Oeuvre o, Label lab, ImageView mod, ImageView suppr) {
         int col = GridPane.getRowIndex(lab);
         //BUMP
@@ -993,7 +1153,9 @@ public class JavaFXGUI implements IHM {
         this.controleur.removeOeuvre(o);
     }
 
-
+    /**
+     * Méthode qui crée un projet.
+     */
     @Override
     public void creerProjet() {
         try {
