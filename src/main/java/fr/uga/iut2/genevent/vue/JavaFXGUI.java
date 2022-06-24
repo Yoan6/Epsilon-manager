@@ -455,17 +455,17 @@ public class JavaFXGUI implements IHM {
     }
 
     @FXML
-    private void onHyperlinklocal3() {
+    private void onHyperlinklocal5() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-clery/");
     }
 
     @FXML
-    private void onHyperlinklocal4() {
+    private void onHyperlinklocal3() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-vinci/");
     }
 
     @FXML
-    private void onHyperlinklocal5() {
+    private void onHyperlinklocal4() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-saint-martin/");
     }
 
