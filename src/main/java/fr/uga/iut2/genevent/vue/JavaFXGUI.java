@@ -431,6 +431,41 @@ public class JavaFXGUI implements IHM {
     }
 
     @FXML
+    private void onHyperlinkgoogleform() {
+        App.application.getHostServices().showDocument("https://docs.google.com/forms/d/e/1FAIpQLSfzUVhsAZjntj6sbYNkvxeA6iz2waNJmZJf6fbV4sHzwdx0IA/viewform?vc=0&c=0&w=1&flr=0");
+    }
+
+    @FXML
+    private void onHyperlinklocal1() {
+        App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-pavillon-cambon-capucines/");
+    }
+
+    @FXML
+    private void onHyperlinklocal2() {
+        App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-bal-rock/");
+    }
+
+    @FXML
+    private void onHyperlinklocal3() {
+        App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-clery/");
+    }
+
+    @FXML
+    private void onHyperlinklocal4() {
+        App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-vinci/");
+    }
+
+    @FXML
+    private void onHyperlinklocal5() {
+        App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-saint-martin/");
+    }
+
+    @FXML
+    private void onHyperlinklocal6() {
+        App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-maison-de-lamerique-latine/");
+    }
+
+    @FXML
     private void onSupportAction() {
         try {
             FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("support.fxml"));
