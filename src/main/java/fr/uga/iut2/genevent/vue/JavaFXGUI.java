@@ -210,6 +210,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Cette méthode s'applique à un bouton et permet de revenir à la page précédente
+     */
     @FXML
     private void onBack() {
         Scene old = sceneStack.pop();
@@ -224,26 +227,41 @@ public class JavaFXGUI implements IHM {
         this.controleur.choixPersonnel();
     }
 
-
     @FXML
     private void personnelSuivant() {
         this.controleur.choixArtiste();}
 
+    /**
+     * Cette méthode s'applique aux boutons - lors de l'ajout d'un matériel. Elle permet de réduire le nombre de matériels
+     * @param e
+     */
     @FXML
     private void onMatSub(ActionEvent e) {
         changeLabel((Node) e.getSource(), false);
     }
 
+    /**
+     * Cette méthode s'applique aux boutons + lors de l'ajout d'un matériel. Elle permet d'augmenter le nombre de matériels
+     * @param e
+     */
     @FXML
     private void onMatAdd(ActionEvent e) {
         changeLabel((Node) e.getSource(), true);
     }
 
+    /**
+     * Cette méthode s'applique aux boutons - lors de l'ajout d'un personnel. Elle permet de réduire le nombre de personnel
+     * @param e
+     */
     @FXML
     private void onPersSub(ActionEvent e) {
         changePersonnel((Node) e.getSource(), false);
     }
 
+     /**
+     * Cette méthode s'applique aux boutons + lors de l'ajout d'un personnel. Elle permet d'augmenter le nombre de personnel
+     * @param e
+     */
     @FXML
     private void onPersAdd(ActionEvent e) {
         changePersonnel((Node) e.getSource(), true);
@@ -266,6 +284,10 @@ public class JavaFXGUI implements IHM {
     private final Map<String, Float> prixs = Map.ofEntries(Map.entry("table1.JPG", 8.20f), Map.entry("table2.JPG", 10.50f),
             Map.entry("table3.JPG", 5.70f), Map.entry("1.1.JPG", 3.01f), Map.entry("1.2.JPG", 2.50f), Map.entry("1.3.JPG", 2.55f), Map.entry("support1.JPG", 12.0f), Map.entry("support2.JPG", 1.12f), Map.entry("support3.JPG", 3.99f), Map.entry("tablette.JPG", 7.80f), Map.entry("tele.JPG", 33.50f), Map.entry("projo.JPG", 23.90f), Map.entry("lumiere1.JPG", 7.20f), Map.entry("lumiere2.JPG", 3.80f), Map.entry("lumiere3.JPG", 1.95f), Map.entry("ecouteur.JPG", 63.20f), Map.entry("camera.JPG", 39.99f), Map.entry("enceinte.JPG", 14.90f));
 
+    /**
+     * Cette méthode s'applique aux locaux choisis par l'utilisateur. Elle permet de calculer le coût total du projet à cette étape.
+     * @param e
+     */
     @FXML
     private void onLocalClick(ActionEvent e) {
         Button b = (Button) e.getSource();
@@ -477,66 +499,101 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens et relie au site de google : https://www.google.com
+     */
     @FXML
     private void onHyperlink() {
         App.application.getHostServices().showDocument("https://www.google.com");
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens et relie le lien au site : https://fr-fr.facebook.com
+     */
     @FXML
     private void onHyperlinkFacebook() {
         App.application.getHostServices().showDocument("https://fr-fr.facebook.com/");
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens et relie le lien au site : https://www.whatsapp.com
+     */
     @FXML
     private void onHyperlinkW() {
         App.application.getHostServices().showDocument("https://www.whatsapp.com");
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens et relie le lien au site : https://www.instagram.com/?hl=fr
+     */
     @FXML
     private void onHyperlinkInstagram() {
         App.application.getHostServices().showDocument("https://www.instagram.com/?hl=fr");
     }
 
+    /***
+     * Cette méthode s'applique aux hyperliens et relie le lien au site : https://twitter.com
+     */
     @FXML
     private void onHyperlinkTwitter() {
         App.application.getHostServices().showDocument("https://twitter.com");
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens et relie le lien au site : https://docs.google.com/forms/d/e/1FAIpQLSfzUVhsAZjntj6sbYNkvxeA6iz2waNJmZJf6fbV4sHzwdx0IA/viewform?vc=0&c=0&w=1&flr=0
+     */
     @FXML
     private void onHyperlinkgoogleform() {
         App.application.getHostServices().showDocument("https://docs.google.com/forms/d/e/1FAIpQLSfzUVhsAZjntj6sbYNkvxeA6iz2waNJmZJf6fbV4sHzwdx0IA/viewform?vc=0&c=0&w=1&flr=0");
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens des locaux et relie le lien au site : https://www.1lieu1salle.com/etablissement/seminaire-pavillon-cambon-capucines
+     */
     @FXML
     private void onHyperlinklocal1() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-pavillon-cambon-capucines/");
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens des locaux et relie le lien au site : https://www.1lieu1salle.com/etablissement/seminaire-bal-rock
+     */
     @FXML
     private void onHyperlinklocal2() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-bal-rock/");
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens des locaux et relie le lien au site : https://www.1lieu1salle.com/etablissement/seminaire-espace-clery
+     */
     @FXML
     private void onHyperlinklocal5() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-clery/");
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens des locaux et relie le lien au site : https://www.1lieu1salle.com/etablissement/seminaire-espace-vinci
+     */
     @FXML
     private void onHyperlinklocal3() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-vinci/");
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens des locaux et relie le lien au site : https://www.1lieu1salle.com/etablissement/seminaire-espace-saint-martin
+     */
     @FXML
     private void onHyperlinklocal4() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-espace-saint-martin/");
     }
 
+    /**
+     * Cette méthode s'applique aux hyperliens des locaux et relie le lien au site : https://www.1lieu1salle.com/etablissement/seminaire-maison-de-lamerique-latine
+     */
     @FXML
     private void onHyperlinklocal6() {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-maison-de-lamerique-latine/");
     }
-
 
     @FXML
     private void onSupportAction() {
@@ -643,7 +700,7 @@ public class JavaFXGUI implements IHM {
 
             GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(2);
             Label lprix = (Label) getNodeAt(fbox, 4, 0);
-            total += Double.parseDouble(lprix.getText().substring(7, lprix.getText().length() - 1));
+            total += Double.parseDouble(lprix.getText().replace(',','.').substring(7, lprix.getText().length() - 1));
         }
         return String.format("%.2f", total);
     }
@@ -791,6 +848,9 @@ public class JavaFXGUI implements IHM {
         openPage("cuisinier.fxml", "Ajout de cuisinier");
     }
 
+    /**
+     * Cette méthode s'applique aux boutons "supprimer" lors de l'étape sur les locaux. Elle permet de supprimer le local en question et de mettre le prix à 0
+     */
     @FXML
     private void onSupprLocal() {
         this.controleur.getLocations().values().stream().filter((l) -> !l.getId().contains(".")).findAny().ifPresent(location -> this.controleur.removeLocation(location.getId()));
@@ -847,6 +907,10 @@ public class JavaFXGUI implements IHM {
         return isValid;
     }
 
+    /**
+     * Cette méthode calcule le fil d'Ariane de l'étape à laquelle le client en utilisant le séparateur : " > "
+     * @return une chaine de caractères représentant le fil d'Ariane
+     */
     private String calculFilAriane() {
         StringBuilder sb = new StringBuilder();
         for (Iterator<Scene> it = sceneStack.descendingIterator(); it.hasNext(); ) {
@@ -885,6 +949,10 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Cette méthode est appelée lorsque l'utilisateur clique sur le bouton "ouvrir projet" de l'interface principale de l'application. Elle permet de charger un projet existant en affichant les informations dans les champs de l'interface.
+     * @param projets
+     */
     @Override
     public void ouvrirProjets(Collection<Projet> projets) {
         try {
@@ -1054,6 +1122,9 @@ public class JavaFXGUI implements IHM {
         }
     }
 
+    /**
+     * Cette méthode s'applique à des boutons  permet d'ajouter une oeuvre à la liste des oeuvres du projet.
+     */
     @FXML
     private void onAddOeuvre() {
         Oeuvre o = new Oeuvre(oeuvreTextField.getText(), artisteTextField.getText());
