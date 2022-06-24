@@ -162,7 +162,7 @@ public class JavaFXGUI implements IHM {
      * @throws IOException si le chargement de la vue FXML échoue.
      * @see javafx.application.Application#start(Stage)
      */
-    public void start(Stage primaryStage) throws IOException {
+    private void start(Stage primaryStage) throws IOException {
         FXMLLoader mainViewLoader = new FXMLLoader(getClass().getResource("main-view.fxml"));
         mainViewLoader.setController(this);
         Scene mainScene = new Scene(mainViewLoader.load());
@@ -170,7 +170,6 @@ public class JavaFXGUI implements IHM {
         primaryStage.setTitle("GenEvent");
         primaryStage.setScene(mainScene);
         primaryStage.show();
-        primaryStage.setOnCloseRequest((WindowEvent t) -> this.exitAction());
     }
 
     @FXML
@@ -333,6 +332,13 @@ public class JavaFXGUI implements IHM {
         // Chargement budget
         budgetLabel.setText("Budget : " + this.controleur.getBudget());
         coutLabel.setText("Coût total : " + getCoutTotal(matContainer));
+
+        ((Label) sceneStack.get(sceneStack.size() - 2).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
+        ((Label) sceneStack.get(sceneStack.size() - 2).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
+    }
+
+    private float getCoutTotalApp() {
+        return this.controleur.getLocations().values().stream().map((l) -> (prixs.get(l.getId()) == null ? 1 : prixs.get(l.getId())) * l.getQuantite() * l.getTemps()).reduce(0.0f, Float::sum);
     }
 
     private void changePersonnel(Node b, boolean increment) {
@@ -367,6 +373,8 @@ public class JavaFXGUI implements IHM {
         // Chargement budget
         budgetLabel.setText("Budget : " + this.controleur.getBudget());
         coutLabel.setText("Coût total : " + getCoutPersonnelTotal(b.getScene().getRoot()));
+        ((Label) sceneStack.get(sceneStack.size() - 2).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
+        ((Label) sceneStack.get(sceneStack.size() - 2).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
     }
 
 
@@ -532,7 +540,7 @@ public class JavaFXGUI implements IHM {
     }
 
     private void chargeMateriaux(Parent root) {
-        ObservableList<Node> childrenUnmodifiable = ((Parent) ((Parent) root.getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable();
+        ObservableList<Node> childrenUnmodifiable = root.getChildrenUnmodifiable();
         for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
             Parent p = (Parent) childrenUnmodifiable.get(i);
             ImageView iv = (ImageView) p.getChildrenUnmodifiable().get(0);
@@ -557,7 +565,7 @@ public class JavaFXGUI implements IHM {
             total = Math.round(total * 100.0f) / 100.0f;
             Label lprix = (Label) getNodeAt(fbox, 4, 0);
             Label ltemps = (Label) getNodeAt(fbox, 4, 1);
-            lprix.setText("Prix : " + total + "€");
+            lprix.setText(String.format("Prix : %.2f €", total));
             ltemps.setText("Temps : " + infos[1] + "H");
         }
         // Chargement budget
@@ -574,8 +582,7 @@ public class JavaFXGUI implements IHM {
             Label lprix = (Label) getNodeAt(fbox, 4, 0);
             total += Double.parseDouble(lprix.getText().substring(7, lprix.getText().length() - 1));
         }
-        total = Math.round(total * 100.0f) / 100.0f;
-        return String.valueOf(total);
+        return String.format("%.2f", total);
     }
 
     private String getCoutPersonnelTotal(Parent root) {
@@ -604,7 +611,11 @@ public class JavaFXGUI implements IHM {
 
     @FXML
     private void onOuiAction() {
-        openPage("main-view.fxml", "accueil");
+        Stage window = (Stage) sceneStack.peek().getWindow();
+        while (sceneStack.size() > 1) {
+            sceneStack.pop();
+        }
+        window.setScene(sceneStack.peek());
     }
 
     @FXML
@@ -635,6 +646,11 @@ public class JavaFXGUI implements IHM {
     @FXML
     private void onCuisinierAction() {
         openPage("cuisinier.fxml", "Ajout de cuisinier");
+    }
+
+    @FXML
+    private void onSupprLocal() {
+
     }
 
     private void openPage(String fileName, String title) {
@@ -794,6 +810,8 @@ public class JavaFXGUI implements IHM {
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             filAriane.setText(calculFilAriane());
+            budgetLabel.setText(this.controleur.getBudget() + "");
+            coutLabel.setText(String.format("%.2f", getCoutTotalApp()));
 
             current.setTitle("Choisir les matériaux");
             current.setScene(newUserScene);
@@ -839,6 +857,8 @@ public class JavaFXGUI implements IHM {
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             filAriane.setText(calculFilAriane());
+            budgetLabel.setText(this.controleur.getBudget() + "");
+            coutLabel.setText(String.format("%.2f", getCoutTotalApp()));
 
             current.setTitle("Choisir les personnels");
             current.setScene(newUserScene);

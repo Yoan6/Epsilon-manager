@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="480.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
-            xmlns="http://javafx.com/javafx/11.0.14-internal">
+            xmlns="http://javafx.com/javafx/16">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
             <BorderPane.margin>
@@ -68,8 +68,8 @@
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <Label layoutX="530.0" layoutY="136.0" text="LE PRIX"/>
-                <Label layoutX="530.0" layoutY="241.0" text="LE PRIX"/>
+                <Label fx:id="budgetLabel" layoutX="530.0" layoutY="136.0" text="LE PRIX"/>
+                <Label fx:id="coutLabel" layoutX="530.0" layoutY="241.0" text="LE PRIX"/>
                 <Hyperlink layoutX="680.0" layoutY="335.0" onAction="#onAideAction" text="Une question ?"/>
             </children>
             <BorderPane.margin>
