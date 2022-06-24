@@ -5,8 +5,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
-<VBox maxHeight="500.0" maxWidth="1000.0" minHeight="500.0" minWidth="1050.0" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="500.0" maxWidth="1000.0" minHeight="500.0" minWidth="1050.0"
+      prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16">
     <ScrollPane hbarPolicy="NEVER">
         <VBox prefWidth="1000.0">
             <children>
@@ -14,7 +14,7 @@
                     <children>
                         <Label text=" Pavillon Cambon Capucines">
                             <VBox.margin>
-                                <Insets bottom="5.0" top="30.0" />
+                                <Insets bottom="5.0" top="30.0"/>
                             </VBox.margin>
                             <font>
                                 <Font name="System Bold" size="16.0" />
@@ -48,9 +48,11 @@
                                                 <Insets />
                                             </GridPane.margin>
                                         </Label>
-                                        <Hyperlink onAction="#onHyperlinklocal1" prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                        <Hyperlink onAction="#onHyperlink" prefHeight="24.0" prefWidth="225.0"
+                                                   text="Se rendre sur le site" GridPane.columnIndex="1"
+                                                   GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
+                                                <Insets/>
                                             </GridPane.margin>
                                         </Hyperlink>
                                         <Label text="Nombre de salles : 4" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -69,9 +71,11 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Button mnemonicParsing="false" onAction="#onSupprLocal" prefHeight="20.0"
+                                                prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2"
+                                                GridPane.rowIndex="2">
                                             <font>
-                                                <Font size="10.0" />
+                                                <Font size="10.0"/>
                                             </font>
                                         </Button>
                                     </children>
@@ -124,9 +128,11 @@
                                                 <Insets />
                                             </GridPane.margin>
                                         </Label>
-                                        <Hyperlink onAction="#onHyperlinklocal2" prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site"
+                                                   GridPane.columnIndex="1" GridPane.halignment="LEFT"
+                                                   GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
+                                                <Insets/>
                                             </GridPane.margin>
                                         </Hyperlink>
                                         <Label text="Nombre de salles : 4" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -145,9 +151,11 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Button mnemonicParsing="false" onAction="#onSupprLocal" prefHeight="20.0"
+                                                prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2"
+                                                GridPane.rowIndex="2">
                                             <font>
-                                                <Font size="10.0" />
+                                                <Font size="10.0"/>
                                             </font>
                                         </Button>
                                     </children>
@@ -200,9 +208,11 @@
                                                 <Insets />
                                             </GridPane.margin>
                                         </Label>
-                                        <Hyperlink onAction="#onHyperlinklocal4" prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site"
+                                                   GridPane.columnIndex="1" GridPane.halignment="LEFT"
+                                                   GridPane.valignment="CENTER">
                                             <GridPane.margin>
-                                                <Insets />
+                                                <Insets/>
                                             </GridPane.margin>
                                         </Hyperlink>
                                         <Label text="Nombre de salles : 4" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -221,9 +231,11 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Button mnemonicParsing="false" onAction="#onSupprLocal" prefHeight="20.0"
+                                                prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2"
+                                                GridPane.rowIndex="2">
                                             <font>
-                                                <Font size="10.0" />
+                                                <Font size="10.0"/>
                                             </font>
                                         </Button>
                                     </children>
@@ -297,9 +309,11 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Button mnemonicParsing="false" onAction="#onSupprLocal" prefHeight="20.0"
+                                                prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2"
+                                                GridPane.rowIndex="2">
                                             <font>
-                                                <Font size="10.0" />
+                                                <Font size="10.0"/>
                                             </font>
                                         </Button>
                                     </children>
@@ -373,9 +387,11 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Button mnemonicParsing="false" onAction="#onSupprLocal" prefHeight="20.0"
+                                                prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2"
+                                                GridPane.rowIndex="2">
                                             <font>
-                                                <Font size="10.0" />
+                                                <Font size="10.0"/>
                                             </font>
                                         </Button>
                                     </children>
@@ -449,9 +465,11 @@
                                                 <Insets left="20.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Button mnemonicParsing="false" onAction="#onSupprLocal" prefHeight="20.0"
+                                                prefWidth="70.0" text="Supprimer" GridPane.columnIndex="2"
+                                                GridPane.rowIndex="2">
                                             <font>
-                                                <Font size="10.0" />
+                                                <Font size="10.0"/>
                                             </font>
                                         </Button>
                                     </children>

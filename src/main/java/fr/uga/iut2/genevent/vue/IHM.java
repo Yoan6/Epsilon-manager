@@ -11,7 +11,7 @@ public interface IHM {
      * Récupère les informations à propos d'un
      * {@link fr.uga.iut2.genevent.modele.Projet}.
      */
-    public abstract void creerProjet();
+    void creerProjet();
 
     /**
      * Rend actif l'interface Humain-machine.
@@ -19,21 +19,21 @@ public interface IHM {
      * L'appel est bloquant : le contrôle est rendu à l'appelant une fois que
      * l'IHM est fermée.
      */
-    public abstract void demarrerInteraction();
+    void demarrerInteraction();
 
-    public abstract void ouvrirProjets(Collection<Projet> projets);
+    void ouvrirProjets(Collection<Projet> projets);
 
-    public abstract void choixMateriaux();
+    void choixMateriaux();
 
-    public abstract void modifierProjet(Projet projet);
+    void modifierProjet(Projet projet);
 
-    public abstract void choixPersonnel();
+    void choixPersonnel();
 
-    public abstract void choixArtiste();
+    void choixArtiste();
 
-    public abstract void modifierArtiste(Projet projet);
+    void modifierArtiste(Projet projet);
 
-    public static class InfosProjet {
+    class InfosProjet {
         public final String nom;
         public final LocalDate dateDebut;
         public final LocalDate dateFin;

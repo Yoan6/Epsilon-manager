@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
-            xmlns="http://javafx.com/javafx/11.0.14-internal">
+            xmlns="http://javafx.com/javafx/16">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
             <font>
@@ -65,12 +65,12 @@
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <Label layoutX="555.0" layoutY="117.0" text="LE PRIX">
+                <Label fx:id="budgetLabel" layoutX="555.0" layoutY="117.0" text="LE PRIX">
                     <padding>
                         <Insets top="2.0"/>
                     </padding>
                 </Label>
-                <Label layoutX="555.0" layoutY="194.0" text="LE PRIX">
+                <Label fx:id="coutLabel" layoutX="555.0" layoutY="194.0" text="LE PRIX">
                     <padding>
                         <Insets top="3.0"/>
                     </padding>
