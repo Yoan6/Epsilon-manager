@@ -440,6 +440,26 @@ public class JavaFXGUI implements IHM {
     }
 
     @FXML
+    private void onHyperlinkFacebook() {
+        App.application.getHostServices().showDocument("https://fr-fr.facebook.com/");
+    }
+
+    @FXML
+    private void onHyperlinkW() {
+        App.application.getHostServices().showDocument("https://www.whatsapp.com");
+    }
+
+    @FXML
+    private void onHyperlinkInstagram() {
+        App.application.getHostServices().showDocument("https://www.instagram.com/?hl=fr");
+    }
+
+    @FXML
+    private void onHyperlinkTwitter() {
+        App.application.getHostServices().showDocument("https://twitter.com");
+    }
+
+    @FXML
     private void onHyperlinkgoogleform() {
         App.application.getHostServices().showDocument("https://docs.google.com/forms/d/e/1FAIpQLSfzUVhsAZjntj6sbYNkvxeA6iz2waNJmZJf6fbV4sHzwdx0IA/viewform?vc=0&c=0&w=1&flr=0");
     }

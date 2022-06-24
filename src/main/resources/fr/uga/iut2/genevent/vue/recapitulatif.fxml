@@ -132,16 +132,27 @@
                         <Insets top="70.0"/>
                     </VBox.margin>
                 </GridPane>
-                <GridPane>
+                <GridPane prefHeight="133.0" prefWidth="780.0">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="752.0" minWidth="10.0" prefWidth="660.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="120.0"/>
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                     <children>
                         <Button mnemonicParsing="false" text="Générer la fiche technique" GridPane.halignment="CENTER"
-                                GridPane.valignment="CENTER"/>
+                                GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="130.0"/>
+                            </GridPane.margin>
+                        </Button>
+                        <Hyperlink onAction="#onAideAction" prefHeight="22.0" prefWidth="151.0" text="Une question ?"
+                                   GridPane.columnIndex="1">
+                            <GridPane.margin>
+                                <Insets top="30.0"/>
+                            </GridPane.margin>
+                        </Hyperlink>
                     </children>
                     <padding>
                         <Insets top="80.0"/>
