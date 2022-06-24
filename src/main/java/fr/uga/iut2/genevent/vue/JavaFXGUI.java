@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -95,6 +96,10 @@ public class JavaFXGUI implements IHM {
     private Label budgetLabel;
     @FXML
     private Label coutLabel;
+
+
+    @FXML
+    private VBox matContainer;
 
     public JavaFXGUI(Controleur controleur) {
         this.controleur = controleur;
@@ -326,7 +331,7 @@ public class JavaFXGUI implements IHM {
 
         // Chargement budget
         budgetLabel.setText("Budget : " + this.controleur.getBudget());
-        coutLabel.setText("Coût total : " + getCoutTotal(b.getScene().getRoot()));
+        coutLabel.setText("Coût total : " + getCoutTotal(matContainer));
     }
 
     private void changePersonnel(Node b, boolean increment) {
@@ -410,7 +415,7 @@ public class JavaFXGUI implements IHM {
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             // Chargement des materiaux
-            chargeMateriaux(newUserScene.getRoot());
+            chargeMateriaux(matContainer);
 
             current.setTitle("Ajout de multimedia");
             current.setScene(newUserScene);
@@ -532,6 +537,7 @@ public class JavaFXGUI implements IHM {
             Label lprix = (Label) getNodeAt(fbox, 4, 0);
             total += Double.parseDouble(lprix.getText().substring(7, lprix.getText().length() - 1));
         }
+        total = Math.round(total * 100.0f) / 100.0f;
         return String.valueOf(total);
     }
 
@@ -544,6 +550,7 @@ public class JavaFXGUI implements IHM {
             Label lprix = (Label) getNodeAt(fbox, 4, 0);
             total += Double.parseDouble(lprix.getText().substring(7, lprix.getText().length() - 1));
         }
+        total = Math.round(total * 100.0f) / 100.0f;
         return String.valueOf(total);
     }
 
