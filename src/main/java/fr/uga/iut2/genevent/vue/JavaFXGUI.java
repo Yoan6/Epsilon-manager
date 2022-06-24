@@ -215,6 +215,7 @@ public class JavaFXGUI implements IHM {
         this.controleur.choixPersonnel();
     }
 
+
     @FXML
     private void personnelSuivant() {
         this.controleur.choixArtiste();}
@@ -465,6 +466,7 @@ public class JavaFXGUI implements IHM {
         App.application.getHostServices().showDocument("https://www.1lieu1salle.com/etablissement/seminaire-maison-de-lamerique-latine/");
     }
 
+
     @FXML
     private void onSupportAction() {
         try {
@@ -606,6 +608,11 @@ public class JavaFXGUI implements IHM {
     }
 
     @FXML
+    private void onRecapAction(ActionEvent e) {
+        openPage("devis.fxml", "Devis");
+    }
+
+    @FXML
     private void onQuitterAction() {
         openPage("fermer-projet-view.fxml", "fermer le projet");
     }
@@ -730,7 +737,8 @@ public class JavaFXGUI implements IHM {
                 projetsGridPane.getRowConstraints().add(new RowConstraints());
                 Label l = new Label(p.getNom());
                 GridPane.setRowIndex(l, i);
-                Button b = new Button("OuvrirFicheTec");
+                Button b = new Button("Ouvrir Devis");
+                b.setOnAction(this::onRecapAction);
                 GridPane.setRowIndex(b, i);
                 GridPane.setColumnIndex(b, 1);
 
