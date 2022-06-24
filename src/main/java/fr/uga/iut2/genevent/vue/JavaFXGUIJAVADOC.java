@@ -417,7 +417,7 @@ public class JavaFXGUI implements IHM {
 
         // Chargement budget
         budgetLabel.setText("Budget : " + this.controleur.getBudget());
-        coutLabel.setText("Coût total : " + getPersCoutTotal(matContainer));
+        coutLabel.setText("Coût total : " + getPersCoutTotal(b.getScene().getRoot()));
         ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
         ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
     }
@@ -721,20 +721,16 @@ public class JavaFXGUI implements IHM {
     // Vue personnel
     @FXML
     private void onAgentSecuriteAction() {
-        ajoutPersonnel("agentsecurite.fxml", "Ajout d'agent de securité");
-    }
-
-    private void ajoutPersonnel(String fileName, String title) {
         try {
-            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource(fileName));
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("agentsecurite.fxml"));
             newUserViewLoader.setController(this);
             Scene newUserScene = new Scene(newUserViewLoader.load());
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             // Chargement des materiaux
-            chargePersonnel(matContainer);
+            chargePersonnel(newUserScene.getRoot());
 
-            current.setTitle(title);
+            current.setTitle("Ajout d'agent de securité");
             current.setScene(newUserScene);
             //current.showAndWait();
         } catch (IOException exc) {
@@ -834,22 +830,22 @@ public class JavaFXGUI implements IHM {
 
     @FXML
     private void onGuideAction() {
-        ajoutPersonnel("guide.fxml", "Ajout de guide");
+        openPage("guide.fxml", "Ajout de guide");
     }
 
     @FXML
     private void onRegisseurAction() {
-        ajoutPersonnel("regisseur.fxml", "Ajout de régisseur");
+        openPage("regisseur.fxml", "Ajout de régisseur");
     }
 
     @FXML
     private void onAccueilAction() {
-        ajoutPersonnel("acceuil.fxml", "Ajout de personnel d'accueil");
+        openPage("acceuil.fxml", "Ajout de personnel d'accueil");
     }
 
     @FXML
     private void onCuisinierAction() {
-        ajoutPersonnel("cuisinier.fxml", "Ajout de cuisinier");
+        openPage("cuisinier.fxml", "Ajout de cuisinier");
     }
 
     /**
