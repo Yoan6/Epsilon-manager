@@ -35,4 +35,13 @@ public class Location implements Serializable {
     public void setTemps(int temps) {
         this.temps = temps;
     }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "id='" + id + '\'' +
+                ", quantite=" + quantite +
+                ", temps=" + temps +
+                '}';
+    }
 }

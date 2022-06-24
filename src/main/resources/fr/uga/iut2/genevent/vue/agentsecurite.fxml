@@ -5,10 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="410.0" maxWidth="800.0" minHeight="368.0" minWidth="800.0"
-            prefHeight="368.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal">
+            prefHeight="368.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16">
     <center>
-        <VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-              minWidth="-Infinity" prefHeight="371.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2">
+        <VBox xmlns:fx="http://javafx.com/fxml/1" fx:id="matContainer" maxHeight="-Infinity" maxWidth="-Infinity"
+              minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="800.0"
+              xmlns="http://javafx.com/javafx/11.0.2">
             <children>
                 <HBox prefHeight="100.0" prefWidth="200.0">
                     <children>
@@ -327,8 +328,8 @@
                     <children>
                         <Button mnemonicParsing="false" onAction="#onBack" text="Retour" GridPane.halignment="CENTER"
                                 GridPane.valignment="CENTER"/>
-                        <Button mnemonicParsing="false" onAction="#onMatValider" text="Valider" GridPane.columnIndex="3"
-                                GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+                        <Button mnemonicParsing="false" onAction="#onPersValider" text="Valider"
+                                GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
                         <Label fx:id="budgetLabel" text="Budget :" GridPane.columnIndex="1" GridPane.halignment="CENTER"
                                GridPane.valignment="CENTER"/>
                         <Label fx:id="coutLabel" text="Coût total :" GridPane.columnIndex="2"

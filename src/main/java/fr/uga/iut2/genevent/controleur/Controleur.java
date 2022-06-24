@@ -3,6 +3,7 @@ package fr.uga.iut2.genevent.controleur;
 import fr.uga.iut2.genevent.modele.Inventaire;
 import fr.uga.iut2.genevent.modele.Location;
 import fr.uga.iut2.genevent.modele.Oeuvre;
+import fr.uga.iut2.genevent.modele.Projet;
 import fr.uga.iut2.genevent.vue.IHM;
 import fr.uga.iut2.genevent.vue.JavaFXGUI;
 
@@ -108,5 +109,19 @@ public class Controleur {
 
     public Map<String, Location> getLocations() {
         return this.genevent.getEvenements().get(current).getLocations();
+    }
+
+    public void modificationRecapitulatif(String nom) {
+        this.current = nom;
+        this.ihm.modifierRecapitulatif(genevent.getEvenements().get(nom));
+    }
+
+    public void modificationDevis(String nom) {
+        this.current = nom;
+        this.ihm.modifierDevis(genevent.getEvenements().get(nom));
+    }
+
+    public Projet getCurrent() {
+        return genevent.getEvenements().get(current);
     }
 }

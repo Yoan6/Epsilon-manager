@@ -33,6 +33,10 @@ public interface IHM {
 
     void modifierArtiste(Projet projet);
 
+    void modifierRecapitulatif(Projet projet);
+
+    void modifierDevis(Projet projet);
+
     class InfosProjet {
         public final String nom;
         public final LocalDate dateDebut;

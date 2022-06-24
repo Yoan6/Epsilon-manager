@@ -48,7 +48,7 @@
             <children>
                 <HBox prefHeight="39.0" prefWidth="900.0">
                     <children>
-                        <ImageView fx:id="onBack" fitHeight="30.0" fitWidth="25.0" pickOnBounds="true"
+                        <ImageView fitHeight="30.0" fitWidth="25.0" onMouseClicked="#onBack" pickOnBounds="true"
                                    preserveRatio="true">
                             <image>
                                 <Image url="@retour.png"/>
@@ -65,7 +65,7 @@
                         </Label>
                     </children>
                 </HBox>
-                <Label alignment="CENTER" prefWidth="900.0" text="Récapitulatif du formulaire">
+                <Label fx:id="labelTitre" alignment="CENTER" prefWidth="900.0" text="Récapitulatif du formulaire :">
                     <font>
                         <Font size="18.0"/>
                     </font>
@@ -99,7 +99,9 @@
                                 <Font size="15.0"/>
                             </font>
                         </Label>
-                        <Label text="7777€" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                        <Label fx:id="diffLabel" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                               GridPane.rowIndex="1" GridPane.valignment="CENTER"/>
+                        <Label fx:id="budgetLabel" text="7777€" GridPane.columnIndex="1" GridPane.halignment="CENTER"
                                GridPane.valignment="CENTER">
                             <font>
                                 <Font size="15.0"/>
@@ -114,12 +116,12 @@
                                 <Font size="15.0"/>
                             </font>
                         </Label>
-                        <Label text="0€" GridPane.columnIndex="3">
+                        <Label fx:id="coutLabel" text="0€" GridPane.columnIndex="3">
                             <font>
                                 <Font size="15.0"/>
                             </font>
                         </Label>
-                        <Label text="Le budget est : suffisant/pas" GridPane.columnIndex="2"
+                        <Label fx:id="statutBudget" text="Le budget est : suffisant/pas" GridPane.columnIndex="2"
                                GridPane.halignment="CENTER" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets/>
