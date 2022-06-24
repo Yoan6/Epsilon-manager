@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
+            minWidth="-Infinity" prefHeight="699.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
             xmlns="http://javafx.com/javafx/11.0.14-internal">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
@@ -41,6 +41,9 @@
                                     <image>
                                         <Image url="@retour.png"/>
                                     </image>
+                                    <HBox.margin>
+                                        <Insets left="5.0" top="2.0"/>
+                                    </HBox.margin>
                                 </ImageView>
                                 <Label fx:id="filAriane" layoutX="14.0" layoutY="32.0"
                                        text="Créer nouveau projet &gt; Matériels &gt; Personnel &gt; Artiste &gt; Récapitulatif &gt; Devis">
@@ -59,7 +62,7 @@
                             </font>
                         </Label>
                         <ScrollPane hbarPolicy="NEVER" prefWidth="1000.0">
-                            <VBox fx:id="DevisVbox">
+                            <VBox fx:id="DevisVbox" prefHeight="442.0" prefWidth="810.0">
                                 <GridPane prefWidth="800.0">
                                     <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
@@ -188,7 +191,7 @@
                                         GridPane.valignment="CENTER"/>
                             </children>
                             <VBox.margin>
-                                <Insets top="50.0"/>
+                                <Insets top="10.0"/>
                             </VBox.margin>
                         </GridPane>
                     </children>
