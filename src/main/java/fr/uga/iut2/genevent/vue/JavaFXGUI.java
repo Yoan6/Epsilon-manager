@@ -26,9 +26,9 @@ import javafx.stage.WindowEvent;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Map;
-import java.util.Stack;
 import java.util.concurrent.CountDownLatch;
 
 
@@ -50,7 +50,7 @@ public class JavaFXGUI implements IHM {
     private final Controleur controleur;
     private final CountDownLatch eolBarrier;  // /!\ ne pas supprimer /!\ : suivi de la durée de vie de l'interface
 
-    private final Stack<Scene> sceneStack = new Stack<>();
+    private final LinkedList<Scene> sceneStack = new LinkedList<>();
 
     // Par vue non spéciale
     @FXML
@@ -624,6 +624,24 @@ public class JavaFXGUI implements IHM {
     }
 
     @FXML
+    private void onArtisteAction() {
+        try {
+            FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("recapitulatif.fxml"));
+            newUserViewLoader.setController(this);
+            Scene newUserScene = new Scene(newUserViewLoader.load());
+            Stage current = (Stage) sceneStack.peek().getWindow();
+            sceneStack.push(newUserScene);
+            filAriane.setText(calculFilAriane());
+
+            current.setTitle("Récapitulatif");
+            current.setScene(newUserScene);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     private void onQuitterAction() {
         openPage("fermer-projet-view.fxml", "fermer le projet");
     }
@@ -650,7 +668,8 @@ public class JavaFXGUI implements IHM {
 
     @FXML
     private void onSupprLocal() {
-
+        this.controleur.getLocations().values().stream().filter((l) -> !l.getId().contains(".")).findAny().ifPresent(location -> this.controleur.removeLocation(location.getId()));
+        coutLabel.setText("Coût total : 0");
     }
 
     private void openPage(String fileName, String title) {
@@ -766,7 +785,9 @@ public class JavaFXGUI implements IHM {
                 modPers.setOnAction((e) -> controleur.modifierPersonnel(p.getNom()));
                 MenuItem modArtiste = new MenuItem("Artiste / Oeuvre");
                 modArtiste.setOnAction((e) -> controleur.modificationArtiste(p.getNom()));
-                MenuButton mb = new MenuButton("Choisir page", null, modProj, modMate, modPers, modArtiste);
+                MenuItem modRecap = new MenuItem("Récapitulatif");
+                modRecap.setOnAction((e) -> onArtisteAction());
+                MenuButton mb = new MenuButton("Choisir page", null, modProj, modMate, modPers, modArtiste, modRecap);
                 GridPane.setRowIndex(mb, i);
                 GridPane.setColumnIndex(mb, 2);
 
