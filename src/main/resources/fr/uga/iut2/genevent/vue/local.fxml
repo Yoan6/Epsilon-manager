@@ -501,7 +501,8 @@
         </rowConstraints>
         <children>
             <Button mnemonicParsing="false" onAction="#onBack" text="Retour" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" text="Valider" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onBack" text="Valider" GridPane.columnIndex="3"
+                    GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
             <Label fx:id="budgetLabel" text="Budget :" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Label fx:id="coutLabel" text="Coût total :" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
         </children>
