@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
-            xmlns="http://javafx.com/javafx/16">
+            xmlns="http://javafx.com/javafx/11.0.14-internal">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
             <font>
@@ -49,8 +49,8 @@
                         <Button onAction="#onGuideAction" prefHeight="26.0" prefWidth="350.0" text="Guide "/>
                         <Button onAction="#onRegisseurAction" prefHeight="26.0" prefWidth="350.0" text="Régisseur "/>
                         <Button onAction="#onAccueilAction" prefHeight="26.0" prefWidth="350.0"
-                                text="Personnel acceuil :"/>
-                        <Button onAction="#onCuisinierAction" prefHeight="26.0" prefWidth="350.0" text="Cuisinier :"/>
+                                text="Personnel accueil "/>
+                        <Button onAction="#onCuisinierAction" prefHeight="26.0" prefWidth="350.0" text="Cuisinier "/>
 
                     </children>
                 </VBox>

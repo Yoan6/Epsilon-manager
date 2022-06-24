@@ -796,7 +796,6 @@ public class JavaFXGUI implements IHM {
                 b.setOnAction(this::onRecapAction);
                 GridPane.setRowIndex(b, i);
                 GridPane.setColumnIndex(b, 1);
-
                 MenuItem modProj = new MenuItem("Modifier projet");
                 modProj.setOnAction((e) -> controleur.modifierProjet(p.getNom()));
                 MenuItem modMate = new MenuItem("Matériaux");
