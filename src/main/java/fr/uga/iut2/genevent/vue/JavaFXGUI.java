@@ -44,7 +44,7 @@ import java.util.concurrent.CountDownLatch;
  * {@link fr.uga.iut2.genevent.controleur.Controleur} via l'appel de la méthode
  * {@link #demarrerInteraction()}.
  */
-public class JavaFXGUI extends IHM {
+public class JavaFXGUI implements IHM {
 
     private final Controleur controleur;
     private final CountDownLatch eolBarrier;  // /!\ ne pas supprimer /!\ : suivi de la durée de vie de l'interface
@@ -153,13 +153,11 @@ public class JavaFXGUI extends IHM {
      * Point d'entrée principal pour le code de l'interface JavaFX.
      *
      * @param primaryStage stage principale de l'interface JavaFX, sur laquelle
-     *     définir des scenes.
-     *
+     *                     définir des scenes.
      * @throws IOException si le chargement de la vue FXML échoue.
-     *
      * @see javafx.application.Application#start(Stage)
      */
-    private void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {
         FXMLLoader mainViewLoader = new FXMLLoader(getClass().getResource("main-view.fxml"));
         mainViewLoader.setController(this);
         Scene mainScene = new Scene(mainViewLoader.load());
@@ -167,6 +165,7 @@ public class JavaFXGUI extends IHM {
         primaryStage.setTitle("GenEvent");
         primaryStage.setScene(mainScene);
         primaryStage.show();
+        primaryStage.setOnCloseRequest((WindowEvent t) -> this.exitAction());
     }
 
     @FXML
@@ -213,8 +212,7 @@ public class JavaFXGUI extends IHM {
 
     @FXML
     private void personnelSuivant() {
-        this.controleur.choixArtiste();
-    }
+        this.controleur.choixArtiste();}
 
     @FXML
     private void onMatSub(ActionEvent e) {
@@ -423,6 +421,11 @@ public class JavaFXGUI extends IHM {
     }
 
     @FXML
+    private void onHyperlink() {
+        App.application.getHostServices().showDocument("https://www.google.com");
+    }
+
+    @FXML
     private void onSupportAction() {
         try {
             FXMLLoader newUserViewLoader = new FXMLLoader(getClass().getResource("support.fxml"));
@@ -487,7 +490,7 @@ public class JavaFXGUI extends IHM {
     }
 
     private void chargeMateriaux(Parent root) {
-        ObservableList<Node> childrenUnmodifiable = root.getChildrenUnmodifiable();
+        ObservableList<Node> childrenUnmodifiable = ((Parent) ((Parent) root.getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable();
         for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
             Parent p = (Parent) childrenUnmodifiable.get(i);
             ImageView iv = (ImageView) p.getChildrenUnmodifiable().get(0);

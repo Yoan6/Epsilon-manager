@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.Collection;
 
 
-public abstract class IHM {
+public interface IHM {
     /**
      * Récupère les informations à propos d'un
      * {@link fr.uga.iut2.genevent.modele.Projet}.

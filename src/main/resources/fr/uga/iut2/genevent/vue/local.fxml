@@ -52,9 +52,9 @@
                                                 <Insets/>
                                             </GridPane.margin>
                                         </Label>
-                                        <Hyperlink prefHeight="24.0" prefWidth="225.0" text="Se rendre sur le site"
-                                                   GridPane.columnIndex="1" GridPane.halignment="LEFT"
-                                                   GridPane.valignment="CENTER">
+                                        <Hyperlink onAction="#onHyperlink" prefHeight="24.0" prefWidth="225.0"
+                                                   text="Se rendre sur le site" GridPane.columnIndex="1"
+                                                   GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                             <GridPane.margin>
                                                 <Insets/>
                                             </GridPane.margin>

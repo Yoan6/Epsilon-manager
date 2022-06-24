@@ -11,14 +11,17 @@
             <children>
                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="181.0">
                     <children>
-                        <Label prefHeight="16.0" prefWidth="174.0" text="Nom de l'entreprise :">
+                        <Label prefHeight="16.0" prefWidth="174.0" text="Societe N°1">
                             <font>
-                                <Font name="System Bold" size="13.0"/>
+                                <Font size="15.0"/>
                             </font>
+                            <VBox.margin>
+                                <Insets left="40.0"/>
+                            </VBox.margin>
                         </Label>
                         <Label text="Higlands">
                             <VBox.margin>
-                                <Insets top="20.0" />
+                                <Insets top="20.0"/>
                             </VBox.margin>
                         </Label>
                     </children>
@@ -30,7 +33,7 @@
                     <children>
                         <Label text="Prix :">
                             <font>
-                                <Font name="System Bold" size="13.0" />
+                                <Font size="15.0"/>
                             </font>
                         </Label>
                         <Label text="12,70€/h">
@@ -111,14 +114,18 @@
             <children>
                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="181.0">
                     <children>
-                        <Label text="Nom de l'entreprise :">
+                        <Label text="Societe N°2">
                             <font>
-                                <Font name="System Bold" size="13.0" />
+                                <Font size="15.0"/>
                             </font>
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
                         </Label>
+
                         <Label text="Profil">
                             <VBox.margin>
-                                <Insets top="20.0" />
+                                <Insets top="20.0"/>
                             </VBox.margin>
                         </Label>
                     </children>
@@ -130,12 +137,13 @@
                     <children>
                         <Label text="Prix :">
                             <font>
-                                <Font name="System Bold" size="13.0" />
+                                <Font size="15.0"/>
                             </font>
                         </Label>
-                        <Label text="15,5€/h">
+
+                        <Label text="10,5€/h">
                             <VBox.margin>
-                                <Insets top="20.0" />
+                                <Insets top="20.0"/>
                             </VBox.margin>
                         </Label>
                     </children>
