@@ -4,8 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="273.0" maxWidth="800.0" minHeight="273.0" minWidth="800.0"
-      prefHeight="273.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:id="matContainer" maxHeight="273.0" maxWidth="800.0" minHeight="273.0"
+      minWidth="800.0" prefHeight="273.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16">
     <children>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
@@ -36,9 +36,9 @@
                                 <Font size="15.0"/>
                             </font>
                         </Label>
-                        <Label text="12,70€/h">
+                        <Label text="12.70/h">
                             <VBox.margin>
-                                <Insets top="20.0" />
+                                <Insets top="20.0"/>
                             </VBox.margin>
                         </Label>
                     </children>
@@ -67,24 +67,28 @@
                         </Label>
                         <Label text="Temps :" GridPane.rowIndex="1">
                             <padding>
-                                <Insets left="5.0" />
+                                <Insets left="5.0"/>
                             </padding>
                         </Label>
-                        <Button mnemonicParsing="false" text="-" GridPane.columnIndex="1">
+                        <Button mnemonicParsing="false" onAction="#onPersSub" text="-" GridPane.columnIndex="1">
                             <GridPane.margin>
-                                <Insets top="1.0" />
+                                <Insets top="1.0"/>
                             </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.valignment="CENTER" />
-                        <Button mnemonicParsing="false" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#onPersAdd" text="+" GridPane.columnIndex="3"
+                                GridPane.valignment="CENTER"/>
+                        <Button mnemonicParsing="false" onAction="#onPersSub" text="-" GridPane.columnIndex="1"
+                                GridPane.rowIndex="1">
                             <GridPane.margin>
-                                <Insets top="1.0" />
+                                <Insets top="1.0"/>
                             </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Label styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Button mnemonicParsing="false" onAction="#onPersAdd" text="+" GridPane.columnIndex="3"
+                                GridPane.rowIndex="1"/>
+                        <Label styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER"
+                               GridPane.valignment="CENTER">
                             <opaqueInsets>
-                                <Insets top="1.0" />
+                                <Insets top="1.0"/>
                             </opaqueInsets>
                         </Label>
                         <Label alignment="CENTER" styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -141,7 +145,7 @@
                             </font>
                         </Label>
 
-                        <Label text="10,5€/h">
+                        <Label text="10.5/h">
                             <VBox.margin>
                                 <Insets top="20.0"/>
                             </VBox.margin>
@@ -172,24 +176,28 @@
                         </Label>
                         <Label text="Temps :" GridPane.rowIndex="1">
                             <padding>
-                                <Insets left="5.0" />
+                                <Insets left="5.0"/>
                             </padding>
                         </Label>
-                        <Button mnemonicParsing="false" text="-" GridPane.columnIndex="1">
+                        <Button mnemonicParsing="false" onAction="#onPersSub" text="-" GridPane.columnIndex="1">
                             <GridPane.margin>
-                                <Insets top="1.0" />
+                                <Insets top="1.0"/>
                             </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.valignment="CENTER" />
-                        <Button mnemonicParsing="false" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#onPersAdd" text="+" GridPane.columnIndex="3"
+                                GridPane.valignment="CENTER"/>
+                        <Button mnemonicParsing="false" onAction="#onPersSub" text="-" GridPane.columnIndex="1"
+                                GridPane.rowIndex="1">
                             <GridPane.margin>
-                                <Insets top="1.0" />
+                                <Insets top="1.0"/>
                             </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Label styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Button mnemonicParsing="false" onAction="#onPersAdd" text="+" GridPane.columnIndex="3"
+                                GridPane.rowIndex="1"/>
+                        <Label styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER"
+                               GridPane.valignment="CENTER">
                             <opaqueInsets>
-                                <Insets top="1.0" />
+                                <Insets top="1.0"/>
                             </opaqueInsets>
                         </Label>
                         <Label alignment="CENTER" styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -230,9 +238,9 @@
                         GridPane.valignment="CENTER"/>
                 <Button mnemonicParsing="false" text="Valider" GridPane.columnIndex="3" GridPane.halignment="CENTER"
                         GridPane.valignment="CENTER"/>
-                <Label text="Budget :" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                <Label fx:id="budgetLabel" text="Budget :" GridPane.columnIndex="1" GridPane.halignment="CENTER"
                        GridPane.valignment="CENTER"/>
-                <Label text="Coût total :" GridPane.columnIndex="2" GridPane.halignment="CENTER"
+                <Label fx:id="coutLabel" text="Coût total :" GridPane.columnIndex="2" GridPane.halignment="CENTER"
                        GridPane.valignment="CENTER"/>
             </children>
             <VBox.margin>

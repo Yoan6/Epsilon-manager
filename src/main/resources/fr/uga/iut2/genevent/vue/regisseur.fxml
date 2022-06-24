@@ -3,8 +3,9 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity" prefHeight="150.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:id="matContainer" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="800.0"
+      xmlns="http://javafx.com/javafx/16">
     <children>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
@@ -42,20 +43,20 @@
                                 <Insets left="5.0"/>
                             </padding>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#onMatSub" text="-" GridPane.columnIndex="1">
+                        <Button mnemonicParsing="false" onAction="#onPersSub" text="-" GridPane.columnIndex="1">
                             <GridPane.margin>
                                 <Insets top="1.0"/>
                             </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#onMatAdd" text="+" GridPane.columnIndex="3"
+                        <Button mnemonicParsing="false" onAction="#onPersAdd" text="+" GridPane.columnIndex="3"
                                 GridPane.valignment="CENTER"/>
-                        <Button mnemonicParsing="false" onAction="#onMatSub" text="-" GridPane.columnIndex="1"
+                        <Button mnemonicParsing="false" onAction="#onPersSub" text="-" GridPane.columnIndex="1"
                                 GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets top="1.0"/>
                             </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#onMatAdd" text="+" GridPane.columnIndex="3"
+                        <Button mnemonicParsing="false" onAction="#onPersAdd" text="+" GridPane.columnIndex="3"
                                 GridPane.rowIndex="1"/>
                         <Label styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER"
                                GridPane.valignment="CENTER">

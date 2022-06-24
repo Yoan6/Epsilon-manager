@@ -4,8 +4,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity" prefHeight="375.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:id="matContainer" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="900.0"
+      xmlns="http://javafx.com/javafx/16">
     <children>
         <HBox prefHeight="160.0" prefWidth="200.0">
             <children>
@@ -26,7 +27,7 @@
                                 <Font size="15.0"/>
                             </font>
                         </Label>
-                        <Label text="Prix : 12,50€ / h" GridPane.columnIndex="1">
+                        <Label text="Prix : 12.50€ / h" GridPane.columnIndex="1">
                             <GridPane.margin>
                                 <Insets/>
                             </GridPane.margin>
