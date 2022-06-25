@@ -64,7 +64,7 @@
                                 <Insets top="1.0"/>
                             </opaqueInsets>
                         </Label>
-                        <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2"
+                        <Label alignment="CENTER" styleClass="contour" text="1" GridPane.columnIndex="2"
                                GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets/>
@@ -73,7 +73,7 @@
                                 <Insets/>
                             </opaqueInsets>
                         </Label>
-                        <Label text="Temps : 12H" GridPane.columnIndex="4" GridPane.rowIndex="1"
+                        <Label text="Temps : 1H" GridPane.columnIndex="4" GridPane.rowIndex="1"
                                GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets/>
@@ -105,7 +105,7 @@
             <children>
                 <Button mnemonicParsing="false" onAction="#onBack" text="Retour" GridPane.halignment="CENTER"
                         GridPane.valignment="CENTER"/>
-                <Button mnemonicParsing="false" onAction="#onMatValider" text="Valider" GridPane.columnIndex="3"
+                <Button mnemonicParsing="false" onAction="#onPersValider" text="Valider" GridPane.columnIndex="3"
                         GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
                 <Label fx:id="budgetLabel" text="Budget :" GridPane.columnIndex="1" GridPane.halignment="CENTER"
                        GridPane.valignment="CENTER"/>

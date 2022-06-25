@@ -88,7 +88,7 @@
                               <Insets top="1.0"/>
                           </opaqueInsets>
                       </Label>
-                      <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2"
+                      <Label alignment="CENTER" styleClass="contour" text="1" GridPane.columnIndex="2"
                              GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                           <GridPane.margin>
                               <Insets/>
@@ -97,9 +97,10 @@
                               <Insets/>
                           </opaqueInsets>
                       </Label>
-                      <Label text="temps : 12H" GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                      <Label text="temps : 1H" GridPane.columnIndex="4" GridPane.rowIndex="1"
+                             GridPane.valignment="CENTER">
                           <GridPane.margin>
-                              <Insets />
+                              <Insets/>
                           </GridPane.margin>
                       </Label>
                       <Label text="Prix : 0€" GridPane.columnIndex="4" GridPane.valignment="CENTER">
@@ -190,7 +191,7 @@
                                 <Insets top="1.0"/>
                             </opaqueInsets>
                         </Label>
-                        <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2"
+                        <Label alignment="CENTER" styleClass="contour" text="1" GridPane.columnIndex="2"
                                GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets/>
@@ -199,9 +200,10 @@
                                 <Insets/>
                             </opaqueInsets>
                         </Label>
-                        <Label text="temps : 12H" GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <Label text="temps : 1H" GridPane.columnIndex="4" GridPane.rowIndex="1"
+                               GridPane.valignment="CENTER">
                             <GridPane.margin>
-                                <Insets />
+                                <Insets/>
                             </GridPane.margin>
                         </Label>
                         <Label text="Prix : 0€" GridPane.columnIndex="4" GridPane.valignment="CENTER">
@@ -291,7 +293,7 @@
                                 <Insets top="1.0"/>
                             </opaqueInsets>
                         </Label>
-                        <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2"
+                        <Label alignment="CENTER" styleClass="contour" text="1" GridPane.columnIndex="2"
                                GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets/>
@@ -300,9 +302,10 @@
                                 <Insets/>
                             </opaqueInsets>
                         </Label>
-                        <Label text="temps : 12H" GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <Label text="temps : 1H" GridPane.columnIndex="4" GridPane.rowIndex="1"
+                               GridPane.valignment="CENTER">
                             <GridPane.margin>
-                                <Insets />
+                                <Insets/>
                             </GridPane.margin>
                         </Label>
                         <Label text="Prix : 0€" GridPane.columnIndex="4" GridPane.valignment="CENTER">

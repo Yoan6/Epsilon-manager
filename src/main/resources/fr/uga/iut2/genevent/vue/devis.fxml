@@ -159,14 +159,16 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Label text="Budget :" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                        <Label fx:id="budgetLabel" text="Budget :" GridPane.halignment="CENTER"
+                                               GridPane.valignment="CENTER">
                                             <font>
-                                                <Font size="15.0" />
+                                                <Font size="15.0"/>
                                             </font>
                                         </Label>
-                                        <Label text="Cout total :" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                        <Label fx:id="coutLabel" text="Cout total :" GridPane.columnIndex="1"
+                                               GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                             <font>
-                                                <Font size="15.0" />
+                                                <Font size="15.0"/>
                                             </font>
                                         </Label>
                                     </children>

@@ -323,6 +323,8 @@ public class JavaFXGUI implements IHM {
                 this.controleur.removeLocation(id);
             }
         }
+        ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
+        ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
         onBack();
     }
 
@@ -390,7 +392,10 @@ public class JavaFXGUI implements IHM {
     }
 
     private float getCoutTotalApp() {
-        return this.controleur.getLocations().values().stream().map((l) -> (prixs.get(l.getId()) == null ? 1 : prixs.get(l.getId())) * l.getQuantite() * l.getTemps()).reduce(0.0f, Float::sum);
+        return this.controleur.getLocations().values().stream().map((l) -> {
+            if (prixs.get(l.getId()) == null) return (float) l.getQuantite() * l.getTemps();
+            return prixs.get(l.getId()) * l.getQuantite() * (l.getTemps() / 12.0f);
+        }).reduce(0.0f, Float::sum);
     }
 
     private void changePersonnel(Node b, boolean increment) {
@@ -757,7 +762,7 @@ public class JavaFXGUI implements IHM {
             Label temps = ((Label) getNodeAt(fbox, 2, 1));
             qt.setText(infos[0] + "");
             temps.setText(infos[1] + "");
-            float total = infos[0] * (infos[1] / 12.0f) * prix;
+            float total = infos[0] * infos[1] * prix;
             total = Math.round(total * 100.0f) / 100.0f;
             Label lprix = (Label) getNodeAt(fbox, 4, 0);
             Label ltemps = (Label) getNodeAt(fbox, 4, 1);
@@ -776,11 +781,12 @@ public class JavaFXGUI implements IHM {
             Parent p = (Parent) childrenUnmodifiable.get(i);
             float prix = getPrix(p);
             String id = getId(p);
-            int[] infos = this.controleur.getLocation(id);
-            if (infos == null) {
-                continue;
-            }
-            total += infos[0] * (infos[1] / 12.0f) * prix;
+            GridPane p1 = (GridPane) p.getChildrenUnmodifiable().get(p.getChildrenUnmodifiable().size() - 1);
+            Label qt = (Label) getNodeAt(p1, 2, 0);
+            Label tps = (Label) getNodeAt(p1, 2, 1);
+            int quantite = Integer.parseInt(qt.getText());
+            int temps = Integer.parseInt(tps.getText());
+            total += quantite * temps * prix;
         }
         total = Math.round(total * 100.0f) / 100.0f;
         return total;
@@ -1276,6 +1282,8 @@ public class JavaFXGUI implements IHM {
                 }
             }
 
+            budgetLabel.setText("Budget : " + projet.getBudget());
+            budgetLabel.setText("Coût total : " + getCoutTotalApp());
             current.setTitle("Devis");
             current.setScene(newUserScene);
 

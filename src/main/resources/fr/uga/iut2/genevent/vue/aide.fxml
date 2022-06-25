@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="565.0" prefWidth="1000.0" styleClass="mainContainer"
-            stylesheets="@main.css" xmlns="http://javafx.com/javafx/11.0.14-internal">
+            stylesheets="@main.css" xmlns="http://javafx.com/javafx/11.0.2">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
             <font>
@@ -38,27 +38,27 @@
                             </font>
                         </Label>
                         <Label text="Comment se passe le paiement ?">
-                       <font>
-                           <Font name="System Italic" size="15.0"/>
-                       </font>
-                       <VBox.margin>
-                           <Insets left="10.0" top="20.0"/>
-                       </VBox.margin>
-                   </Label>
+                            <font>
+                                <Font name="System Italic" size="15.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets left="10.0" top="20.0"/>
+                            </VBox.margin>
+                        </Label>
                         <Label prefHeight="41.0" prefWidth="816.0"
                                text="D'abord, il faudra finir de créer votre évènement et générer la fiche technique, que nous recevrons par la suite. &#10;Nous vous enverrons ensuite un devis à signer, vous recevrez par la suite une facture à payer, par virement ou par chèque.">
                             <VBox.margin>
                                 <Insets left="10.0" top="5.0"/>
                             </VBox.margin>
                         </Label>
-                   <Label text="Comment se passe le transport ?">
-                       <VBox.margin>
-                           <Insets left="10.0" top="30.0"/>
-                       </VBox.margin>
-                       <font>
-                           <Font name="System Italic" size="15.0"/>
-                       </font>
-                   </Label>
+                        <Label text="Comment se passe le transport ?">
+                            <VBox.margin>
+                                <Insets left="10.0" top="30.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Italic" size="15.0"/>
+                            </font>
+                        </Label>
                         <Label minHeight="38.0" prefHeight="38.0" prefWidth="890.0"
                                text="Nous déplaçons le matériel jusqu'au lieu d'exposition, nous ne livrons qu'en France métropolitaine et le coût de transport sera donc appliqué et obligatoire "
                                wrapText="true">
@@ -66,26 +66,27 @@
                                 <Insets left="10.0" top="5.0"/>
                             </VBox.margin>
                         </Label>
-                   <Label text="Le matériel a été dégradé, que faire ?">
-                       <VBox.margin>
-                           <Insets left="10.0" top="30.0"/>
-                       </VBox.margin>
-                       <font>
-                           <Font name="System Italic" size="15.0"/>
-                       </font>
-                   </Label>
-                  <Label text="Si le matériel a été dégradé, il y aura une caution à payer, elle sera indiquée sur le devis.">
-                     <VBox.margin>
-                         <Insets left="10.0" top="5.0"/>
-                     </VBox.margin></Label>
-                   <Label text="L'application ne fonctionne plus, que faire ?">
-                       <VBox.margin>
-                           <Insets left="10.0" top="30.0"/>
-                       </VBox.margin>
-                       <font>
-                           <Font name="System Italic" size="15.0"/>
-                       </font>
-                   </Label>
+                        <Label text="Le matériel a été dégradé, que faire ?">
+                            <VBox.margin>
+                                <Insets left="10.0" top="30.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Italic" size="15.0"/>
+                            </font>
+                        </Label>
+                        <Label text="Si le matériel a été dégradé, il y aura une caution à payer, elle sera indiquée sur le devis.">
+                            <VBox.margin>
+                                <Insets left="10.0" top="5.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <Label text="L'application ne fonctionne plus, que faire ?">
+                            <VBox.margin>
+                                <Insets left="10.0" top="30.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Italic" size="15.0"/>
+                            </font>
+                        </Label>
                         <Label minHeight="33.0" prefHeight="33.0" prefWidth="890.0"
                                text="Redémarrez l'application, si cela ne fontionne toujours pas, redémarrez votre ordinateur. Si le problème persiste, veuillez nous contacter."
                                wrapText="true">
@@ -155,7 +156,7 @@
                                 </ImageView>
                             </children>
                             <VBox.margin>
-                                <Insets top="25.0"/>
+                                <Insets bottom="5.0" left="10.0" top="20.0"/>
                             </VBox.margin>
                         </HBox>
                     </children>
@@ -172,5 +173,5 @@
                 <Insets bottom="50.0" left="50.0" right="50.0" top="20.0"/>
             </BorderPane.margin>
         </AnchorPane>
-  </center>
+    </center>
 </BorderPane>
