@@ -315,10 +315,13 @@ public class JavaFXGUI implements IHM {
             //déja inclus
             return;
         }
-        this.controleur.getLocations().values().stream().filter((l) -> !l.getId().contains(".")).findAny().ifPresent(location -> this.controleur.removeLocation(location.getId()));
+        this.controleur.getLocations().values().stream().filter((l) -> !l.getId().contains(".") && !l.getId().startsWith("PERSONNEL")).findAny().ifPresent(location -> this.controleur.removeLocation(location.getId()));
         Location l = new Location(id, prix, 1);
         this.controleur.addLocation(l);
         coutLabel.setText("Coût total : " + prix);
+
+        ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
+        ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
     }
 
     @FXML
@@ -1290,7 +1293,11 @@ public class JavaFXGUI implements IHM {
                         Label lab = new Label(id);
                         matPane.add(lab, 0, row);
                     }
-                    float prix = l.getQuantite() * (l.getTemps() / 12.0f) * prixs.get(l.getId());
+                    Float p = prixs.get(l.getId());
+                    if (p == null) {
+                        p = 1.0f;
+                    }
+                    float prix = l.getQuantite() * (l.getTemps() / 12.0f) * p;
                     Label qt = new Label("Quantité : " + l.getQuantite() + "\nTemps : " + l.getTemps() + "H\nPrix : " + prix + "€");
                     qt.setFont(Font.font(qt.getFont().getFamily(), 13));
                     GridPane.setValignment(qt, VPos.CENTER);
