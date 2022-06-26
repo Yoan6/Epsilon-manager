@@ -48,7 +48,7 @@ public class JavaFXGUI implements IHM {
     private final Controleur controleur;
     private final CountDownLatch eolBarrier;  // /!\ ne pas supprimer /!\ : suivi de la durée de vie de l'interface
 
-    private final LinkedList<Scene> sceneStack = new LinkedList<>();
+    public final LinkedList<Scene> sceneStack = new LinkedList<>();
 
     // Par vue non spéciale
     @FXML
