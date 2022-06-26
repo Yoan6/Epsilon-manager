@@ -8,7 +8,7 @@
 <?import javafx.scene.text.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" styleClass="mainContainer"
-            stylesheets="@main.css" xmlns="http://javafx.com/javafx/16">
+            stylesheets="@main.css" xmlns="http://javafx.com/javafx/11.0.2">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
             <BorderPane.margin>
@@ -53,9 +53,9 @@
                                 </Label>
                             </children>
                         </HBox>
-                        <Label text="Devis :">
+                        <Label text="Devis ">
                             <VBox.margin>
-                                <Insets left="350.0"/>
+                                <Insets left="410.0"/>
                             </VBox.margin>
                             <font>
                                 <Font size="36.0"/>

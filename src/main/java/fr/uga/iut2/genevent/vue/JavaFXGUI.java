@@ -116,11 +116,19 @@ public class JavaFXGUI implements IHM {
         this.eolBarrier = new CountDownLatch(1);  // /!\ ne pas supprimer /!\
     }
 
-    private static boolean validateDateCoherenceTextField(DatePicker dateDebut, DatePicker dateFin) {
-        boolean isValid = dateDebut.getValue().isBefore(dateFin.getValue());
-        markTextFieldErrorStatus(dateDebut.getEditor(), isValid);
-        return isValid;
-    }
+    //Table des prix de tous les prix des matériaux (ou autres)
+    private final Map<String, Float> prixs = Map.ofEntries(Map.entry("table1.JPG", 8.20f),
+            Map.entry("table2.JPG", 10.50f), Map.entry("table3.JPG", 5.70f), Map.entry("1.1.JPG", 3.01f),
+            Map.entry("1.2.JPG", 2.50f), Map.entry("1.3.JPG", 2.55f), Map.entry("support1.JPG", 12.0f),
+            Map.entry("support2.JPG", 1.12f), Map.entry("support3.JPG", 3.99f), Map.entry("tablette.JPG", 7.80f),
+            Map.entry("tele.JPG", 33.50f), Map.entry("projo.JPG", 23.90f), Map.entry("lumiere1.JPG", 7.20f),
+            Map.entry("lumiere2.JPG", 3.80f), Map.entry("lumiere3.JPG", 1.95f), Map.entry("ecouteur.JPG", 63.20f),
+            Map.entry("camera.JPG", 39.99f), Map.entry("enceinte.JPG", 14.90f),
+
+            Map.entry("PERSONNELSociete de cuisinier N°1", 12.50f), Map.entry("PERSONNELSociete de cuisinier N°2", 13.56f),
+            Map.entry("PERSONNELSecuristas S", 11.30f), Map.entry("PERSONNELBsl Séc", 13.32f),
+            Map.entry("PERSONNELSuper Securité", 12.69f), Map.entry("PERSONNELRégiband", 17.30f),
+            Map.entry("PERSONNELHiglands", 12.70f), Map.entry("PERSONNELProfil", 10.50f), Map.entry("PERSONNELGuidy", 15.00f));
 
 //-----  Éléments du dialogue  -------------------------------------------------
 
@@ -131,9 +139,14 @@ public class JavaFXGUI implements IHM {
 
     // menu principal  -----
 
-    private static boolean validateDateTextField(DatePicker picker) {
-        boolean isValid = picker.getValue() != null;
-        markTextFieldErrorStatus(picker.getEditor(), isValid);
+    private static boolean validateDateCoherenceTextField(DatePicker dateDebut, DatePicker dateFin) {
+
+        boolean isValid = dateDebut.getValue() != null;
+        isValid &= dateFin.getValue() != null;
+        if (isValid) {
+            isValid = dateDebut.getValue().isBefore(dateFin.getValue());
+        }
+        markTextFieldErrorStatus(dateDebut, isValid);
         return isValid;
     }
 
@@ -158,10 +171,10 @@ public class JavaFXGUI implements IHM {
         return isValid;
     }
 
-    private static void markTextFieldErrorStatus(TextField textField, boolean isValid) {
-        ObservableList<Node> list = textField.getParent().getChildrenUnmodifiable();
-        Node errorCheck = list.get(list.size() - 1);
-        errorCheck.setVisible(!isValid);
+    private static boolean validateDateTextField(DatePicker picker) {
+        boolean isValid = picker.getValue() != null;
+        markTextFieldErrorStatus(picker, isValid);
+        return isValid;
     }
 
     /**
@@ -280,12 +293,15 @@ public class JavaFXGUI implements IHM {
         return null;
     }
 
-    //Table des prix de tous les prix des matériaux (ou autres)
-    private final Map<String, Float> prixs = Map.ofEntries(Map.entry("table1.JPG", 8.20f), Map.entry("table2.JPG", 10.50f),
-            Map.entry("table3.JPG", 5.70f), Map.entry("1.1.JPG", 3.01f), Map.entry("1.2.JPG", 2.50f), Map.entry("1.3.JPG", 2.55f), Map.entry("support1.JPG", 12.0f), Map.entry("support2.JPG", 1.12f), Map.entry("support3.JPG", 3.99f), Map.entry("tablette.JPG", 7.80f), Map.entry("tele.JPG", 33.50f), Map.entry("projo.JPG", 23.90f), Map.entry("lumiere1.JPG", 7.20f), Map.entry("lumiere2.JPG", 3.80f), Map.entry("lumiere3.JPG", 1.95f), Map.entry("ecouteur.JPG", 63.20f), Map.entry("camera.JPG", 39.99f), Map.entry("enceinte.JPG", 14.90f));
+    private static void markTextFieldErrorStatus(Node textField, boolean isValid) {
+        ObservableList<Node> list = textField.getParent().getChildrenUnmodifiable();
+        Node errorCheck = list.get(list.size() - 1);
+        errorCheck.setVisible(!isValid);
+    }
 
     /**
      * Cette méthode s'applique aux locaux choisis par l'utilisateur. Elle permet de calculer le coût total du projet à cette étape.
+     *
      * @param e
      */
     @FXML
@@ -328,24 +344,21 @@ public class JavaFXGUI implements IHM {
         onBack();
     }
 
-    @FXML
-    private void onPersValider(ActionEvent e) {
-        ObservableList<Node> childrenUnmodifiable = matContainer.getChildrenUnmodifiable();
-        for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
-            Parent p = (Parent) childrenUnmodifiable.get(i);
-            String part = ((Label) ((Parent) p.getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1)).getText();
-            String id = "PERSONNEL" + part;
-            GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(3);
-            var qt = Integer.parseInt(((Label) Objects.requireNonNull(getNodeAt(fbox, 2, 0))).getText());
-            var temps = Integer.parseInt(((Label) Objects.requireNonNull(getNodeAt(fbox, 2, 1))).getText());
-            if (qt != 0 && temps != 0) {
-                Location l = new Location(id, qt, temps);
-                this.controleur.addLocation(l);
-            } else {
-                this.controleur.removeLocation(id);
-            }
+    public static String getId(Parent p) {
+        Node n = p.getChildrenUnmodifiable().get(0);
+        //Prix detect
+        String txt;
+        if (n instanceof GridPane) {
+            //GP-sytle, cu
+            txt = ((Label) getNodeAt((GridPane) n, 0, 0)).getText();
+        } else if (n instanceof Label) {
+            //Direct,reg st
+            txt = ((Label) (p.getChildrenUnmodifiable().get(0))).getText();
+        } else {
+            //VP-style, as
+            txt = ((Label) ((Parent) (p.getChildrenUnmodifiable().get(0))).getChildrenUnmodifiable().get(1)).getText();
         }
-        onBack();
+        return "PERSONNEL" + txt;
     }
 
     private void changeLabel(Node b, boolean increment) {
@@ -391,11 +404,23 @@ public class JavaFXGUI implements IHM {
         ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
     }
 
-    private float getCoutTotalApp() {
-        return this.controleur.getLocations().values().stream().map((l) -> {
-            if (prixs.get(l.getId()) == null) return (float) l.getQuantite() * l.getTemps();
-            return prixs.get(l.getId()) * l.getQuantite() * (l.getTemps() / 12.0f);
-        }).reduce(0.0f, Float::sum);
+    @FXML
+    private void onPersValider(ActionEvent e) {
+        ObservableList<Node> childrenUnmodifiable = matContainer.getChildrenUnmodifiable();
+        for (int i = 0, size = childrenUnmodifiable.size(); i < size - 1; i += 2) {
+            Parent p = (Parent) childrenUnmodifiable.get(i);
+            String id = getId(p);
+            GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(p.getChildrenUnmodifiable().size() - 1);
+            var qt = Integer.parseInt(((Label) Objects.requireNonNull(getNodeAt(fbox, 2, 0))).getText());
+            var temps = Integer.parseInt(((Label) Objects.requireNonNull(getNodeAt(fbox, 2, 1))).getText());
+            if (qt != 0 && temps != 0) {
+                Location l = new Location(id, qt, temps);
+                this.controleur.addLocation(l);
+            } else {
+                this.controleur.removeLocation(id);
+            }
+        }
+        onBack();
     }
 
     private void changePersonnel(Node b, boolean increment) {
@@ -723,10 +748,12 @@ public class JavaFXGUI implements IHM {
         return String.valueOf(total);
     }
 
-    // Vue personnel
-    @FXML
-    private void onAgentSecuriteAction() {
-        ajoutPersonnel("agentsecurite.fxml", "Ajout d'agent de securité");
+    private float getCoutTotalApp() {
+        return this.controleur.getLocations().values().stream().map((l) -> {
+            if (prixs.get(l.getId()) == null) return (float) l.getQuantite() * l.getTemps();
+            if (l.getId().startsWith("PERSONNEL")) return prixs.get(l.getId()) * l.getQuantite() * l.getTemps();
+            return prixs.get(l.getId()) * l.getQuantite() * (l.getTemps() / 12.0f);
+        }).reduce(0.0f, Float::sum);
     }
 
     private void ajoutPersonnel(String fileName, String title) {
@@ -792,21 +819,10 @@ public class JavaFXGUI implements IHM {
         return total;
     }
 
-    private String getId(Parent p) {
-        Node n = p.getChildrenUnmodifiable().get(0);
-        //Prix detect
-        String txt;
-        if (n instanceof GridPane) {
-            //GP-sytle, cu
-            txt = ((Label) getNodeAt((GridPane) n, 0, 0)).getText();
-        } else if (n instanceof Label) {
-            //Direct,reg st
-            txt = ((Label) (p.getChildrenUnmodifiable().get(0))).getText();
-        } else {
-            //VP-style, as
-            txt = ((Label) ((Parent) (p.getChildrenUnmodifiable().get(0))).getChildrenUnmodifiable().get(1)).getText();
-        }
-        return "PERSONNEL" + txt;
+    // Vue personnel
+    @FXML
+    public void onAgentSecuriteAction() {
+        ajoutPersonnel("agentsecurite.fxml", "Ajout d'agent de securité");
     }
 
     @FXML
@@ -890,10 +906,8 @@ public class JavaFXGUI implements IHM {
         isValid = validateNonEmptyTextField(this.projetNomTextField);
 
         isValid &= validateDateTextField(this.projetDateDebut);
-        isValid &= validateNonEmptyTextField(this.projetDateDebut.getEditor());
 
         isValid &= validateDateTextField(this.projetDateFin);
-        isValid &= validateNonEmptyTextField(this.projetDateFin.getEditor());
 
         isValid &= validateDateCoherenceTextField(this.projetDateDebut, this.projetDateFin);
 
@@ -1256,9 +1270,11 @@ public class JavaFXGUI implements IHM {
                     id = id.substring(9);
                     Label lab = new Label(id);
                     persPane.add(lab, 0, rowP);
-                    float prix = l.getQuantite() * l.getTemps();
-                    Label qt = new Label("Quantité : " + l.getQuantite() + "\nTemps : " + l.getTemps() + "H\nPrix : " + prix + "€");
-                    qt.setFont(Font.font(qt.getFont().getFamily(), 20));
+                    float prix = l.getQuantite() * l.getTemps() * prixs.get(l.getId());
+                    Label qt = new Label("Quantité : " + l.getQuantite() + "\nTemps : " + l.getTemps() + "H\nPrix : " + String.format("%.2f", prix) + "€");
+                    qt.setFont(Font.font(qt.getFont().getFamily(), 13));
+                    GridPane.setValignment(qt, VPos.CENTER);
+                    GridPane.setHalignment(qt, HPos.CENTER);
                     persPane.add(qt, 1, rowP);
                     rowP++;
                 } else {
@@ -1274,16 +1290,18 @@ public class JavaFXGUI implements IHM {
                         Label lab = new Label(id);
                         matPane.add(lab, 0, row);
                     }
-                    float prix = l.getQuantite() * l.getTemps() * prixs.get(l.getId());
+                    float prix = l.getQuantite() * (l.getTemps() / 12.0f) * prixs.get(l.getId());
                     Label qt = new Label("Quantité : " + l.getQuantite() + "\nTemps : " + l.getTemps() + "H\nPrix : " + prix + "€");
-                    qt.setFont(Font.font(qt.getFont().getFamily(), 20));
+                    qt.setFont(Font.font(qt.getFont().getFamily(), 13));
+                    GridPane.setValignment(qt, VPos.CENTER);
+                    GridPane.setHalignment(qt, HPos.CENTER);
                     matPane.add(qt, 1, row);
                     row++;
                 }
             }
 
             budgetLabel.setText("Budget : " + projet.getBudget());
-            budgetLabel.setText("Coût total : " + getCoutTotalApp());
+            coutLabel.setText("Coût total : " + String.format("%.2f", getCoutTotalApp()));
             current.setTitle("Devis");
             current.setScene(newUserScene);
 
