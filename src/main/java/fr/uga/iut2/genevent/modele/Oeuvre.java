@@ -13,10 +13,18 @@ public class Oeuvre implements Serializable {
         this.nomArtiste = nomArtiste;
     }
 
+    /**
+     * Cette méthode retourne le nom de l'oeuvre
+     * @return nom
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Cette méthode retourne le nom de l'artiste
+     * @return nomArtiste
+     */
     public String getNomArtiste() {
         return nomArtiste;
     }

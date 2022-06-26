@@ -51,9 +51,9 @@
                   <HBox prefHeight="26.0" prefWidth="451.0">
                      <children>
                         <DatePicker fx:id="projetDateDebut" prefHeight="26.0" prefWidth="175.0"
-                                    promptText="JJ/MM/AAAA/XX-XX"/>
+                                    promptText="JJ/MM/AAAA"/>
                         <DatePicker fx:id="projetDateFin" prefHeight="26.0" prefWidth="175.0"
-                                    promptText="JJ/MM/AAAA/XX-XX">
+                                    promptText="JJ/MM/AAAA">
                            <HBox.margin>
                               <Insets left="5.0"/>
                            </HBox.margin>

@@ -56,7 +56,7 @@
                                     <Insets top="1.0" />
                                 </opaqueInsets>
                             </Label>
-                            <Label alignment="CENTER" styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                            <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                 <GridPane.margin>
                                     <Insets />
                                 </GridPane.margin>
@@ -130,7 +130,7 @@
                                     <Insets top="1.0" />
                                 </opaqueInsets>
                             </Label>
-                            <Label alignment="CENTER" styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                            <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                 <GridPane.margin>
                                     <Insets />
                                 </GridPane.margin>
@@ -204,7 +204,7 @@
                                     <Insets top="1.0" />
                                 </opaqueInsets>
                             </Label>
-                            <Label alignment="CENTER" styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                            <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                 <GridPane.margin>
                                     <Insets />
                                 </GridPane.margin>
@@ -278,7 +278,7 @@
                                     <Insets top="1.0" />
                                 </opaqueInsets>
                             </Label>
-                            <Label alignment="CENTER" styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                            <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                 <GridPane.margin>
                                     <Insets />
                                 </GridPane.margin>
@@ -349,7 +349,7 @@
                                     <Insets top="1.0" />
                                 </opaqueInsets>
                             </Label>
-                            <Label alignment="CENTER" styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                            <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                 <GridPane.margin>
                                     <Insets />
                                 </GridPane.margin>
@@ -420,7 +420,7 @@
                                     <Insets top="1.0" />
                                 </opaqueInsets>
                             </Label>
-                            <Label alignment="CENTER" styleClass="contour" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                            <Label alignment="CENTER" styleClass="contour" text="12" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                 <GridPane.margin>
                                     <Insets />
                                 </GridPane.margin>

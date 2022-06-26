@@ -314,8 +314,8 @@ public class JavaFXGUI implements IHM {
             String[] parts = iv.getImage().getUrl().split("/");
             String id = parts[parts.length - 1];
             GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(2);
-            int qt = Integer.parseInt(((Label) getNodeAt(fbox, 2, 0)).getText());
-            int temps = Integer.parseInt(((Label) getNodeAt(fbox, 2, 1)).getText());
+            int qt = Integer.parseInt(((Label) Objects.requireNonNull(getNodeAt(fbox, 2, 0))).getText());
+            int temps = Integer.parseInt(((Label) Objects.requireNonNull(getNodeAt(fbox, 2, 1))).getText());
             if (qt != 0 && temps != 0) {
                 Location l = new Location(id, qt, temps);
                 this.controleur.addLocation(l);
@@ -336,8 +336,8 @@ public class JavaFXGUI implements IHM {
             String part = ((Label) ((Parent) p.getChildrenUnmodifiable().get(0)).getChildrenUnmodifiable().get(1)).getText();
             String id = "PERSONNEL" + part;
             GridPane fbox = (GridPane) p.getChildrenUnmodifiable().get(3);
-            int qt = Integer.parseInt(((Label) getNodeAt(fbox, 2, 0)).getText());
-            int temps = Integer.parseInt(((Label) getNodeAt(fbox, 2, 1)).getText());
+            var qt = Integer.parseInt(((Label) Objects.requireNonNull(getNodeAt(fbox, 2, 0))).getText());
+            var temps = Integer.parseInt(((Label) Objects.requireNonNull(getNodeAt(fbox, 2, 1))).getText());
             if (qt != 0 && temps != 0) {
                 Location l = new Location(id, qt, temps);
                 this.controleur.addLocation(l);

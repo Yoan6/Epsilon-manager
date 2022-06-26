@@ -20,6 +20,11 @@ public class Inventaire implements Serializable {
         return this.evenements;
     }
 
+    /**
+     * Cette méthode crée un nouvel événement et s'il existe déjà alors elle met les attributs du projet p avec les valeurs du projet donné en paramètre
+     * @param infos
+     * @param oldname
+     */
     public void nouvelEvenement(IHM.InfosProjet infos, String oldname) {
         if (this.evenements.containsKey(infos.nom)) {
             Projet p = this.evenements.get(infos.nom);
