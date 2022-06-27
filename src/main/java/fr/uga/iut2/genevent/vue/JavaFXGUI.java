@@ -318,10 +318,10 @@ public class JavaFXGUI implements IHM {
         this.controleur.getLocations().values().stream().filter((l) -> !l.getId().contains(".") && !l.getId().startsWith("PERSONNEL")).findAny().ifPresent(location -> this.controleur.removeLocation(location.getId()));
         Location l = new Location(id, prix, 1);
         this.controleur.addLocation(l);
-        coutLabel.setText("Coût total : " + prix);
+        coutLabel.setText("Coût total : " + prix + "€");
 
-        ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
-        ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
+        ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "€");
+        ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f€", getCoutTotalApp()));
     }
 
     @FXML
@@ -342,8 +342,8 @@ public class JavaFXGUI implements IHM {
                 this.controleur.removeLocation(id);
             }
         }
-        ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
-        ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
+        ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "€");
+        ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f€", getCoutTotalApp()));
         onBack();
     }
 
@@ -400,11 +400,11 @@ public class JavaFXGUI implements IHM {
         ltemps.setText("Temps : " + tps.getText() + "H");
 
         // Chargement budget
-        budgetLabel.setText("Budget : " + this.controleur.getBudget());
-        coutLabel.setText("Coût total : " + getCoutTotal(matContainer));
+        budgetLabel.setText("Budget : " + this.controleur.getBudget() + "€");
+        coutLabel.setText("Coût total : " + getCoutTotal(matContainer) + "€");
 
-        ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
-        ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
+        ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "€");
+        ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f€", getCoutTotalApp()));
     }
 
     @FXML
@@ -449,10 +449,10 @@ public class JavaFXGUI implements IHM {
         ltemps.setText("Temps : " + tps.getText() + "H");
 
         // Chargement budget
-        budgetLabel.setText("Budget : " + this.controleur.getBudget());
-        coutLabel.setText("Coût total : " + getPersCoutTotal(matContainer));
-        ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "");
-        ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f", getCoutTotalApp()));
+        budgetLabel.setText("Budget : " + this.controleur.getBudget() + "€");
+        coutLabel.setText("Coût total : " + getPersCoutTotal(matContainer) + "€");
+        ((Label) sceneStack.get(1).lookup("#budgetLabel")).setText(this.controleur.getBudget() + "€");
+        ((Label) sceneStack.get(1).lookup("#coutLabel")).setText(String.format("%.2f€", getCoutTotalApp()));
     }
 
     private float getPrix(Parent comp) {
@@ -511,6 +511,12 @@ public class JavaFXGUI implements IHM {
         } catch (IOException exc) {
             throw new RuntimeException(exc);
         }
+    }
+
+    @FXML
+    private void envoiDevis() {
+        Alert a = new Alert(Alert.AlertType.INFORMATION, "Votre devis a bien été envoyé !");
+        a.showAndWait();
     }
 
     @FXML
@@ -656,12 +662,12 @@ public class JavaFXGUI implements IHM {
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             //Chargement locals
-            budgetLabel.setText("Budget : " + this.controleur.getBudget());
-            coutLabel.setText("Coût total : 0");
+            budgetLabel.setText("Budget : " + this.controleur.getBudget() + "€");
+            coutLabel.setText("Coût total : 0€");
             //FIXME : meilleure détection
             for (Location l : this.controleur.getLocations().values()) {
-                if (!l.getId().contains(".")) {
-                    coutLabel.setText("Coût total : " + l.getQuantite());
+                if (!l.getId().contains(".") && !l.getId().startsWith("PERSONNEL")) {
+                    coutLabel.setText("Coût total : " + l.getQuantite() + "€");
                 }
             }
 
@@ -722,8 +728,8 @@ public class JavaFXGUI implements IHM {
             ltemps.setText("Temps : " + infos[1] + "H");
         }
         // Chargement budget
-        budgetLabel.setText("Budget : " + this.controleur.getBudget());
-        coutLabel.setText("Coût total : " + getCoutTotal(root));
+        budgetLabel.setText("Budget : " + this.controleur.getBudget() + "€");
+        coutLabel.setText("Coût total : " + getCoutTotal(root) + "€");
     }
 
     private String getCoutTotal(Parent root) {
@@ -800,8 +806,8 @@ public class JavaFXGUI implements IHM {
             ltemps.setText("Temps : " + infos[1] + "H");
         }
         // Chargement budget
-        budgetLabel.setText("Budget : " + this.controleur.getBudget());
-        coutLabel.setText("Coût total : " + getPersCoutTotal(root));
+        budgetLabel.setText("Budget : " + this.controleur.getBudget() + "€");
+        coutLabel.setText("Coût total : " + getPersCoutTotal(root) + "€");
     }
 
     private float getPersCoutTotal(Parent root) {
@@ -883,7 +889,7 @@ public class JavaFXGUI implements IHM {
     @FXML
     private void onSupprLocal() {
         this.controleur.getLocations().values().stream().filter((l) -> !l.getId().contains(".")).findAny().ifPresent(location -> this.controleur.removeLocation(location.getId()));
-        coutLabel.setText("Coût total : 0");
+        coutLabel.setText("Coût total : 0€");
     }
 
     private void openPage(String fileName, String title) {
@@ -1051,8 +1057,8 @@ public class JavaFXGUI implements IHM {
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             filAriane.setText(calculFilAriane());
-            budgetLabel.setText(this.controleur.getBudget() + "");
-            coutLabel.setText(String.format("%.2f", getCoutTotalApp()));
+            budgetLabel.setText(this.controleur.getBudget() + "€");
+            coutLabel.setText(String.format("%.2f€", getCoutTotalApp()));
 
             current.setTitle("Choisir les matériaux");
             current.setScene(newUserScene);
@@ -1076,7 +1082,7 @@ public class JavaFXGUI implements IHM {
             projetLieu.setText(projet.getLieu());
             projetCapacite.setText(projet.getCapacite() + "");
             projetTheme.setText(projet.getTheme());
-            projetBudget.setText(projet.getBudget() + "");
+            projetBudget.setText(projet.getBudget() + "€");
 
             labelTitre.setText("Modifier projet :");
             filAriane.setText(calculFilAriane());
@@ -1098,8 +1104,8 @@ public class JavaFXGUI implements IHM {
             Stage current = (Stage) sceneStack.peek().getWindow();
             sceneStack.push(newUserScene);
             filAriane.setText(calculFilAriane());
-            budgetLabel.setText(this.controleur.getBudget() + "");
-            coutLabel.setText(String.format("%.2f", getCoutTotalApp()));
+            budgetLabel.setText(this.controleur.getBudget() + "€");
+            coutLabel.setText(String.format("%.2f€", getCoutTotalApp()));
 
             current.setTitle("Choisir les personnels");
             current.setScene(newUserScene);
@@ -1230,8 +1236,8 @@ public class JavaFXGUI implements IHM {
             float coutTotal = getCoutTotalApp();
             float diff = budget - coutTotal;
 
-            budgetLabel.setText(budget + "");
-            coutLabel.setText(String.format("%.2f", coutTotal));
+            budgetLabel.setText(budget + "€");
+            coutLabel.setText(String.format("%.2f€", coutTotal));
             diffLabel.setText(String.valueOf(diff));
             statutBudget.setText(diff >= 0 ? "Le budget est suffisant" : "Le budget n'est pas suffisant");
             statutBudget.setStyle(diff >= 0 ? "-fx-text-fill: #11b911" : "-fx-text-fill: #bd1a1a");
@@ -1307,8 +1313,8 @@ public class JavaFXGUI implements IHM {
                 }
             }
 
-            budgetLabel.setText("Budget : " + projet.getBudget());
-            coutLabel.setText("Coût total : " + String.format("%.2f", getCoutTotalApp()));
+            budgetLabel.setText("Budget : " + projet.getBudget() + "€");
+            coutLabel.setText("Coût total : " + String.format("%.2f€", getCoutTotalApp()));
             current.setTitle("Devis");
             current.setScene(newUserScene);
 

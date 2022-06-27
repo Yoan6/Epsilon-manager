@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="500.0" maxWidth="900.0" minHeight="500.0" minWidth="900.0"
             prefHeight="500.0" prefWidth="900.0" styleClass="mainContainer" stylesheets="@main.css"
-            xmlns="http://javafx.com/javafx/11.0.2">
+            xmlns="http://javafx.com/javafx/16">
     <top>
         <Label text="Epsilon Manager" BorderPane.alignment="CENTER">
             <BorderPane.margin>
@@ -48,7 +48,7 @@
                            </children>
                        </HBox>
                        <Label prefHeight="17.0" prefWidth="270.0"
-                              text="Date de début :                              Date de fin :">
+                              text="Date de début :                         Date de fin :">
                            <VBox.margin>
                                <Insets/>
                            </VBox.margin>
@@ -63,12 +63,12 @@
                                        <Insets left="5.0"/>
                                    </HBox.margin>
                                </DatePicker>
-                               <ImageView fitHeight="15.0" fitWidth="320.0" visible="false">
+                               <ImageView fitHeight="20.0" fitWidth="110.0" visible="false">
                                    <HBox.margin>
-                                       <Insets left="5.0" top="6.0"/>
+                                       <Insets left="5.0" top="5.0"/>
                                    </HBox.margin>
                                    <image>
-                                       <Image url="@date.PNG"/>
+                                       <Image url="@champs.PNG"/>
                                    </image>
                                </ImageView>
                      </children>

@@ -186,7 +186,8 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button mnemonicParsing="false" text="Envoyer le devis" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                <Button mnemonicParsing="false" onAction="#envoiDevis" text="Envoyer le devis"
+                                        GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
                             </children>
                             <VBox.margin>
                                 <Insets top="10.0"/>

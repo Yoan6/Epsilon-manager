@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER" prefHeight="470.0" prefWidth="900.0"
-      styleClass="mainContainer" stylesheets="@main.css" xmlns="http://javafx.com/javafx/11.0.2">
+      styleClass="mainContainer" stylesheets="@main.css" xmlns="http://javafx.com/javafx/16">
    <children>
       <HBox>
          <ImageView fitHeight="47.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -60,7 +60,7 @@
          <children>
             <Label text="Notre application vous plait ? N'hésitez pas à nous donner votre avis ">
                <HBox.margin>
-                  <Insets left="255.0" top="90.0"/>
+                  <Insets left="220.0" top="90.0"/>
                </HBox.margin>
             </Label>
             <Hyperlink onAction="#onHyperlinkgoogleform" text="ici">
